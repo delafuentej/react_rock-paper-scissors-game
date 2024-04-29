@@ -1,11 +1,11 @@
 import './User.css';
 
-const User = ()=>{
+export const User = ()=>{
     return(
-        <div>
+        <div className='user-card'>
+            <h1>User-Card</h1>
 
         </div>
     );
 }
 
-export default User;

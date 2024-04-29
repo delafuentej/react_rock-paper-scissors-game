@@ -1,11 +1,10 @@
 import './Round.css';
 
-const Round = ()=>{
+export const Round = ()=>{
     return(
         <div>
-
+            <h1>Round</h1>
         </div>
     );
 }
 
-export default Round;

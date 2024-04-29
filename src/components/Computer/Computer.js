@@ -1,11 +1,15 @@
+
 import './Computer.css';
 
-const Computer = ()=>{
+export const Computer = ({rockIcon, paperIcon, scissorsIcon, trophyIcon})=>{
     return(
-        <div>
+        <div className='computer-card'>
+            <h1>
+                Computer-Card
+            </h1>
+            
 
         </div>
     );
 }
 
-export default Computer;

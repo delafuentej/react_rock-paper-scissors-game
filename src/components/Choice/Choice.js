@@ -1,11 +1,10 @@
 import './Choice.css';
 
-const Choice = ()=>{
+export const Choice = ()=>{
     return(
         <div>
-
+            <h1>Choice</h1>
         </div>
     );
 }
 
-export default Choice;

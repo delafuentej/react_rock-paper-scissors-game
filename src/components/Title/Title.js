@@ -1,11 +1,11 @@
 import './Title.css';
 
-const Title = ()=>{
+export const Title = ()=>{
     return(
-        <div>
+        <div className='title'>
+            <h1>Title</h1>
 
         </div>
     );
 }
 
-export default Title;

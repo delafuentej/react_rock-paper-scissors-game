@@ -1,11 +1,10 @@
 import './Reset.css';
 
-const Reset = ()=>{
+export const Reset = ()=>{
     return(
         <div>
-
+            <h1>Reset button</h1>
         </div>
     );
 }
 
-export default Reset;
