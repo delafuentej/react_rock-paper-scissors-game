@@ -1,7 +1,7 @@
 
 export const settings = {
     gameName: "Rock, paper, scissors!",
-    userName: "Player 1",
+    userName: "Player",
     pcName: "Computer",
     winMessage: "You are the winner! Congratulations!",
     tieMessage: "It is a tie",
