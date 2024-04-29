@@ -1,9 +1,15 @@
 import './Choice.css';
 
-export const Choice = ()=>{
+export const Choice = ({value, choiceIcon, onClick})=>{
     return(
-        <div>
-            <p>Choice</p>
+        <div 
+            value={value}
+            onClick= {onClick}
+            >
+            <div className='choice-icon'>
+                {choiceIcon}
+               {console.log(value)}
+            </div>
         </div>
     );
 }

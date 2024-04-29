@@ -31,7 +31,45 @@ function App() {
   });
 
   const { winMessage, tieMessage, lostMessage, winTarget } = settings;
-  const { userScore, pcScore }= game;
+  const { userScore, pcScore}= game;
+
+ 
+  const selectIcon= (event) =>{
+    event.preventDefault();
+    const userSelection= event.target.parentNode.getAttribute('value');
+    const options = ['rock', 'paper', 'scissors'];
+    const index= Math.floor( Math.random()* options.lenght);
+    const pcSelection= options[index];
+
+    (userSelection === pcSelection) ? setGame({
+      ...(game.message = tieMessage),
+    }) 
+    :
+    (userSelection === 'rock' && pcSelection === 'scissors') ||
+    (userSelection === 'paper' && pcSelection === 'rock') ||
+    (userSelection === 'scissors' && pcSelection === 'paper') 
+    ?
+    setGame({
+      ...(game.userScore += 1),
+      ...(game.message = winMessage)
+
+    })
+    :
+    setGame({
+      ...(game.pcScore += 1),
+      ...(game.message = lostMessage)
+    });
+
+    setGame({
+      round: (game.round += 1),
+      userSelection,
+      pcSelection
+
+    })
+
+
+
+  }
 
   return (
     <div>
@@ -43,17 +81,17 @@ function App() {
           
           >
             <Choice 
-            
+              onClick= {selectIcon}
               value='rock'
               choiceIcon={<FaRegHandRock />}
               />
             <Choice 
-            
-               value='paper'
-               choiceIcon={<FaRegHandPaper />}
+              onClick= {selectIcon}
+              value='paper'
+              choiceIcon={<FaRegHandPaper />}
             />
             <Choice
-              
+              onClick= {selectIcon}
               value='scissors'
               choiceIcon={<FaRegHandScissors />}
             />
