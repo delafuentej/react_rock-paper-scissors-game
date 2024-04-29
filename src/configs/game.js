@@ -1,7 +1,4 @@
 
-//import { BsHandThumbsUp, BsHandThumbsDown } from "react-icons/bs";
-
-
 export const settings = {
     gameName: "Rock, paper, scissors!",
     userName: "Player 1",

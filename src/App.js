@@ -1,5 +1,10 @@
-import logo from './logo.svg';
+
 import './App.css';
+import { settings } from './configs/game';
+import { BsHandThumbsUp, BsHandThumbsDown } from "react-icons/bs";
+import { LiaTrophySolid } from "react-icons/lia";
+
+
 
 function App() {
   return (
