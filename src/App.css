@@ -16,10 +16,13 @@ body{
   font-family: "Jersey 15", sans-serif;
   font-weight: 300;
   font-style: normal;
+  color:white;
+}
+h1{
   word-spacing: 0.5em;
   text-transform: uppercase;
   letter-spacing:0.15em;
-  color:white;
+
 }
 
 .App {

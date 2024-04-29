@@ -3,7 +3,7 @@ import './Choice.css';
 export const Choice = ()=>{
     return(
         <div>
-            <h1>Choice</h1>
+            <p>Choice</p>
         </div>
     );
 }

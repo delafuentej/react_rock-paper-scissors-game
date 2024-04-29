@@ -1,9 +1,10 @@
 import './Playground.css';
 
-export const Playground = ()=>{
+export const Playground = ({children})=>{
     return(
-        <div>
-            <h1>Playground</h1>
+        <div className='play-ground'>
+           
+            {children}
 
         </div>
     );

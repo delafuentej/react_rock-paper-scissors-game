@@ -1,9 +1,10 @@
 import './User.css';
 
-export const User = ()=>{
+export const User = ({children})=>{
     return(
         <div className='user-card'>
-            <h1>User-Card</h1>
+            <p>User</p>
+            {children}
 
         </div>
     );

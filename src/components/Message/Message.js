@@ -2,8 +2,8 @@ import './Message.css';
 
 export const Message = ()=>{
     return(
-        <div>
-            <h1>Message</h1>
+        <div className="message">
+            <p>Message</p>
 
         </div>
     );

@@ -1,11 +1,10 @@
 import './Profile.css';
 
-const Profile = ()=>{
+export const Profile = ({children})=>{
     return(
         <div>
-
+            {children}
         </div>
     );
 }
 
-export default Profile;

@@ -1,7 +1,14 @@
 import React, { useState } from 'react';
 import { settings } from './configs/game';
-import { Computer } from './components/Computer/Computer.js'
+import {Playground } from './components/Playground/Playground.js';
+import { Profile } from './components/Profile/Profile.js';
 import { User } from './components/User/User.js';
+import { Choice } from './components/Choice/Choice.js';
+import { Round } from './components/Round/Round.js';
+import { Message } from './components/Message/Message.js';
+import { Computer } from './components/Computer/Computer.js';
+import { Reset } from './components/Reset/Reset.js';
+
 
 import { BsHandThumbsUp, BsHandThumbsDown } from "react-icons/bs";
 import { FaRegHandRock, FaRegHandPaper, FaRegHandScissors } from "react-icons/fa";
@@ -24,14 +31,37 @@ function App() {
   return (
     <div>
       <h1>Game: Rock, Paper, Scissors</h1>
-      < User />
-      <Computer 
-        rockIcon= {<FaRegHandRock />}
-        paperIcon= {<FaRegHandPaper />}
-        scissorsIcon = {<FaRegHandScissors />}
-        trophyIcon = {<LiaTrophySolid />}
+      <Playground>
+        <Profile>
+          <User>
+            <Choice />
+            <Choice />
+            <Choice />
 
-      />
+          </User>
+
+        </Profile>
+
+        <Profile>
+          <Round />
+          <Message />
+
+
+        </Profile>
+        
+
+        <Profile>
+          <Computer>
+
+
+
+          </Computer>
+
+        </Profile>
+        <Reset />
+      </Playground>
+
+      
       
     </div>
   );
