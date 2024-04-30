@@ -4,3 +4,7 @@
     grid-column: 1/ 4;
     grid-row: 5 /6;
 }
+.reset-btn{
+    background-color: black;
+    color: white;
+}
