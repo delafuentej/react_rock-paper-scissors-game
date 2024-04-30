@@ -13,8 +13,13 @@ import { Reset } from './components/Reset/Reset.js';
 
 import { settings } from './configs/game';
 
+import rock from './assets/rock.png';
+import paper from './assets/paper.png';
+import scissors from './assets/scissors.png';
+import trophy from './assets/trophy.png';
+
 import { BsHandThumbsUp, BsHandThumbsDown } from "react-icons/bs";
-import { FaRegHandRock, FaRegHandPaper, FaRegHandScissors } from "react-icons/fa";
+// import { FaRegHandRock, FaRegHandPaper, FaRegHandScissors } from "react-icons/fa";
 import { LiaTrophySolid } from "react-icons/lia";
 
 import './App.css';
@@ -77,23 +82,23 @@ function App() {
       <Playground>
         <Profile>
           <User
-             trophyIcon={<LiaTrophySolid  />}
+             trophyIcon={trophy}
           
           >
             <Choice 
               onClick= {selectIcon}
               value='rock'
-              choiceIcon={<FaRegHandRock />}
+              choiceIcon={rock}
               />
             <Choice 
               onClick= {selectIcon}
               value='paper'
-              choiceIcon={<FaRegHandPaper />}
+              choiceIcon={paper}
             />
             <Choice
               onClick= {selectIcon}
               value='scissors'
-              choiceIcon={<FaRegHandScissors />}
+              choiceIcon={scissors}
             />
 
             <Score score={userScore}/>
@@ -112,10 +117,10 @@ function App() {
 
         <Profile>
           <Computer
-            rockIcon={<FaRegHandRock />}
-            paperIcon={<FaRegHandPaper />}
-            scissorsIcon={<FaRegHandScissors />}
-            trophyIcon={<LiaTrophySolid />}
+            rockIcon={rock}
+            paperIcon={paper}
+            scissorsIcon={scissors}
+            trophyIcon={trophy}
           >
 
             <Score score={pcScore} />

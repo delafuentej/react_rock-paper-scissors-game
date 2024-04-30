@@ -6,11 +6,12 @@ export const Choice = ({value, choiceIcon, onClick})=>{
             value={value}
             onClick= {onClick}
             >
-            <div className='choice-icon'>
-                {choiceIcon}
-               {console.log(value)}
-            </div>
+            <img
+                className='choice-icon'
+                src={choiceIcon}
+                alt='icon'
+            />
         </div>
     );
-}
+};
 
