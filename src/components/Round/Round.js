@@ -1,9 +1,9 @@
 import './Round.css';
 
-export const Round = ()=>{
+export const Round = ({ userSelection, round})=>{
     return(
         <div className='round'>
-            <p>Round</p>
+            { (userSelection === '') ? 'No rounds yet!' : `Round: #${round}`}
         </div>
     );
 }

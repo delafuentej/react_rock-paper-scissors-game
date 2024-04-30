@@ -1,9 +1,9 @@
 import './Score.css';
 
-export const Score = ()=>{
+export const Score = ({ score })=>{
     return(
-        <div>
-            <p>Score</p>
+        <div className='score'>
+            {score}
         </div>
     );
-}
+};
