@@ -41,7 +41,8 @@ function App() {
  
   const selectIcon= (event) =>{
     event.preventDefault();
-    const userSelection= event.target.parentNode.getAttribute('value');
+    if(pcScore < winTarget){
+      const userSelection= event.target.parentNode.getAttribute('value');
     const options = ['rock', 'paper', 'scissors'];
     const index= Math.floor( Math.random()* options.lenght);
     const pcSelection= options[index];
@@ -73,6 +74,8 @@ function App() {
     })
 
 
+    }
+    
 
   }
 
