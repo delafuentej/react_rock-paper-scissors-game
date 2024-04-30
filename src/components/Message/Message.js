@@ -1,9 +1,9 @@
 import './Message.css';
 
-export const Message = ()=>{
+export const Message = ({userSelection, message})=>{
     return(
         <div className="message">
-            <p>Message</p>
+           { (userSelection === '') ? 'VS' : message}
 
         </div>
     );
