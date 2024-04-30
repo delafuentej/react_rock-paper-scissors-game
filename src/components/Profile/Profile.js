@@ -2,7 +2,7 @@ import './Profile.css';
 
 export const Profile = ({children})=>{
     return(
-        <div>
+        <div className='profile'>
             {children}
         </div>
     );

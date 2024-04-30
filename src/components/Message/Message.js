@@ -2,9 +2,9 @@ import './Message.css';
 
 export const Message = ({userSelection, message})=>{
     return(
-        <div className="message">
+        <h3 className="message">
            { (userSelection === '') ? 'VS' : message}
 
-        </div>
+        </h3>
     );
 }

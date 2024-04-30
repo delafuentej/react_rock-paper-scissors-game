@@ -40,7 +40,7 @@ function App() {
 
  
   const selectIcon= (event) =>{
-    //event.preventDefault();
+    event.preventDefault();
     if(pcScore < winTarget){
       const userSelection= event.target.parentNode.getAttribute('value');
       const options = ['rock', 'paper', 'scissors'];
@@ -96,6 +96,7 @@ function App() {
   return (
     <div>
       <Title />
+      <Round {...game}/>
       <Playground>
         <Profile>
           <User
@@ -121,22 +122,20 @@ function App() {
               value='scissors'
               choiceIcon={scissors}
             />
-
-            <Score score={userScore}/>
-            
-
           </User>
+          <Score score={userScore}/>
 
         </Profile>
 
-        <Profile>
-          <Round {...game}/>
           <Message
             {...game} 
+            thumbsUpIcon = {<BsHandThumbsUp />}
+            thumbsDownIcon= {<BsHandThumbsDown />}
+            
           />
 
 
-        </Profile>
+      
         
 
         <Profile>
@@ -147,9 +146,10 @@ function App() {
             scissorsIcon={scissors}
             trophyIcon={trophy}
           >
-
-            <Score score={pcScore} />
+          
           </Computer>
+          <Score score={pcScore} />
+          
 
         </Profile>
         <Reset

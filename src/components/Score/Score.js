@@ -3,7 +3,7 @@ import './Score.css';
 export const Score = ({ score })=>{
     return(
         <div className='score'>
-            {score}
+            {`Score: ${score}`}
         </div>
     );
 };

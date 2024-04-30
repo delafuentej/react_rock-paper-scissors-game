@@ -1,11 +1,10 @@
-
 export const settings = {
-    gameName: "Rock, paper, scissors!",
+    gameName: "Game: Rock, paper, scissors!",
     userName: "Player",
     pcName: "Computer",
-    winMessage: "You are the winner! Congratulations!",
+    winMessage: "You are the winner of this round!",
     tieMessage: "It is a tie",
     lostMessage: "You are the loser! Try again!",
-    waitingMessage: "Select an option!",
-    winTarget:8,
+    waitingMessage: "Waiting for your choice!",
+    winTarget:1,
 };

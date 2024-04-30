@@ -1,5 +1,6 @@
 .message{
     border:1px solid black;
-    grid-column:2/ 3;
-    grid-row: 3/ span 1;
+    text-align:center;
+    margin: 20px 0;
+    font-size:2.5rem;
 }

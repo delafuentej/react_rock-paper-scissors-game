@@ -20,6 +20,7 @@ export const User = ({userScore, userSelection, trophyIcon, children})=>{
                (
                 <div>
                     <img
+                        className= "win-user-trophy"
                         src={trophyIcon}
                         alt='trophy'
                     />

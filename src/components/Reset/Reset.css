@@ -1,10 +1,21 @@
 .reset-game{
     margin: 0 auto;
-    border:1px solid black;
     grid-column: 1/ 4;
     grid-row: 5 /6;
 }
 .reset-btn{
-    background-color: black;
+    background-color:#0A2647;
     color: white;
+    font-weight:bolder;
+    padding: 0.5rem 0.75rem;
+    margin-top:15px;
+    border-radius:10px;
+    font-size: 0.75rem;
+    
+}
+.reset-btn:hover{
+    background-color: rgb(39, 230, 5);
+    color: #0A2647;
+
+
 }

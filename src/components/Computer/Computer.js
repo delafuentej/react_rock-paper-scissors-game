@@ -1,5 +1,13 @@
+
 import { settings } from '../../configs/game';
+
+
+
 import './Computer.css';
+
+
+
+
 
 export const Computer = ({rockIcon, paperIcon, scissorsIcon, trophyIcon, pcScore, userSelection, pcSelection})=>{
     return(
@@ -14,9 +22,14 @@ export const Computer = ({rockIcon, paperIcon, scissorsIcon, trophyIcon, pcScore
                 )
                 :
                 (
-                    <div>
+                    <div className='img-container'>
                         <img
-                            src= {(pcSelection === 'rock') ? rockIcon : (pcSelection === 'paper') ? paperIcon : (pcSelection ==='scissors') ? scissorsIcon: ""}
+                            className= 'img-icon'
+                            src= {(pcSelection === 'rock') ? rockIcon : (pcSelection === 'paper') ?  
+                            paperIcon : (pcSelection ==='scissors') ? 
+                            scissorsIcon: 
+                            ''
+                        }
                             alt= 'icon'
                         />
                         <h3>PC selected: {pcSelection}</h3>
@@ -27,6 +40,7 @@ export const Computer = ({rockIcon, paperIcon, scissorsIcon, trophyIcon, pcScore
             (
                 <div>
                     <img
+                        className='win-computer-trophy'
                         src={trophyIcon}
                         alt='trophy'
                     />

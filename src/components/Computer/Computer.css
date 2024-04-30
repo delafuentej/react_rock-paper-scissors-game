@@ -1,8 +1,21 @@
 .computer-card{
-        border:1px solid black;
-        grid-row: 1/ span 3;
-        grid-column: 3/ 4;
-}
-.wait-msg{
+        height: 220px;
+        padding: 25px 0;
+        background-color: rgba(255,255,255,0.5);
+        margin-bottom: 15px;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
         
 }
+.computer-card h2, 
+.computer-card h3 {
+        text-align:center;
+        margin:0 0 10px 0;   
+}
+.wait-msg{
+        text-align: center;
+}
+
