@@ -1,6 +1,6 @@
 
 import { settings } from '../../configs/game';
-
+import { Hourglass } from 'react-loader-spinner';
 
 
 import './Computer.css';
@@ -18,8 +18,18 @@ export const Computer = ({rockIcon, paperIcon, scissorsIcon, trophyIcon, pcScore
             
                {(pcScore < settings.winTarget) ? 
                     (userSelection === '') ? (
+                <>
                     <h3 className="wait-msg">{settings.waitingMessage}</h3>
-                )
+                    <Hourglass
+                    visible={true}
+                    height="45"
+                    width="45"
+                    ariaLabel="hourglass-loading"
+                    wrapperStyle={{}}
+                    wrapperClass="color-ring-wrapper"
+                    colors={['#0a2647', '#ffffff']}
+                />
+                </>)
                 :
                 (
                     <div className='img-container'>
@@ -28,12 +38,13 @@ export const Computer = ({rockIcon, paperIcon, scissorsIcon, trophyIcon, pcScore
                             src= {(pcSelection === 'rock') ? rockIcon : (pcSelection === 'paper') ?  
                             paperIcon : (pcSelection ==='scissors') ? 
                             scissorsIcon: 
-                            ''
+                           ''
                         }
                             alt= 'icon'
                         />
                         <h3>PC selected: {pcSelection}</h3>
                     </div>
+                    
                 
                )
              :

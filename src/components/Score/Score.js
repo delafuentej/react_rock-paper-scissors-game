@@ -2,8 +2,8 @@ import './Score.css';
 
 export const Score = ({ score })=>{
     return(
-        <div className='score'>
+        <h3 className='score'>
             {`Score: ${score}`}
-        </div>
+        </h3>
     );
 };
