@@ -40,39 +40,43 @@ function App() {
 
  
   const selectIcon= (event) =>{
-    event.preventDefault();
+    //event.preventDefault();
     if(pcScore < winTarget){
       const userSelection= event.target.parentNode.getAttribute('value');
-    const options = ['rock', 'paper', 'scissors'];
-    const index= Math.floor( Math.random()* options.lenght);
-    const pcSelection= options[index];
+      const options = ['rock', 'paper', 'scissors'];
+      const index = Math.floor( Math.random()* options.length);
+      const pcSelection= options[index];
+    console.log('pcSelection', pcSelection);
 
     (userSelection === pcSelection) ? setGame({
       ...(game.message = tieMessage),
     }) 
     :
-    (userSelection === 'rock' && pcSelection === 'scissors') ||
+    ((userSelection === 'rock' && pcSelection === 'scissors') ||
     (userSelection === 'paper' && pcSelection === 'rock') ||
-    (userSelection === 'scissors' && pcSelection === 'paper') 
+    (userSelection === 'scissors' && pcSelection === 'paper') )
     ?
     setGame({
       ...(game.userScore += 1),
-      ...(game.message = winMessage)
+      ...(game.message = winMessage),
+     
 
     })
     :
     setGame({
       ...(game.pcScore += 1),
-      ...(game.message = lostMessage)
+      ...(game.message = lostMessage),
+      
     });
 
-    setGame({
+     setGame({
+      ...game,
       round: (game.round += 1),
       userSelection,
       pcSelection
 
     })
-
+ 
     }
     
   }
@@ -95,34 +99,41 @@ function App() {
       <Playground>
         <Profile>
           <User
+              {...game}
              trophyIcon={trophy}
           
           >
-            <Choice 
+            <Choice
+               {...game} 
               onClick= {selectIcon}
               value='rock'
               choiceIcon={rock}
               />
-            <Choice 
+            <Choice
+               {...game}
               onClick= {selectIcon}
               value='paper'
               choiceIcon={paper}
             />
             <Choice
+               {...game}
               onClick= {selectIcon}
               value='scissors'
               choiceIcon={scissors}
             />
 
             <Score score={userScore}/>
+            
 
           </User>
 
         </Profile>
 
         <Profile>
-          <Round />
-          <Message />
+          <Round {...game}/>
+          <Message
+            {...game} 
+          />
 
 
         </Profile>
@@ -130,6 +141,7 @@ function App() {
 
         <Profile>
           <Computer
+            {...game}
             rockIcon={rock}
             paperIcon={paper}
             scissorsIcon={scissors}
@@ -140,7 +152,8 @@ function App() {
           </Computer>
 
         </Profile>
-        <Reset 
+        <Reset
+          {...game} 
           onClick= {resetGame}
         />
       </Playground>

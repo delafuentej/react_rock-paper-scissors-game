@@ -8,19 +8,20 @@ export const Computer = ({rockIcon, paperIcon, scissorsIcon, trophyIcon, pcScore
                 Computer
             </h2>
             
-               {(pcScore < settings.winTarget) ? ((userSelection === '') ? (
+               {(pcScore < settings.winTarget) ? 
+                    (userSelection === '') ? (
                     <h3 className="wait-msg">{settings.waitingMessage}</h3>
                 )
                 :
                 (
                     <div>
                         <img
-                            src= {(pcSelection === 'rock') ? rockIcon : (pcSelection === 'paper') ? paperIcon : scissorsIcon}
+                            src= {(pcSelection === 'rock') ? rockIcon : (pcSelection === 'paper') ? paperIcon : (pcSelection ==='scissors') ? scissorsIcon: ""}
                             alt= 'icon'
                         />
                         <h3>PC selected: {pcSelection}</h3>
                     </div>
-                )
+                
                )
              :
             (
