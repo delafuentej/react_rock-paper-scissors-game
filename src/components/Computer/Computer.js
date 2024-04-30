@@ -18,17 +18,18 @@ export const Computer = ({rockIcon, paperIcon, scissorsIcon, trophyIcon, pcScore
             
                {(pcScore < settings.winTarget) ? 
                     (userSelection === '') ? (
-                <>
-                    <h3 className="wait-msg">{settings.waitingMessage}</h3>
+                <>  
                     <Hourglass
                     visible={true}
-                    height="45"
-                    width="45"
+                    height="60"
+                    width="60"
                     ariaLabel="hourglass-loading"
                     wrapperStyle={{}}
                     wrapperClass="color-ring-wrapper"
                     colors={['#0a2647', '#ffffff']}
                 />
+                    <h3 className="wait-msg">{settings.waitingMessage}</h3>
+                    
                 </>)
                 :
                 (
