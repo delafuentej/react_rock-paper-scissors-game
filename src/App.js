@@ -20,7 +20,7 @@ import trophy from './assets/trophy.png';
 
 import { BsHandThumbsUp, BsHandThumbsDown } from "react-icons/bs";
 // import { FaRegHandRock, FaRegHandPaper, FaRegHandScissors } from "react-icons/fa";
-import { LiaTrophySolid } from "react-icons/lia";
+// import { LiaTrophySolid } from "react-icons/lia";
 
 import './App.css';
 
@@ -73,11 +73,21 @@ function App() {
 
     })
 
-
     }
     
-
   }
+
+  const resetGame= () =>{
+    setGame({
+      userSelection:'',
+      pcSelection:'',
+      round: 0,
+      userScore: 0,
+      pcScore: 0,
+      message:'',
+    })
+  };
+
 
   return (
     <div>
@@ -130,11 +140,11 @@ function App() {
           </Computer>
 
         </Profile>
-        <Reset />
+        <Reset 
+          onClick= {resetGame}
+        />
       </Playground>
 
-      
-      
     </div>
   );
 }
