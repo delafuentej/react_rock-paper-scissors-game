@@ -60,14 +60,14 @@ function App() {
     ?
     setGame({
       ...(game.userScore += 1),
-      ...(game.message = winMessage),
+      ...(game.message =` ${winMessage}  ${<BsHandThumbsUp />}`),
      
 
     })
     :
     setGame({
       ...(game.pcScore += 1),
-      ...(game.message = lostMessage),
+      ...(game.message = `${lostMessage} ${<BsHandThumbsDown/>}`),
       
     });
 
@@ -131,8 +131,7 @@ function App() {
 
           <Message
             {...game} 
-            thumbsUpIcon = {<BsHandThumbsUp />}
-            thumbsDownIcon= {<BsHandThumbsDown />}
+          
             
           />
 
