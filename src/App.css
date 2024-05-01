@@ -12,12 +12,13 @@ body{
   display: grid;
   place-items: center;
   background-color: #0A2647;
-  background-image:  linear-gradient(90deg, rgba(1,6,20,1) 0%, rgba(66,97,149,1) 100%);
+  background-image:  linear-gradient(90deg, rgba(1,6,20,0.9) 0%, rgba(66,97,149,0.9) 100%), url('../src/assets/img/img-bg.jpg') ;/* linear-gradient(90deg, rgba(1,6,20,1) 0%, rgba(66,97,149,1) 100%); */
   font-family: "Jersey 15", sans-serif;
   font-weight: 300;
   font-style: normal;
   color:white;
 }
+
 h1{
   word-spacing: 0.5em;
   text-transform: uppercase;
