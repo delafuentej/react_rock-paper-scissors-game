@@ -13,10 +13,12 @@ import { Reset } from './components/Reset/Reset.js';
 
 import { settings } from './configs/game';
 
-import rock from './assets/rock.png';
-import paper from './assets/paper.png';
-import scissors from './assets/scissors.png';
-import trophy from './assets/trophy.png';
+import rock from './assets/img/rock.png';
+import paper from './assets/img/paper.png';
+import scissors from './assets/img/scissors.png';
+import trophy from './assets/img/trophy.png';
+
+
 
 import { BsHandThumbsUp, BsHandThumbsDown } from "react-icons/bs";
 // import { FaRegHandRock, FaRegHandPaper, FaRegHandScissors } from "react-icons/fa";
