@@ -19,13 +19,10 @@ import scissors from './assets/img/scissors.png';
 import trophy from './assets/img/trophy.png';
 //import sounds
 
-//import aplauseVictory from './assets/sounds/aplause-victory.mp3'; 
-// import booRoundLost from './assets/sounds/boo-round-lost.mp3';
-// import clapsRoundWin from './assets/sounds/claps-round-win.mp3';
-// import congratulationsVictory from 'assets/sounds/congratulations-victory.mp3';
-// console.log('aplauseVictory',aplauseVictory)
-
-
+import aplauseVictory from './assets/sounds/applause-victory.mp3'; 
+import booRoundLost from './assets/sounds/boo-round-lost.mp3';
+import clapsRoundWin from './assets/sounds/claps-round-win.mp3';
+import congratulationsVictory from './assets/sounds/congratulations-victory.mp3';
 
 //import { BsHandThumbsUp, BsHandThumbsDown } from "react-icons/bs";
 // import { FaRegHandRock, FaRegHandPaper, FaRegHandScissors } from "react-icons/fa";
@@ -67,14 +64,14 @@ function App() {
     ?
     setGame({
       ...(game.userScore += 1),
-      ...(game.message =` ${winMessage}`),
+      ...(game.message =` ${winMessage} ${playClapsRoundWin()}`),
      
 
     })
     :
     setGame({
       ...(game.pcScore += 1),
-      ...(game.message = `${lostMessage}`),
+      ...(game.message = `${lostMessage} ${playBooRoundLost()}`),
       
     });
 
@@ -83,11 +80,8 @@ function App() {
       round: (game.round += 1),
       userSelection,
       pcSelection
-
     })
- 
-    }
-    
+    } 
   }
 
   const resetGame= () =>{
@@ -101,6 +95,19 @@ function App() {
     })
   };
 
+  // audios
+   let playAplauseVictory=()=>{
+    new Audio(aplauseVictory).play();
+   }
+   let playCongratulationsVictory=()=>{
+    new Audio(congratulationsVictory).play();
+   }
+   let playBooRoundLost=()=>{
+    new Audio(booRoundLost).play();
+   }
+   let playClapsRoundWin=()=>{
+    new Audio(clapsRoundWin).play();
+   }
 
   return (
     <div>
@@ -111,6 +118,8 @@ function App() {
           <User
               {...game}
              trophyIcon={trophy}
+             playAplauseVictory={playAplauseVictory}
+             playCongratulationsVictory={playCongratulationsVictory}
           
           >
             <Choice

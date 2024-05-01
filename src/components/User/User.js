@@ -1,7 +1,8 @@
 import { settings } from '../../configs/game';
 import './User.css';
 
-export const User = ({userScore, userSelection, trophyIcon, children})=>{
+export const User = ({userScore, userSelection, trophyIcon, children, playAplauseVictory, playCongratulationsVictory})=>{
+   
     return(
         <div className='user-card'>
             <h2>{settings.userName}</h2>
@@ -23,8 +24,9 @@ export const User = ({userScore, userSelection, trophyIcon, children})=>{
                         className= "win-user-trophy"
                         src={trophyIcon}
                         alt='trophy'
+                       
                     />
-                    <h3>Victory!</h3>
+                    <h3>Victory! {`${playAplauseVictory()} ${playCongratulationsVictory()}`}</h3>
                 </div>
                )
             }
