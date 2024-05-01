@@ -1,4 +1,5 @@
 import { settings } from '../../configs/game';
+import { ConfettiComponent } from '../Confetti/Confetti';
 import './User.css';
 
 export const User = ({userScore, userSelection, trophyIcon, children, playAplauseVictory, playCongratulationsVictory})=>{
@@ -27,6 +28,7 @@ export const User = ({userScore, userSelection, trophyIcon, children, playAplaus
                        
                     />
                     <h3>Victory! {`${playAplauseVictory()} ${playCongratulationsVictory()}`}</h3>
+                    <div><ConfettiComponent /></div>
                 </div>
                )
             }
