@@ -12,15 +12,22 @@ import { Computer } from './components/Computer/Computer.js';
 import { Reset } from './components/Reset/Reset.js';
 
 import { settings } from './configs/game';
-
+//import imgIcons
 import rock from './assets/img/rock.png';
 import paper from './assets/img/paper.png';
 import scissors from './assets/img/scissors.png';
 import trophy from './assets/img/trophy.png';
+//import sounds
+
+//import aplauseVictory from './assets/sounds/aplause-victory.mp3'; 
+// import booRoundLost from './assets/sounds/boo-round-lost.mp3';
+// import clapsRoundWin from './assets/sounds/claps-round-win.mp3';
+// import congratulationsVictory from 'assets/sounds/congratulations-victory.mp3';
+// console.log('aplauseVictory',aplauseVictory)
 
 
 
-import { BsHandThumbsUp, BsHandThumbsDown } from "react-icons/bs";
+//import { BsHandThumbsUp, BsHandThumbsDown } from "react-icons/bs";
 // import { FaRegHandRock, FaRegHandPaper, FaRegHandScissors } from "react-icons/fa";
 // import { LiaTrophySolid } from "react-icons/lia";
 
@@ -60,14 +67,14 @@ function App() {
     ?
     setGame({
       ...(game.userScore += 1),
-      ...(game.message =` ${winMessage}  ${<BsHandThumbsUp />}`),
+      ...(game.message =` ${winMessage}`),
      
 
     })
     :
     setGame({
       ...(game.pcScore += 1),
-      ...(game.message = `${lostMessage} ${<BsHandThumbsDown/>}`),
+      ...(game.message = `${lostMessage}`),
       
     });
 
@@ -130,7 +137,11 @@ function App() {
         </Profile>
 
           <Message
-            {...game} 
+            {...game}
+            
+            /* thumbsUp = {<BsHandThumbsUp />}
+            thumbsDown = {<BsHandThumbsDown />}  */
+
           
             
           />
