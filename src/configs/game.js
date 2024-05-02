@@ -6,5 +6,5 @@ export const settings = {
     tieMessage: "It is a tie",
     lostMessage: "You are the loser! Try again!",
     waitingMessage: "Waiting for your choice!",
-    winTarget: 1,
+    winTarget: 5,
 };

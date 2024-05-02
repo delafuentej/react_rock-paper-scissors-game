@@ -1,8 +1,11 @@
 import { settings } from '../../configs/game';
 import { ConfettiComponent } from '../Confetti/Confetti';
+
+// import  congratulationsVictory from '../../assets/sounds/congratulations-victory.mp3';
+// import  aplauseVictory from '../../assets/sounds/applause-victory.mp3'; 
 import './User.css';
 
-export const User = ({userScore, userSelection, trophyIcon, children, playAplauseVictory, playCongratulationsVictory})=>{
+export const User = ({userScore, userSelection, trophyIcon, children, playAudio, aplauseVictory, congratulationsVictory})=>{
    
     return(
         <div className='user-card'>
@@ -27,7 +30,7 @@ export const User = ({userScore, userSelection, trophyIcon, children, playAplaus
                         alt='trophy'
                        
                     />
-                    <h3>Victory! {`${playAplauseVictory()} ${playCongratulationsVictory()}`}</h3>
+                    <h3>Victory! {`${playAudio(aplauseVictory)} ${playAudio(congratulationsVictory)}`}</h3>
                     <div><ConfettiComponent /></div>
                 </div>
                )

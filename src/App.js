@@ -18,11 +18,12 @@ import paper from './assets/img/paper.png';
 import scissors from './assets/img/scissors.png';
 import trophy from './assets/img/trophy.png';
 //import sounds
+import { playAudio } from './utils/utils.js';
 
 import aplauseVictory from './assets/sounds/applause-victory.mp3'; 
 import booRoundLost from './assets/sounds/boo-round-lost.mp3';
 import clapsRoundWin from './assets/sounds/claps-round-win.mp3';
-import congratulationsVictory from './assets/sounds/congratulations-victory.mp3';
+ import congratulationsVictory from './assets/sounds/congratulations-victory.mp3';
 
 //import { BsHandThumbsUp, BsHandThumbsDown } from "react-icons/bs";
 // import { FaRegHandRock, FaRegHandPaper, FaRegHandScissors } from "react-icons/fa";
@@ -64,14 +65,14 @@ function App() {
     ?
     setGame({
       ...(game.userScore += 1),
-      ...(game.message =` ${winMessage} ${playClapsRoundWin()}`),
+      ...(game.message =` ${winMessage} ${playAudio(clapsRoundWin)}`),
      
 
     })
     :
     setGame({
       ...(game.pcScore += 1),
-      ...(game.message = `${lostMessage} ${playBooRoundLost()}`),
+      ...(game.message = `${lostMessage} ${playAudio(booRoundLost)}`),
       
       
     });
@@ -97,18 +98,18 @@ function App() {
   };
 
   // audios
-   let playAplauseVictory=()=>{
-    new Audio(aplauseVictory).play();
-   }
-   let playCongratulationsVictory=()=>{
-    new Audio(congratulationsVictory).play();
-   }
-   let playBooRoundLost=()=>{
-    new Audio(booRoundLost).play();
-   }
-   let playClapsRoundWin=()=>{
-    new Audio(clapsRoundWin).play();
-   }
+  //  let playAplauseVictory=()=>{
+  //   new Audio(aplauseVictory).play();
+  //  }
+  //  let playCongratulationsVictory=()=>{
+  //   new Audio(congratulationsVictory).play();
+  //  }
+  //  let playBooRoundLost=()=>{
+  //   new Audio(booRoundLost).play();
+  //  }
+  //  let playClapsRoundWin=()=>{
+  //   new Audio(clapsRoundWin).play();
+  //  }
 
   return (
     <div>
@@ -119,9 +120,10 @@ function App() {
           <User
               {...game}
              trophyIcon={trophy}
-             playAplauseVictory={playAplauseVictory}
-             playCongratulationsVictory={playCongratulationsVictory}
-          
+             playAudio={playAudio}
+              aplauseVictory = {aplauseVictory}
+              congratulationsVictory ={congratulationsVictory}
+             
           >
             <Choice
                {...game} 
