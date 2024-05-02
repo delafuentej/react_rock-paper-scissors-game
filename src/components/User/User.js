@@ -1,8 +1,7 @@
 import { settings } from '../../configs/game';
 import { ConfettiComponent } from '../Confetti/Confetti';
 
-// import  congratulationsVictory from '../../assets/sounds/congratulations-victory.mp3';
-// import  aplauseVictory from '../../assets/sounds/applause-victory.mp3'; 
+
 import './User.css';
 
 export const User = ({userScore, userSelection, trophyIcon, children, playAudio, aplauseVictory, congratulationsVictory})=>{
