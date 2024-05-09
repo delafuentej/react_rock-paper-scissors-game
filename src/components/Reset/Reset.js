@@ -1,7 +1,11 @@
-import { settings } from '../../configs/game';
+import { useContext } from 'react';
+import { LanguageContext } from '../../context/LanguageContext/LanguageContext';
+
+//import { settings } from '../../configs/game';
 import './Reset.css';
 
 export const Reset = ({userSelection, onClick, userScore, pcScore})=>{
+        const {texts} = useContext(LanguageContext);
     return(
         <div className='reset-game'>
             {(userSelection !== '') && (
@@ -9,7 +13,7 @@ export const Reset = ({userSelection, onClick, userScore, pcScore})=>{
                     onClick= {onClick}
                     className= 'reset-btn'
                 >
-                    { (userScore === settings.winTarget) || (pcScore === settings.winTarget) ?
+                    { (userScore === texts.winTarget) || (pcScore === texts.winTarget) ?
                     
                         'Play again': 'Reset'
                

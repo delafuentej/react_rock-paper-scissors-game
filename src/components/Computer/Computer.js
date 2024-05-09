@@ -1,7 +1,9 @@
+import { useContext } from 'react';
+import { LanguageContext } from '../../context/LanguageContext/LanguageContext';
+
 
 import { settings } from '../../configs/game';
 import { Hourglass } from 'react-loader-spinner';
-
 
 import './Computer.css';
 
@@ -10,10 +12,13 @@ import './Computer.css';
 
 
 export const Computer = ({rockIcon, paperIcon, scissorsIcon, trophyIcon, pcScore, userSelection, pcSelection})=>{
+   
+            const { texts } = useContext(LanguageContext);
+   
     return(
         <div className='computer-card'>
             <h2>
-                Computer
+                {texts.pcName}
             </h2>
             
                {(pcScore < settings.winTarget) ? 
@@ -28,7 +33,7 @@ export const Computer = ({rockIcon, paperIcon, scissorsIcon, trophyIcon, pcScore
                     wrapperClass="color-ring-wrapper"
                     colors={['#0a2647', '#ffffff']}
                 />
-                    <h3 className="wait-msg">{settings.waitingMessage}</h3>
+                    <h3 className="wait-msg">{texts.waitingMessage}</h3>
                     
                 </>)
                 :
@@ -43,7 +48,7 @@ export const Computer = ({rockIcon, paperIcon, scissorsIcon, trophyIcon, pcScore
                         }
                             alt= 'icon'
                         />
-                        <h3>PC selected: {pcSelection}</h3>
+                        <h3>{texts.pcSelectedMessage} {pcSelection}</h3>
                     </div>
                     
                 
@@ -56,7 +61,7 @@ export const Computer = ({rockIcon, paperIcon, scissorsIcon, trophyIcon, pcScore
                         src={trophyIcon}
                         alt='trophy'
                     />
-                    <h3>Victory!</h3>
+                    <h3>{texts.victoryMessage}</h3>
                 </div>
             )}
         </div>

@@ -1,22 +1,26 @@
-import { settings } from '../../configs/game';
+import { useContext } from 'react';
+import { LanguageContext } from '../../context/LanguageContext/LanguageContext';
+
 import { ConfettiComponent } from '../Confetti/Confetti';
 
 
 import './User.css';
 
 export const User = ({userScore, userSelection, trophyIcon, children, playAudio, aplauseVictory, congratulationsVictory})=>{
+
+    const { texts } = useContext(LanguageContext)
    
     return(
         <div className='user-card'>
-            <h2>{settings.userName}</h2>
+            <h2>{texts.userName}</h2>
             {
-               ( userScore < settings.winTarget) ? (
+               ( userScore < texts.winTarget) ? (
                 <div>
                     <div className="choice-grid">
                         {children}
                     </div>
                     <h3>
-                        {(userSelection === '') ? 'Select one': `Your choice is: ${userSelection}`}
+                        {(userSelection === '') ? `${texts.selectMessage}`: `${texts.userSelectedMessage} ${userSelection}`}
                     </h3>
                 </div>
 
@@ -29,7 +33,7 @@ export const User = ({userScore, userSelection, trophyIcon, children, playAudio,
                         alt='trophy'
                        
                     />
-                    <h3>Victory! {`${playAudio(aplauseVictory)} ${playAudio(congratulationsVictory)}`}</h3>
+                    <h3>{texts.victoryMessage} {`${playAudio(aplauseVictory)} ${playAudio(congratulationsVictory)}`}</h3>
                     <div><ConfettiComponent /></div>
                 </div>
                )

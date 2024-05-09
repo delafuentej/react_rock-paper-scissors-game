@@ -10,7 +10,9 @@ import { Round } from './components/Round/Round.js';
 import { Message } from './components/Message/Message.js';
 import { Computer } from './components/Computer/Computer.js';
 import { Reset } from './components/Reset/Reset.js';
-
+import { LanguagesComponent } from './components/LanguagesComponent/LanguagesComponent.js';
+//import LanguagesContext
+import { LanguageProvider} from './context/LanguageContext/LanguageContext.js'
 import { settings } from './configs/game';
 //import imgIcons
 import rock from './assets/img/rock.png';
@@ -23,7 +25,7 @@ import { playAudio } from './utils/utils.js';
 import aplauseVictory from './assets/sounds/applause-victory.mp3'; 
 import booRoundLost from './assets/sounds/boo-round-lost.mp3';
 import clapsRoundWin from './assets/sounds/claps-round-win.mp3';
- import congratulationsVictory from './assets/sounds/congratulations-victory.mp3';
+import congratulationsVictory from './assets/sounds/congratulations-victory.mp3';
 
 //import { BsHandThumbsUp, BsHandThumbsDown } from "react-icons/bs";
 // import { FaRegHandRock, FaRegHandPaper, FaRegHandScissors } from "react-icons/fa";
@@ -44,7 +46,7 @@ function App() {
 
   const { winMessage, tieMessage, lostMessage, winTarget } = settings;
   const { userScore, pcScore}= game;
-
+  
  
   const selectIcon= (event) =>{
     event.preventDefault();
@@ -112,77 +114,79 @@ function App() {
   //  }
 
   return (
-    <div>
-      <Title />
-      <Round {...game}/>
-      <Playground>
-        <Profile>
-          <User
-              {...game}
-             trophyIcon={trophy}
-             playAudio={playAudio}
-              aplauseVictory = {aplauseVictory}
-              congratulationsVictory ={congratulationsVictory}
-             
-          >
-            <Choice
-               {...game} 
-              onClick= {selectIcon}
-              value='rock'
-              choiceIcon={rock}
+       
+      <LanguageProvider>
+         <LanguagesComponent />
+          <Title />
+          <Round {...game}/>
+          <Playground>
+            <Profile>
+              <User
+                  {...game}
+                trophyIcon={trophy}
+                playAudio={playAudio}
+                  aplauseVictory = {aplauseVictory}
+                  congratulationsVictory ={congratulationsVictory}
+                
+              >
+                <Choice
+                  {...game} 
+                  onClick= {selectIcon}
+                  value='rock'
+                  choiceIcon={rock}
+                  />
+                <Choice
+                  {...game}
+                  onClick= {selectIcon}
+                  value='paper'
+                  choiceIcon={paper}
+                />
+                <Choice
+                  {...game}
+                  onClick= {selectIcon}
+                  value='scissors'
+                  choiceIcon={scissors}
+                />
+              </User>
+              <Score score={userScore}/>
+
+            </Profile>
+
+              <Message
+                {...game}
+                
+                /* thumbsUp = {<BsHandThumbsUp />}
+                thumbsDown = {<BsHandThumbsDown />}  */
+
+              
+                
               />
-            <Choice
-               {...game}
-              onClick= {selectIcon}
-              value='paper'
-              choiceIcon={paper}
-            />
-            <Choice
-               {...game}
-              onClick= {selectIcon}
-              value='scissors'
-              choiceIcon={scissors}
-            />
-          </User>
-          <Score score={userScore}/>
 
-        </Profile>
-
-          <Message
-            {...game}
-            
-            /* thumbsUp = {<BsHandThumbsUp />}
-            thumbsDown = {<BsHandThumbsDown />}  */
 
           
             
-          />
 
+            <Profile>
+              <Computer
+                {...game}
+                rockIcon={rock}
+                paperIcon={paper}
+                scissorsIcon={scissors}
+                trophyIcon={trophy}
+              >
+              
+              </Computer>
+              <Score score={pcScore} />
+              
 
-      
-        
-
-        <Profile>
-          <Computer
-            {...game}
-            rockIcon={rock}
-            paperIcon={paper}
-            scissorsIcon={scissors}
-            trophyIcon={trophy}
-          >
-          
-          </Computer>
-          <Score score={pcScore} />
-          
-
-        </Profile>
-        <Reset
-          {...game} 
-          onClick= {resetGame}
-        />
-      </Playground>
-
-    </div>
+            </Profile>
+            <Reset
+              {...game} 
+              onClick= {resetGame}
+            />
+          </Playground>
+        </LanguageProvider>
+  
   );
 }
 
