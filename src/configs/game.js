@@ -1,4 +1,6 @@
+
 export const settings = {
+   
     gameName: "Game: Rock, paper, scissors!",
     userName: "Player",
     pcName: "Computer",

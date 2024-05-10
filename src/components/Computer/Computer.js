@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import { LanguageContext } from '../../context/LanguageContext/LanguageContext';
 
 
-import { settings } from '../../configs/game';
+//import { settings } from '../../configs/game';
 import { Hourglass } from 'react-loader-spinner';
 
 import './Computer.css';
@@ -21,7 +21,7 @@ export const Computer = ({rockIcon, paperIcon, scissorsIcon, trophyIcon, pcScore
                 {texts.pcName}
             </h2>
             
-               {(pcScore < settings.winTarget) ? 
+               {(pcScore < texts.winTarget) ? 
                     (userSelection === '') ? (
                 <>  
                     <Hourglass

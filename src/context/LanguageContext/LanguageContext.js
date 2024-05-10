@@ -7,7 +7,11 @@ const initialLanguage='es';
 const translations = {
     es: {
         gameName: "Juego: Piedra, papel, tijera!",
+        rock:'piedra',
+        paper: 'papel',
+        scissors: 'tijera',
         userName: "Jugador",
+        userScore: 0,
         pcName: "Computadora",
         winMessage: "Eres el ganador de la ronda!",
         initMessageFirst: "Gana quien consiga ",
@@ -26,7 +30,11 @@ const translations = {
     },
     en: {
         gameName: "Game: Rock, paper, scissors!",
+        rock:'rock',
+        paper: 'paper',
+        scissors: 'scissors',
         userName: "Player",
+        userScore: 0,
         pcName: "Computer",
         winMessage: "You are the winner of this round!",
         initMessageFirst: "Win whoever gets ",
@@ -44,7 +52,11 @@ const translations = {
     },
     de: {
         gameName: "Spiel: Stein, Papier, Schere!",
+        rock:'stein',
+        paper: 'papier',
+        scissors: 'schere',
         userName: "Spieler",
+        userScore: 0,
         pcName: "Rechner",
         winMessage: "Sie sind der Gewinner der Runde!",
         initMessageFirst: "Win whoever gets ",

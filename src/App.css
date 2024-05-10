@@ -11,12 +11,25 @@ body{
   min-height: 100vh;
   display: grid;
   place-items: center;
-  background-color: #0A2647;
-  background-image:  linear-gradient(90deg, rgba(1,6,20,0.9) 0%, rgba(66,97,149,0.9) 100%), url('../src/assets/img/img-bg.jpg') ;/* linear-gradient(90deg, rgba(1,6,20,1) 0%, rgba(66,97,149,1) 100%); */
-  font-family: "Jersey 15", sans-serif;
   font-weight: 300;
   font-style: normal;
+  font-family: "Jersey 15", sans-serif;
+  background-color: #0A2647;
+  background-image:  linear-gradient(90deg, rgba(1,6,20,0.9) 0%, rgba(66,97,149,0.9) 100%), url('../src/assets/img/img-bg.jpg') ;/* linear-gradient(90deg, rgba(1,6,20,1) 0%, rgba(66,97,149,1) 100%); */
   color:white;
+}
+  
+
+
+.dark{
+  background-color: #0A2647;
+  background-image:  linear-gradient(90deg, rgba(1,6,20,0.9) 0%, rgba(66,97,149,0.9) 100%), url('../src/assets/img/img-bg.jpg') ;/* linear-gradient(90deg, rgba(1,6,20,1) 0%, rgba(66,97,149,1) 100%); */
+  color:white;
+}
+.light{
+  background-color: rgb(244, 248, 249);
+  background-image:  linear-gradient(90deg, rgba(252, 252, 253, 0.935) 0%, rgba(193, 208, 235, 0.787) 100%), url('../src/assets/img/img-bg.jpg') ;
+  color: #0A2647;
 }
 
 h1{

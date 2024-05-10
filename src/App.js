@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 
 import { Title } from './components/Title/Title.js';
 import { Playground } from './components/Playground/Playground.js';
@@ -12,8 +12,16 @@ import { Computer } from './components/Computer/Computer.js';
 import { Reset } from './components/Reset/Reset.js';
 import { LanguagesComponent } from './components/LanguagesComponent/LanguagesComponent.js';
 //import LanguagesContext
-import { LanguageProvider} from './context/LanguageContext/LanguageContext.js'
+import { LanguageProvider} from './context/LanguageContext/LanguageContext.js';
+//import { LanguageContext } from './context/LanguageContext/LanguageContext.js';
+//import ThemeProvider:
+//import { ThemeProvider } from './context/ThemeContext/ThemeContext.js';
+
+import { ThemeComponent } from './components/ThemeComponent/ThemeComponent.js';
+import { ThemeContext } from './context/ThemeContext/ThemeContext.js'
+
 import { settings } from './configs/game';
+
 //import imgIcons
 import rock from './assets/img/rock.png';
 import paper from './assets/img/paper.png';
@@ -35,6 +43,10 @@ import './App.css';
 
 
 function App() {
+
+  //const{ texts, handleLanguage} = useContext(LanguageContext)
+  const { theme } = useContext(ThemeContext);
+  
    let [ game, setGame ] = useState({
     userSelection:'',
     pcSelection:'',
@@ -45,8 +57,12 @@ function App() {
   });
 
   const { winMessage, tieMessage, lostMessage, winTarget } = settings;
-  const { userScore, pcScore}= game;
   
+  const { userScore, pcScore}= game;
+ // 
+  //console.log('texts',texts)
+
+
  
   const selectIcon= (event) =>{
     event.preventDefault();
@@ -67,15 +83,20 @@ function App() {
     ?
     setGame({
       ...(game.userScore += 1),
-      ...(game.message =` ${winMessage} ${playAudio(clapsRoundWin)}`),
+      ...(game.message =` ${winMessage} 
+     
+      `),
+      // ${playAudio(clapsRoundWin)}
      
 
     })
     :
     setGame({
       ...(game.pcScore += 1),
-      ...(game.message = `${lostMessage} ${playAudio(booRoundLost)}`),
+      ...(game.message = `${lostMessage} 
       
+      `),
+      //${playAudio(booRoundLost)}
       
     });
 
@@ -114,9 +135,10 @@ function App() {
   //  }
 
   return (
-       
+    <div className= {theme}>
       <LanguageProvider>
          <LanguagesComponent />
+         <ThemeComponent />
           <Title />
           <Round {...game}/>
           <Playground>
@@ -186,7 +208,7 @@ function App() {
             />
           </Playground>
         </LanguageProvider>
-  
+        </div>
   );
 }
 

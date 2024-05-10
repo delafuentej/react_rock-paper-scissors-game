@@ -1,4 +1,10 @@
-.img-flags {
-    height: 50px;
-    width:50px;
+.select-flag{
+    height: auto;
+    width:auto;
+    padding: 0.2em;
 }
+.img-flags {
+    height: 150px;
+    width:150px;
+}
+
