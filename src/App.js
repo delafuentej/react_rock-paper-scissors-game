@@ -1,5 +1,6 @@
 import React, { useState, useContext } from 'react';
 
+import { Header } from './components/Header/Header.js';
 import { Title } from './components/Title/Title.js';
 import { Playground } from './components/Playground/Playground.js';
 import { Profile } from './components/Profile/Profile.js';
@@ -10,6 +11,7 @@ import { Round } from './components/Round/Round.js';
 import { Message } from './components/Message/Message.js';
 import { Computer } from './components/Computer/Computer.js';
 import { Reset } from './components/Reset/Reset.js';
+
 import { LanguagesComponent } from './components/LanguagesComponent/LanguagesComponent.js';
 //import LanguagesContext
 import { LanguageProvider} from './context/LanguageContext/LanguageContext.js';
@@ -137,8 +139,10 @@ function App() {
   return (
     <div className= {theme}>
       <LanguageProvider>
-         <LanguagesComponent />
-         <ThemeComponent />
+        <Header>
+          <LanguagesComponent />
+          <ThemeComponent />
+        </Header>
           <Title />
           <Round {...game}/>
           <Playground>
