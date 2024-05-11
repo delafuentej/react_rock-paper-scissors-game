@@ -31,7 +31,7 @@ export const Computer = ({rockIcon, paperIcon, scissorsIcon, trophyIcon, pcScore
                     ariaLabel="hourglass-loading"
                     wrapperStyle={{}}
                     wrapperClass="color-ring-wrapper"
-                    colors={['#0a2647', '#ffffff']}
+                    colors={['#0a2647', '#67f806dc']}
                 />
                     <h3 className="wait-msg">{texts.waitingMessage}</h3>
                     
