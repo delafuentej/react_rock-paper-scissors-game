@@ -14,27 +14,27 @@ import { Reset } from './components/Reset/Reset.js';
 
 import { LanguagesComponent } from './components/LanguagesComponent/LanguagesComponent.js';
 //import LanguagesContext
-import { LanguageProvider} from './context/LanguageContext/LanguageContext.js';
-//import { LanguageContext } from './context/LanguageContext/LanguageContext.js';
+//import { LanguageProvider} from './context/LanguageContext/LanguageContext.js';
+import { LanguageContext } from './context/LanguageContext/LanguageContext.js';
 //import ThemeProvider:
 //import { ThemeProvider } from './context/ThemeContext/ThemeContext.js';
 
 import { ThemeComponent } from './components/ThemeComponent/ThemeComponent.js';
 import { ThemeContext } from './context/ThemeContext/ThemeContext.js'
 
-import { settings } from './configs/game';
+
 
 //import imgIcons
-import rock from './assets/img/rock.png';
-import paper from './assets/img/paper.png';
-import scissors from './assets/img/scissors.png';
-import trophy from './assets/img/trophy.png';
+import rockIcon from './assets/img/rock.png';
+import paperIcon from './assets/img/paper.png';
+import scissorsIcon from './assets/img/scissors.png';
+import trophyIcon from './assets/img/trophy.png';
 //import sounds
 import { playAudio } from './utils/utils.js';
 
 import aplauseVictory from './assets/sounds/applause-victory.mp3'; 
-import booRoundLost from './assets/sounds/boo-round-lost.mp3';
-import clapsRoundWin from './assets/sounds/claps-round-win.mp3';
+//import booRoundLost from './assets/sounds/boo-round-lost.mp3';
+//import clapsRoundWin from './assets/sounds/claps-round-win.mp3';
 import congratulationsVictory from './assets/sounds/congratulations-victory.mp3';
 
 //import { BsHandThumbsUp, BsHandThumbsDown } from "react-icons/bs";
@@ -46,7 +46,9 @@ import './App.css';
 
 function App() {
 
-  //const{ texts, handleLanguage} = useContext(LanguageContext)
+  const{ texts } = useContext(LanguageContext)
+  //console.log('texts app', texts)
+
   const { theme } = useContext(ThemeContext);
   
    let [ game, setGame ] = useState({
@@ -58,7 +60,7 @@ function App() {
     message:'',
   });
 
-  const { winMessage, tieMessage, lostMessage, winTarget } = settings;
+ 
   
   const { userScore, pcScore}= game;
  // 
@@ -68,24 +70,24 @@ function App() {
  
   const selectIcon= (event) =>{
     event.preventDefault();
-    if(pcScore < winTarget){
+    if(pcScore < texts.winTarget){
       const userSelection= event.target.parentNode.getAttribute('value');
-      const options = ['rock', 'paper', 'scissors'];
+      const options = [texts.rock, texts.paper, texts.scissors];
       const index = Math.floor( Math.random()* options.length);
       const pcSelection= options[index];
     console.log('pcSelection', pcSelection);
 
     (userSelection === pcSelection) ? setGame({
-      ...(game.message = tieMessage),
+      ...(game.message = texts.tieMessage),
     }) 
     :
-    ((userSelection === 'rock' && pcSelection === 'scissors') ||
-    (userSelection === 'paper' && pcSelection === 'rock') ||
-    (userSelection === 'scissors' && pcSelection === 'paper') )
+    ((userSelection === texts.rock && pcSelection === texts.scissors) ||
+    (userSelection === texts.paper && pcSelection === texts.rock) ||
+    (userSelection === texts.scissors && pcSelection === texts.paper) )
     ?
     setGame({
       ...(game.userScore += 1),
-      ...(game.message =` ${winMessage} 
+      ...(game.message =` ${texts.winMessage} 
      
       `),
       // ${playAudio(clapsRoundWin)}
@@ -95,7 +97,7 @@ function App() {
     :
     setGame({
       ...(game.pcScore += 1),
-      ...(game.message = `${lostMessage} 
+      ...(game.message = `${texts.lostMessage} 
       
       `),
       //${playAudio(booRoundLost)}
@@ -138,7 +140,7 @@ function App() {
 
   return (
     <div className= {theme}>
-      <LanguageProvider>
+     
         <Header>
           <LanguagesComponent />
           <ThemeComponent />
@@ -149,7 +151,7 @@ function App() {
             <Profile>
               <User
                   {...game}
-                trophyIcon={trophy}
+                trophyIcon={trophyIcon}
                 playAudio={playAudio}
                   aplauseVictory = {aplauseVictory}
                   congratulationsVictory ={congratulationsVictory}
@@ -158,20 +160,20 @@ function App() {
                 <Choice
                   {...game} 
                   onClick= {selectIcon}
-                  value='rock'
-                  choiceIcon={rock}
+                  value= {texts.rock}
+                  choiceIcon={rockIcon}
                   />
                 <Choice
                   {...game}
                   onClick= {selectIcon}
-                  value='paper'
-                  choiceIcon={paper}
+                  value= {texts.paper}
+                  choiceIcon={paperIcon}
                 />
                 <Choice
                   {...game}
                   onClick= {selectIcon}
-                  value='scissors'
-                  choiceIcon={scissors}
+                  value= {texts.scissors}
+                  choiceIcon={scissorsIcon}
                 />
               </User>
               <Score score={userScore}/>
@@ -195,10 +197,10 @@ function App() {
             <Profile>
               <Computer
                 {...game}
-                rockIcon={rock}
-                paperIcon={paper}
-                scissorsIcon={scissors}
-                trophyIcon={trophy}
+                rockIcon={rockIcon}
+                paperIcon={paperIcon}
+                scissorsIcon={scissorsIcon}
+                trophyIcon={trophyIcon}
               >
               
               </Computer>
@@ -211,7 +213,7 @@ function App() {
               onClick= {resetGame}
             />
           </Playground>
-        </LanguageProvider>
+     
         </div>
   );
 }

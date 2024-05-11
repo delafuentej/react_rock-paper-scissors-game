@@ -14,6 +14,7 @@ import './Computer.css';
 export const Computer = ({rockIcon, paperIcon, scissorsIcon, trophyIcon, pcScore, userSelection, pcSelection})=>{
    
             const { texts } = useContext(LanguageContext);
+            //console.log('computer component texts',texts)
    
     return(
         <div className='computer-card'>
@@ -41,8 +42,9 @@ export const Computer = ({rockIcon, paperIcon, scissorsIcon, trophyIcon, pcScore
                     <div className='img-container'>
                         <img
                             className= 'img-icon'
-                            src= {(pcSelection === 'rock') ? rockIcon : (pcSelection === 'paper') ?  
-                            paperIcon : (pcSelection ==='scissors') ? 
+                            src= {
+                                (pcSelection === texts.rock) ? rockIcon : (pcSelection === texts.paper) ?  
+                            paperIcon : (pcSelection === texts.scissors) ? 
                             scissorsIcon: 
                            ''
                         }
