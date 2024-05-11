@@ -12,7 +12,7 @@ export const LanguagesComponent=()=>{
     return(
 
         <select
-            className='select-flag'
+            className='select'
             name='language'
             onChange= {handleLanguage}
         >

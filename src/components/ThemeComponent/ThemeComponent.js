@@ -6,7 +6,7 @@ export const ThemeComponent=()=>{
     const { handleTheme} = useContext(ThemeContext);
     //console.log('theme', theme)
     return(
-        <div >
+        <div className= 'theme-radio'>
             <input 
                 type='radio'
                 name='theme'
