@@ -13,12 +13,9 @@ root.render(
   <React.StrictMode>
      <ThemeProvider>
          <LanguageProvider>
-            <App /> 
+         <App /> 
          </LanguageProvider>
      </ThemeProvider>
-       
-      
-      
 
   </React.StrictMode>
 );
