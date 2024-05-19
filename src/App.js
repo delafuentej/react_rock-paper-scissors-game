@@ -19,7 +19,7 @@ import { LanguageContext } from './context/LanguageContext/LanguageContext.js';
 //import ThemeProvider:
 //import { ThemeProvider } from './context/ThemeContext/ThemeContext.js';
 
-import { ThemeComponent } from './components/ThemeComponent/ThemeComponent.js';
+import {ToggleTheme }from './components/ToggleTheme/ToggleTheme.js'
 import { ThemeContext } from './context/ThemeContext/ThemeContext.js'
 
 
@@ -143,7 +143,7 @@ function App() {
      
         <Header>
           <LanguagesCustomSelect />
-          <ThemeComponent />
+          <ToggleTheme />
         </Header>
           <Title />
           <Round {...game}/>

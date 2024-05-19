@@ -1,0 +1,64 @@
+/* #light-context, #dark-context{
+    margin-right:0.15rem;
+}
+.theme-radio{
+    display:flex;
+}
+.label-light-context {
+    margin-right: 1rem;
+}
+.inline{
+    display: inline;
+    
+} */
+
+.toggle input[type=checkbox] {
+	display: none;
+   
+
+}
+
+.toggle label {
+    background-color:  #a6b5f667;
+   
+    border: 1px solid #ccc;
+	border-radius: 50px;
+	cursor: pointer;
+	display: inline-block;
+	position: relative;
+	transition: all ease-in-out 0.3s; 
+   
+	width: 80px;
+	height: 39px;
+   
+}
+
+.toggle label::after {
+	background-color:#0A2647;
+	border-radius: 50%;
+	content: ' ';
+	cursor: pointer;
+	display: inline-block;
+	position: absolute;
+	left: 2px;
+	top: 2px;
+	transition: all ease-in-out 0.3s;
+	width: 35px;
+	height: 35px;
+}
+.toggle input[type=checkbox]:checked ~ label::before {
+    background:no-repear url('../../assets/img/sun.png') center cover;
+}
+
+.toggle input[type=checkbox]:checked ~ label {
+	background-color: #00a0fced;
+	border-color: #006fc9b4;
+   
+}
+
+.toggle input[type=checkbox]:checked ~ label::after {
+	background-color: #0054B0;
+	transform: translateX(40px);
+    background-size: cover;
+    background: no-repear url('../../assets/img/sun.png') center cover;
+}
