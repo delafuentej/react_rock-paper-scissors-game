@@ -1,7 +1,7 @@
-.select{
+/* .select{
     width:50px;
     
-}
+} */
 
 .custom-select-container {
   position: relative;
@@ -14,7 +14,7 @@
   padding: 5px;
   border: 1px solid #ccc;
   cursor: pointer;
-  background-color: #a6b4f6;
+  background-color:  #a6b5f667;
   border-radius: 50px;
   
 }
@@ -32,8 +32,9 @@
   left: 0;
   width: 100%;
   border: 1px solid #ccc;
-  background-color: #a6b4f6;
+  background-color: #a6b5f6f4;
   z-index: 1000;
+  border-radius: 15px;
 }
 
 .custom-select-container:hover .options-container {
@@ -54,6 +55,7 @@
 }
 
 .option:hover {
-  background-color: gray;
+  background-color: rgba(145, 61, 191, 0.807);
+  border-radius: 10px;
 }
  
