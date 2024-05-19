@@ -12,7 +12,7 @@ import { Message } from './components/Message/Message.js';
 import { Computer } from './components/Computer/Computer.js';
 import { Reset } from './components/Reset/Reset.js';
 
-import { LanguagesComponent } from './components/LanguagesComponent/LanguagesComponent.js';
+import { LanguagesCustomSelect } from './components/LanguagesCustomSelect/LanguagesCustomSelect.js';
 //import LanguagesContext
 //import { LanguageProvider} from './context/LanguageContext/LanguageContext.js';
 import { LanguageContext } from './context/LanguageContext/LanguageContext.js';
@@ -142,7 +142,7 @@ function App() {
     <div className= {theme}>
      
         <Header>
-          <LanguagesComponent />
+          <LanguagesCustomSelect />
           <ThemeComponent />
         </Header>
           <Title />

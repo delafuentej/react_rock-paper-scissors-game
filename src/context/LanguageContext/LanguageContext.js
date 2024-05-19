@@ -1,5 +1,10 @@
 import React, {useState} from 'react';
 
+import esFlag from '../../assets/img/spain.png';
+import ukFlag from '../../assets/img/uk.png';
+import deFlag from '../../assets/img/germany.png';
+
+
 export const LanguageContext = React.createContext();
 
 const initialLanguage='es';
@@ -26,6 +31,9 @@ const translations = {
         score: "Puntuación",
         round: "Ronda",
         winTarget: 5,
+        english: 'Ingles',
+        spanish: 'Español',
+        german: 'Alemán',
 
     },
     en: {
@@ -49,6 +57,9 @@ const translations = {
         round: "Round",
         score: "Score",
         winTarget: 5,
+        english: 'English',
+        spanish: 'Spanish',
+        german:'German',
     },
     de: {
         gameName: "Spiel: Stein, Papier, Schere!",
@@ -71,21 +82,41 @@ const translations = {
         round: "Runde",
         score:"Ergebnis",
         winTarget: 5,
+        english: 'Englisch',
+        spanish: 'Spanisch',
+        german: 'Deutsch',
 
     }
+       
 };
+
+const options = [
+    {value: 'es', label: 'Español', flag: esFlag},
+    {value: 'en', label: 'English', flag: ukFlag},
+    {value: 'de', label: 'Deutsch', flag: deFlag},
+    
+]
+
 
 export const LanguageProvider=({children})=>{
     const [language, setLanguage] = useState(initialLanguage);
     const [texts, setTexts] = useState(translations[language]);
+    const [selectedLanguage, setSelectedLanguage] = useState(options[0])
+    
 
-    const handleLanguage=(e)=>{
 
-        setLanguage(e.target.value);
-        setTexts(translations[e.target.value]);
-    };
+    const handleLanguage = (option)=>{
+    
+        setSelectedLanguage(option);
+        //setLanguage(setSelectedLanguage(option.value));
+        setTexts(translations[option.value])
+    }
+   
+   
 
-    const data ={ texts,  handleLanguage};
+
+
+    const data ={ texts,  handleLanguage, options, selectedLanguage};
 
 
     return(
