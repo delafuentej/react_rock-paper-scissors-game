@@ -1,14 +1,17 @@
-import { useContext } from 'react';
+import { useContext, useState, useEffect } from 'react';
 import { LanguageContext } from '../../context/LanguageContext/LanguageContext';
 
 import { ConfettiComponent } from '../Confetti/Confetti';
 
 
+
 import './User.css';
 
-export const User = ({userScore, userSelection, trophyIcon, children, playAudio, aplauseVictory, congratulationsVictory})=>{
+export const User = ({ userScore, userSelection, trophyIcon, children, playAudio, aplauseVictory, congratulationsVictory})=>{
 
-    const { texts } = useContext(LanguageContext)
+
+    const { texts } = useContext(LanguageContext);
+
    
     return(
         <div className='user-card'>
@@ -33,7 +36,11 @@ export const User = ({userScore, userSelection, trophyIcon, children, playAudio,
                         alt='trophy'
                        
                     />
-                    <h3>{texts.victoryMessage} {`${playAudio(aplauseVictory)} ${playAudio(congratulationsVictory)}`}</h3>
+                    <h3>{texts.victoryMessage}
+                    
+                        
+                    
+                    </h3>
                     <div><ConfettiComponent /></div>
                 </div>
                )

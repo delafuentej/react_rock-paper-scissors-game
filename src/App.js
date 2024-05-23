@@ -14,13 +14,13 @@ import { Reset } from './components/Reset/Reset.js';
 
 import { LanguagesCustomSelect } from './components/LanguagesCustomSelect/LanguagesCustomSelect.js';
 //import LanguagesContext
-//import { LanguageProvider} from './context/LanguageContext/LanguageContext.js';
+
 import { LanguageContext } from './context/LanguageContext/LanguageContext.js';
-//import ThemeProvider:
-//import { ThemeProvider } from './context/ThemeContext/ThemeContext.js';
+
 
 import {ToggleTheme }from './components/ToggleTheme/ToggleTheme.js'
 import { ThemeContext } from './context/ThemeContext/ThemeContext.js'
+
 
 
 
@@ -31,6 +31,7 @@ import scissorsIcon from './assets/img/scissors.png';
 import trophyIcon from './assets/img/trophy.png';
 //import sounds
 import { playAudio } from './utils/utils.js';
+
 
 import aplauseVictory from './assets/sounds/applause-victory.mp3'; 
 //import booRoundLost from './assets/sounds/boo-round-lost.mp3';
@@ -60,13 +61,14 @@ function App() {
     message:'',
   });
 
- 
-  
+
   const { userScore, pcScore}= game;
  // 
   //console.log('texts',texts)
 
+// 
 
+ 
  
   const selectIcon= (event) =>{
     event.preventDefault();
@@ -124,20 +126,6 @@ function App() {
     })
   };
 
-  // audios
-  //  let playAplauseVictory=()=>{
-  //   new Audio(aplauseVictory).play();
-  //  }
-  //  let playCongratulationsVictory=()=>{
-  //   new Audio(congratulationsVictory).play();
-  //  }
-  //  let playBooRoundLost=()=>{
-  //   new Audio(booRoundLost).play();
-  //  }
-  //  let playClapsRoundWin=()=>{
-  //   new Audio(clapsRoundWin).play();
-  //  }
-
   return (
     <div className= {theme}>
      
@@ -151,10 +139,11 @@ function App() {
             <Profile>
               <User
                   {...game}
-                trophyIcon={trophyIcon}
-                playAudio={playAudio}
+                  trophyIcon={trophyIcon}
+                  playAudio={playAudio}
                   aplauseVictory = {aplauseVictory}
                   congratulationsVictory ={congratulationsVictory}
+                  conditionToPlayAudio = {conditionToPlayAudio}
                 
               >
                 <Choice
