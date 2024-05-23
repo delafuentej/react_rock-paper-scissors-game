@@ -11,10 +11,12 @@ export const ToggleTheme=()=>{
            
         >
 	        <input type="checkbox" id="toggle"  onClick={handleTheme} checked={isChecked} />
-	        <label for="toggle"></label>
+	        <label htmlFor="toggle"></label>
         </div>
 
-
+        )
+    
+};
 
         // <div className= 'theme-radio'>
         //     <div className='inline' >
@@ -55,6 +57,4 @@ export const ToggleTheme=()=>{
       //  </div>
 
 
-    )
-    
-}
+  

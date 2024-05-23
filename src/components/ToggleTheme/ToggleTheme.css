@@ -12,6 +12,7 @@
     
 } */
 
+
 .toggle input[type=checkbox] {
 	display: none;
    
@@ -19,22 +20,34 @@
 }
 
 .toggle label {
-    background-color:  #a6b5f667;
-   
+  
+	
     border: 1px solid #ccc;
 	border-radius: 50px;
 	cursor: pointer;
 	display: inline-block;
 	position: relative;
 	transition: all ease-in-out 0.3s; 
-   
 	width: 80px;
-	height: 39px;
+	height: 40px;
+	position: relative;
+	background-image: 
+		linear-gradient(to right, rgba(0, 0, 0, 0.496), rgba(0, 0, 0, 0.5)), 
+		url('../../assets/img/sun.png'),
+
+		linear-gradient(to left, rgba(53, 45, 45, 0.87), rgba(243, 202, 202, 0.804)), 
+        url('../../assets/img/moon2.png');
+
+	background-size: 50% auto, 50% auto; /* Cada imagen ocupa el 50% del ancho del contenedor */
+    background-repeat: no-repeat; /* Evita que las imágenes se repitan */
+	background-position: left, right; 
    
 }
 
+
 .toggle label::after {
-	background-color:#0A2647;
+	background-color:#3983d7;
+	background: no-repeat url('../../assets/img/moon2.png') auto;
 	border-radius: 50%;
 	content: ' ';
 	cursor: pointer;
@@ -45,10 +58,11 @@
 	transition: all ease-in-out 0.3s;
 	width: 35px;
 	height: 35px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
-.toggle input[type=checkbox]:checked ~ label::before {
-    background:no-repear url('../../assets/img/sun.png') center cover;
-}
+
 
 .toggle input[type=checkbox]:checked ~ label {
 	background-color: #00a0fced;
@@ -60,5 +74,5 @@
 	background-color: #0054B0;
 	transform: translateX(40px);
     background-size: cover;
-    background: no-repear url('../../assets/img/sun.png') center cover;
+   
 }
