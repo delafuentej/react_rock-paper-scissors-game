@@ -143,7 +143,7 @@ function App() {
                   playAudio={playAudio}
                   aplauseVictory = {aplauseVictory}
                   congratulationsVictory ={congratulationsVictory}
-                  conditionToPlayAudio = {conditionToPlayAudio}
+                 
                 
               >
                 <Choice
