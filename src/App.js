@@ -30,7 +30,7 @@ import paperIcon from './assets/img/paper.png';
 import scissorsIcon from './assets/img/scissors.png';
 import trophyIcon from './assets/img/trophy.png';
 //import sounds
-// import { playAudio } from './utils/utils.js';
+
 import useSound from 'use-sound';
 
 import aplauseVictory from './assets/sounds/applause-victory.mp3'; 
