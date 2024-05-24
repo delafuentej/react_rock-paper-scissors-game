@@ -30,12 +30,12 @@ import paperIcon from './assets/img/paper.png';
 import scissorsIcon from './assets/img/scissors.png';
 import trophyIcon from './assets/img/trophy.png';
 //import sounds
-import { playAudio } from './utils/utils.js';
-
+// import { playAudio } from './utils/utils.js';
+import useSound from 'use-sound';
 
 import aplauseVictory from './assets/sounds/applause-victory.mp3'; 
-//import booRoundLost from './assets/sounds/boo-round-lost.mp3';
-//import clapsRoundWin from './assets/sounds/claps-round-win.mp3';
+import booRoundLost from './assets/sounds/boo-round-lost.mp3';
+import clapsRoundWin from './assets/sounds/claps-round-win.mp3';
 import congratulationsVictory from './assets/sounds/congratulations-victory.mp3';
 
 //import { BsHandThumbsUp, BsHandThumbsDown } from "react-icons/bs";
@@ -67,17 +67,60 @@ function App() {
   //console.log('texts',texts)
 
 // 
+  //playSounds
+  const [playClaps] = useSound(clapsRoundWin);
+  const [playBoo] = useSound(booRoundLost);
+  const [playCongrat] = useSound(congratulationsVictory);
+  const [playAplause] = useSound(aplauseVictory);
+  
+  /* const selectIcon = (event) => {
+    event.preventDefault();
+    if (pcScore < texts.winTarget) {
+      const userSelection = event.target.parentNode.getAttribute('value');
+      const options = [texts.rock, texts.paper, texts.scissors];
+      const index = Math.floor(Math.random() * options.length);
+      const pcSelection = options[index];
+  
+      if (userSelection === pcSelection) {
+        setGame({
+          ...game,
+          message: texts.tieMessage
+        });
+      } else if (
+        (userSelection === texts.rock && pcSelection === texts.scissors) ||
+        (userSelection === texts.paper && pcSelection === texts.rock) ||
+        (userSelection === texts.scissors && pcSelection === texts.paper)
+      ) {
+        setGame({
+          ...game,
+          userScore: game.userScore + 1,
+          message: texts.winMessage
+        });
+        playClaps(); 
+      } else {
+        setGame({
+          ...game,
+          pcScore: game.pcScore + 1,
+          message: texts.lostMessage
+        });
+        playBoo(); 
+      }
+       
+        console.log('game', game)
+        console.log('userSelection', userSelection)
+        console.log('pcSelection', pcSelection)
+    }
+      
+  };  */
 
- 
- 
-  const selectIcon= (event) =>{
+   const selectIcon= (event) =>{
     event.preventDefault();
     if(pcScore < texts.winTarget){
       const userSelection= event.target.parentNode.getAttribute('value');
       const options = [texts.rock, texts.paper, texts.scissors];
       const index = Math.floor( Math.random()* options.length);
       const pcSelection= options[index];
-    console.log('pcSelection', pcSelection);
+   // console.log('pcSelection', pcSelection);
 
     (userSelection === pcSelection) ? setGame({
       ...(game.message = texts.tieMessage),
@@ -92,9 +135,6 @@ function App() {
       ...(game.message =` ${texts.winMessage} 
      
       `),
-      // ${playAudio(clapsRoundWin)}
-     
-
     })
     :
     setGame({
@@ -113,7 +153,7 @@ function App() {
       pcSelection
     })
     } 
-  }
+  } 
 
   const resetGame= () =>{
     setGame({
@@ -140,9 +180,8 @@ function App() {
               <User
                   {...game}
                   trophyIcon={trophyIcon}
-                  playAudio={playAudio}
-                  aplauseVictory = {aplauseVictory}
-                  congratulationsVictory ={congratulationsVictory}
+                  playAplause = {playAplause}
+                  playCongrat = {playCongrat}
                  
                 
               >

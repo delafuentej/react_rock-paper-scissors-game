@@ -7,7 +7,7 @@ import { ConfettiComponent } from '../Confetti/Confetti';
 
 import './User.css';
 
-export const User = ({ userScore, userSelection, trophyIcon, children, playAudio, aplauseVictory, congratulationsVictory})=>{
+export const User = ({ userScore, userSelection, trophyIcon, children, playCongrat , playAplause, congratulationsVictory})=>{
 
 
     const { texts } = useContext(LanguageContext);
@@ -37,6 +37,8 @@ export const User = ({ userScore, userSelection, trophyIcon, children, playAudio
                        
                     />
                     <h3>{texts.victoryMessage}
+                       {playCongrat()}
+                        {playAplause()}
                     
                         
                     
