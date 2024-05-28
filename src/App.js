@@ -38,7 +38,7 @@ import booRoundLost from './assets/sounds/boo-round-lost.mp3';
 import clapsRoundWin from './assets/sounds/claps-round-win.mp3';
 import congratulationsVictory from './assets/sounds/congratulations-victory.mp3';
 
-//import { BsHandThumbsUp, BsHandThumbsDown } from "react-icons/bs";
+import { BsHandThumbsUp, BsHandThumbsDown } from "react-icons/bs";
 // import { FaRegHandRock, FaRegHandPaper, FaRegHandScissors } from "react-icons/fa";
 // import { LiaTrophySolid } from "react-icons/lia";
 
@@ -73,45 +73,7 @@ function App() {
   const [playCongrat] = useSound(congratulationsVictory);
   const [playAplause] = useSound(aplauseVictory);
   
-  /* const selectIcon = (event) => {
-    event.preventDefault();
-    if (pcScore < texts.winTarget) {
-      const userSelection = event.target.parentNode.getAttribute('value');
-      const options = [texts.rock, texts.paper, texts.scissors];
-      const index = Math.floor(Math.random() * options.length);
-      const pcSelection = options[index];
   
-      if (userSelection === pcSelection) {
-        setGame({
-          ...game,
-          message: texts.tieMessage
-        });
-      } else if (
-        (userSelection === texts.rock && pcSelection === texts.scissors) ||
-        (userSelection === texts.paper && pcSelection === texts.rock) ||
-        (userSelection === texts.scissors && pcSelection === texts.paper)
-      ) {
-        setGame({
-          ...game,
-          userScore: game.userScore + 1,
-          message: texts.winMessage
-        });
-        playClaps(); 
-      } else {
-        setGame({
-          ...game,
-          pcScore: game.pcScore + 1,
-          message: texts.lostMessage
-        });
-        playBoo(); 
-      }
-       
-        console.log('game', game)
-        console.log('userSelection', userSelection)
-        console.log('pcSelection', pcSelection)
-    }
-      
-  };  */
 
    const selectIcon= (event) =>{
     event.preventDefault();
@@ -129,19 +91,15 @@ function App() {
     ((userSelection === texts.rock && pcSelection === texts.scissors) ||
     (userSelection === texts.paper && pcSelection === texts.rock) ||
     (userSelection === texts.scissors && pcSelection === texts.paper) )
-    ?
+    ? 
     setGame({
       ...(game.userScore += 1),
-      ...(game.message =` ${texts.winMessage} 
-     
-      `),
+      ...(game.message =` ${texts.winMessage}`),
     })
     :
     setGame({
       ...(game.pcScore += 1),
-      ...(game.message = `${texts.lostMessage} 
-      
-      `),
+      ...(game.message = `${texts.lostMessage}`),
       //${playAudio(booRoundLost)}
       
     });
@@ -210,9 +168,10 @@ function App() {
 
               <Message
                 {...game}
-                
-                /* thumbsUp = {<BsHandThumbsUp />}
-                thumbsDown = {<BsHandThumbsDown />}  */
+                playClaps={playClaps}
+                playBoo={playBoo}
+                thumbsUp = {<BsHandThumbsUp />}
+                thumbsDown = {<BsHandThumbsDown />} 
 
               
                 
@@ -229,6 +188,7 @@ function App() {
                 paperIcon={paperIcon}
                 scissorsIcon={scissorsIcon}
                 trophyIcon={trophyIcon}
+                playBoo={playBoo}
               >
               
               </Computer>

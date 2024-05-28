@@ -3,8 +3,12 @@ import { LanguageContext } from '../../context/LanguageContext/LanguageContext';
 
 import './Message.css';
 
-export const Message = ({userSelection, message})=>{
-    console.log('message',message)
+    
+
+export const Message = ({userSelection, message, playClaps, playBoo,  thumbsUp, thumbsDown})=>{
+
+
+
     const { texts } = useContext(LanguageContext);
     console.log('tieMessage',texts.tieMessage)
     console.log('winMessage',texts.winMessage)
@@ -12,10 +16,35 @@ export const Message = ({userSelection, message})=>{
 
    
     return(
-        
+        <div className='msg-container'>
         <h3 className="message">
-           { (userSelection === '') ? 'VS' : message}
+           {(userSelection === '') ? 'VS' : message}
+            {(message === texts.lostMessage) ? playBoo() : (message === texts.tieMessage) ?  "": playClaps()}
+        </h3> 
+        
+        <div className='thumbs-container'>
+           {((userSelection !=='') && (message === texts.lostMessage))  ? 
+           <div className='thumbs' >
+            {thumbsDown}
+           </div> : 
 
-        </h3>
+            ((userSelection !=='') && (message === texts.tieMessage)) ?
+
+            "" :
+            ((userSelection !=='')) ?
+            <div className='thumbs'>
+            {thumbsUp}
+           </div>
+           :
+           ""
+        
+            }   
+       
+        </div>
+            
+           
+             
+        </div>
+       
     );
 }

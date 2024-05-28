@@ -11,7 +11,7 @@ import './Computer.css';
 
 
 
-export const Computer = ({rockIcon, paperIcon, scissorsIcon, trophyIcon, pcScore, userSelection, pcSelection})=>{
+export const Computer = ({rockIcon, paperIcon, scissorsIcon, trophyIcon, pcScore, userSelection, pcSelection, playBoo})=>{
    
             const { texts } = useContext(LanguageContext);
             //console.log('computer component texts',texts)
@@ -50,7 +50,9 @@ export const Computer = ({rockIcon, paperIcon, scissorsIcon, trophyIcon, pcScore
                         }
                             alt= 'icon'
                         />
-                        <h3>{texts.pcSelectedMessage} {pcSelection}</h3>
+                        <h3>{texts.pcSelectedMessage} {pcSelection}
+                        
+                        </h3>
                     </div>
                     
                 
@@ -63,7 +65,9 @@ export const Computer = ({rockIcon, paperIcon, scissorsIcon, trophyIcon, pcScore
                         src={trophyIcon}
                         alt='trophy'
                     />
-                    <h3>{texts.victoryMessage}</h3>
+                    <h3>{texts.victoryMessage}
+                        {playBoo()}
+                    </h3>
                 </div>
             )}
         </div>

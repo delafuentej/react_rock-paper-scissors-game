@@ -1,13 +1,12 @@
 import { useContext, useState, useEffect } from 'react';
 import { LanguageContext } from '../../context/LanguageContext/LanguageContext';
-
 import { ConfettiComponent } from '../Confetti/Confetti';
 
 
 
 import './User.css';
 
-export const User = ({ userScore, userSelection, trophyIcon, children, playCongrat , playAplause, congratulationsVictory})=>{
+export const User = ({ userScore, userSelection, trophyIcon, children, playCongrat , playAplause})=>{
 
 
     const { texts } = useContext(LanguageContext);
