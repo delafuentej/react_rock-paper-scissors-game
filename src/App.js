@@ -13,22 +13,18 @@ import { Computer } from './components/Computer/Computer.js';
 import { Reset } from './components/Reset/Reset.js';
 
 import { LanguagesCustomSelect } from './components/LanguagesCustomSelect/LanguagesCustomSelect.js';
-//import LanguagesContext
-
 import { LanguageContext } from './context/LanguageContext/LanguageContext.js';
-
 
 import {ToggleTheme }from './components/ToggleTheme/ToggleTheme.js'
 import { ThemeContext } from './context/ThemeContext/ThemeContext.js'
-
-
-
 
 //import imgIcons
 import rockIcon from './assets/img/rock.png';
 import paperIcon from './assets/img/paper.png';
 import scissorsIcon from './assets/img/scissors.png';
 import trophyIcon from './assets/img/trophy.png';
+
+import { BsHandThumbsUp, BsHandThumbsDown } from "react-icons/bs";
 //import sounds
 
 import useSound from 'use-sound';
@@ -38,22 +34,16 @@ import booRoundLost from './assets/sounds/boo-round-lost.mp3';
 import clapsRoundWin from './assets/sounds/claps-round-win.mp3';
 import congratulationsVictory from './assets/sounds/congratulations-victory.mp3';
 
-import { BsHandThumbsUp, BsHandThumbsDown } from "react-icons/bs";
-// import { FaRegHandRock, FaRegHandPaper, FaRegHandScissors } from "react-icons/fa";
-// import { LiaTrophySolid } from "react-icons/lia";
-
 import './App.css';
 
 
 function App() {
-
+  
+ 
+//useContext
   const{ texts } = useContext(LanguageContext)
-  //console.log('texts app', texts)
-
   const { theme } = useContext(ThemeContext);
 
-
-  
    let [ game, setGame ] = useState({
     userSelection:'',
     pcSelection:'',
@@ -65,10 +55,7 @@ function App() {
 
 
   const { userScore, pcScore}= game;
- // 
-  //console.log('texts',texts)
 
-// 
   //playSounds
   const [playClaps] = useSound(clapsRoundWin);
   const [playBoo] = useSound(booRoundLost);
@@ -102,7 +89,7 @@ function App() {
     setGame({
       ...(game.pcScore += 1),
       ...(game.message = `${texts.lostMessage}`),
-      //${playAudio(booRoundLost)}
+     
       
     });
 
@@ -180,10 +167,6 @@ function App() {
               
                 
               />
-
-
-          
-            
 
             <Profile>
               <Computer
