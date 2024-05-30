@@ -10,7 +10,7 @@ export const ThemeProvider= ({ children })=>{
     console.log('theme', theme)
     console.log('setTheme', setTheme)
 
-    const handleTheme= (e) =>{
+    const handleChange= (e) =>{
     
        const checked= e.target.checked;
        setIsChecked(checked);
@@ -24,7 +24,7 @@ export const ThemeProvider= ({ children })=>{
 
     const data = {
         theme,
-        handleTheme, 
+        handleChange, 
         isChecked
     }
 

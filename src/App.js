@@ -51,6 +51,8 @@ function App() {
   //console.log('texts app', texts)
 
   const { theme } = useContext(ThemeContext);
+
+
   
    let [ game, setGame ] = useState({
     userSelection:'',
@@ -123,6 +125,8 @@ function App() {
       message:'',
     })
   };
+
+
 
   return (
     <div className= {theme}>

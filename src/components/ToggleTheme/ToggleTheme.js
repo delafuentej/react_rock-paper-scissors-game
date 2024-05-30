@@ -3,14 +3,14 @@ import {ThemeContext} from '../../context/ThemeContext/ThemeContext';
 import './ToggleTheme.css';
 
 export const ToggleTheme=()=>{
-    const { handleTheme, isChecked} = useContext(ThemeContext);
+    const { handleChange, isChecked} = useContext(ThemeContext);
     //console.log('theme', theme)
     return(
 
         <div className="toggle"
            
         >
-	        <input type="checkbox" id="toggle"  onClick={handleTheme} checked={isChecked} />
+	        <input type="checkbox" id="toggle"  onChange={handleChange} checked={isChecked} />
 	        <label htmlFor="toggle"></label>
         </div>
 
