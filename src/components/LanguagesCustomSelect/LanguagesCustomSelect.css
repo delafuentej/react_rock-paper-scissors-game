@@ -6,12 +6,13 @@
 .custom-select-container {
   position: relative;
   width: 100px;
+ 
   
 }
 .selected-option {
   display: flex;
   align-items: center;
-  padding: 5px;
+  padding:0.3rem;
   border: 1px solid #ccc;
   cursor: pointer;
   background-color:  #a6b5f667;
@@ -35,6 +36,7 @@
   background-color: #a6b5f6f4;
   z-index: 1000;
   border-radius: 15px;
+  padding:0.3rem;
 }
 
 .custom-select-container:hover .options-container {
@@ -44,7 +46,7 @@
 .option {
   display: flex;
   align-items: center;
-  padding: 5px;
+  padding:5px;
   cursor: pointer;
 }
 
@@ -57,5 +59,7 @@
 .option:hover {
   background-color: rgba(145, 61, 191, 0.807);
   border-radius: 10px;
+  padding: 0.3rem;
+  width:100%;
 }
  

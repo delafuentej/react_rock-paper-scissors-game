@@ -1,4 +1,4 @@
-import { useContext, useState, useEffect } from 'react';
+import { useContext } from 'react';
 import { LanguageContext } from '../../context/LanguageContext/LanguageContext';
 import { ConfettiComponent } from '../Confetti/Confetti';
 

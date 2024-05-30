@@ -7,7 +7,7 @@ export const ToggleTheme=()=>{
     //console.log('theme', theme)
     return(
 
-        <div class="toggle"
+        <div className="toggle"
            
         >
 	        <input type="checkbox" id="toggle"  onClick={handleTheme} checked={isChecked} />

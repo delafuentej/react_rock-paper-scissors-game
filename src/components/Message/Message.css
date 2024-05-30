@@ -27,36 +27,47 @@
 @keyframes thicken {
    0% {
     transform: scale(1);
+    border: 1px solid rgb(236, 230, 230);
    }
    10%{
-    transform: scale(1.4)
+    transform: scale(1.4);
+    border: 1px solid rgb(236, 230, 230);
    }
    20% {
     transform: scale(1.8);
+    border: 1px solid rgb(236, 230, 230);
    }
    30% {
     transform: scale(2.2);
+    border: 1px solid rgb(236, 230, 230);
    }
    40% {
     transform: scale(2.6);
+    border: 2px solid rgb(236, 230, 230);
    }
    50% {
     transform: scale(3);
+    border: 2px solid rgb(236, 230, 230);
    }
    60% {
     transform: scale(3.4);
+    border: 2px solid rgb(236, 230, 230);
    }
    70% {
     transform: scale(3.8);
+    border: 2px solid rgb(236, 230, 230);
    }
    80% {
     transform: scale(4.2);
+    border: 3px solid rgb(236, 230, 230);
    }
    90% {
     transform: scale(4.6);
+    border: 3px solid rgb(236, 230, 230);
    }
    100% {
     transform: scake(5);
+    border: 3px solid rgb(236, 230, 230);
 
    }
 }
