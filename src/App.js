@@ -56,13 +56,20 @@ function App() {
 
   const { userScore, pcScore}= game;
 
+// state for handling audio
+  const[isAudioEnabled, setIsAudioEnabled]= useState(false)
+
   //playSounds
-  const [playClaps] = useSound(clapsRoundWin);
-  const [playBoo] = useSound(booRoundLost);
-  const [playCongrat] = useSound(congratulationsVictory);
-  const [playAplause] = useSound(aplauseVictory);
+  const [playClaps] = useSound(clapsRoundWin, {soundEnabled: isAudioEnabled});
+  const [playBoo] = useSound(booRoundLost,  {soundEnabled: isAudioEnabled});
+  const [playCongrat] = useSound(congratulationsVictory, {soundEnabled: isAudioEnabled});
+  const [playAplause] = useSound(aplauseVictory,  {soundEnabled: isAudioEnabled});
   
   
+  //toggleAudio
+  const toggleAudio=()=>{
+    setIsAudioEnabled(!isAudioEnabled)
+  }
 
    const selectIcon= (event) =>{
     event.preventDefault();
@@ -113,14 +120,17 @@ function App() {
     })
   };
 
-
-
   return (
     <div className= {theme}>
      
         <Header>
           <LanguagesCustomSelect />
           <ToggleTheme />
+          <button
+            onClick={toggleAudio}
+          >
+            {isAudioEnabled ? 'Turn off': 'Turn on'}
+          </button>
         </Header>
           <Title />
           <Round {...game}/>
