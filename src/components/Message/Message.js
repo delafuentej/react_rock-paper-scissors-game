@@ -5,11 +5,13 @@ import './Message.css';
 
     
 
-export const Message = ({userSelection, message, playClaps, playBoo,  thumbsUp, thumbsDown})=>{
+export const Message = ({userSelection, message,  thumbsUp, thumbsDown, playClaps, playBoo})=>{
 
 
 
     const { texts } = useContext(LanguageContext);
+    // const { playClaps, playBoo} = useContext(AudioContext)
+  
     console.log('tieMessage',texts.tieMessage)
     console.log('winMessage',texts.winMessage)
     console.log('lostMessage',texts.lostMessage)

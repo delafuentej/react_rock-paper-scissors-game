@@ -18,6 +18,17 @@ import { LanguageContext } from './context/LanguageContext/LanguageContext.js';
 import {ToggleTheme }from './components/ToggleTheme/ToggleTheme.js'
 import { ThemeContext } from './context/ThemeContext/ThemeContext.js'
 
+// import { AudioContext } from './context/AudioContext/AudioContext.js';
+
+import useSound from 'use-sound';
+
+import  audioVictory from './assets/sounds/applause-victory.mp3'; 
+import  audioBoo from './assets/sounds/boo-round-lost.mp3';
+import  audioClaps from './assets/sounds/claps-round-win.mp3';
+import  audioCongrat from './assets/sounds/congratulations-victory.mp3';
+
+
+
 //import imgIcons
 import rockIcon from './assets/img/rock.png';
 import paperIcon from './assets/img/paper.png';
@@ -25,14 +36,6 @@ import scissorsIcon from './assets/img/scissors.png';
 import trophyIcon from './assets/img/trophy.png';
 
 import { BsHandThumbsUp, BsHandThumbsDown } from "react-icons/bs";
-//import sounds
-
-import useSound from 'use-sound';
-
-import aplauseVictory from './assets/sounds/applause-victory.mp3'; 
-import booRoundLost from './assets/sounds/boo-round-lost.mp3';
-import clapsRoundWin from './assets/sounds/claps-round-win.mp3';
-import congratulationsVictory from './assets/sounds/congratulations-victory.mp3';
 
 import './App.css';
 
@@ -43,6 +46,8 @@ function App() {
 //useContext
   const{ texts } = useContext(LanguageContext)
   const { theme } = useContext(ThemeContext);
+  // const { isAudioEnabled, toggleAudio} = useContext(AudioContext);
+
 
    let [ game, setGame ] = useState({
     userSelection:'',
@@ -57,19 +62,18 @@ function App() {
   const { userScore, pcScore}= game;
 
 // state for handling audio
-  const[isAudioEnabled, setIsAudioEnabled]= useState(false)
+ const [isAudioEnabled, setIsAudioEnabled]= useState(true);
 
   //playSounds
-  const [playClaps] = useSound(clapsRoundWin, {soundEnabled: isAudioEnabled});
-  const [playBoo] = useSound(booRoundLost,  {soundEnabled: isAudioEnabled});
-  const [playCongrat] = useSound(congratulationsVictory, {soundEnabled: isAudioEnabled});
-  const [playAplause] = useSound(aplauseVictory,  {soundEnabled: isAudioEnabled});
-  
-  
-  //toggleAudio
-  const toggleAudio=()=>{
-    setIsAudioEnabled(!isAudioEnabled)
-  }
+  const [playClaps] = useSound(audioClaps, {soundEnabled: isAudioEnabled});
+  const [playBoo] = useSound(audioBoo,  {soundEnabled: isAudioEnabled});
+  const [playCongrat] = useSound(audioCongrat, {soundEnabled: isAudioEnabled});
+  const [playAplause] = useSound(audioVictory,  {soundEnabled: isAudioEnabled});
+
+    //toggleAudio
+    const toggleAudio=()=>{
+      setIsAudioEnabled(!isAudioEnabled)
+    }
 
    const selectIcon= (event) =>{
     event.preventDefault();
@@ -139,8 +143,8 @@ function App() {
               <User
                   {...game}
                   trophyIcon={trophyIcon}
-                  playAplause = {playAplause}
-                  playCongrat = {playCongrat}
+                   playAplause = {playAplause}
+                    playCongrat = {playCongrat}
                  
                 
               >
@@ -169,8 +173,8 @@ function App() {
 
               <Message
                 {...game}
-                playClaps={playClaps}
-                playBoo={playBoo}
+                 playClaps={playClaps}
+                 playBoo={playBoo}
                 thumbsUp = {<BsHandThumbsUp />}
                 thumbsDown = {<BsHandThumbsDown />} 
 
@@ -185,7 +189,7 @@ function App() {
                 paperIcon={paperIcon}
                 scissorsIcon={scissorsIcon}
                 trophyIcon={trophyIcon}
-                playBoo={playBoo}
+                 playBoo={playBoo}
               >
               
               </Computer>

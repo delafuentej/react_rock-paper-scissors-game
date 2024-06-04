@@ -1,5 +1,6 @@
 import { useContext } from 'react';
 import { LanguageContext } from '../../context/LanguageContext/LanguageContext';
+// import { AudioContext } from '../../context/AudioContext/AudioContext';
 
 
 //import { settings } from '../../configs/game';
@@ -15,6 +16,7 @@ export const Computer = ({rockIcon, paperIcon, scissorsIcon, trophyIcon, pcScore
    
             const { texts } = useContext(LanguageContext);
             //console.log('computer component texts',texts)
+            // const {playBoo}= useContext(AudioContext);
    
     return(
         <div className='computer-card'>
