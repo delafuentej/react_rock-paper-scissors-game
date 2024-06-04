@@ -1,7 +1,5 @@
 .wrapper{
-    display: grid;
-    grid-template-columns:repeat(2, 150px);
-    gap:20px;
+    display: flex;
     margin-bottom:15px;
-    justify-content: space-around;
+    justify-content: space-between;
 }

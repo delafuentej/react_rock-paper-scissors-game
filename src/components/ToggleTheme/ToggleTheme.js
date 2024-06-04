@@ -7,11 +7,13 @@ export const ToggleTheme=()=>{
     
     return(
 
-        <div className="toggle"
+        <div 
+      
+        className="toggle-theme"
            
         >
-	        <input type="checkbox" id="toggle"  onChange={handleChange} checked={isChecked} />
-	        <label htmlFor="toggle"></label>
+	        <input   type="checkbox" id="toggle-theme"  onChange={handleChange} checked={isChecked} />
+	        <label htmlFor="toggle-theme"></label>
         </div>
 
         )

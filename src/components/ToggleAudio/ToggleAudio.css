@@ -1,25 +1,10 @@
-/* #light-context, #dark-context{
-    margin-right:0.15rem;
-}
-.theme-radio{
-    display:flex;
-}
-.label-light-context {
-    margin-right: 1rem;
-}
-.inline{
-    display: inline;
-    
-} */
-
-
- .toggle-theme input[type=checkbox] {
+.toggle-audio input[type=checkbox] {
 	display: none;
    
 
 }
 
- .toggle-theme label {
+.toggle-audio label {
   
 	
     border: 1px solid #ccc;
@@ -33,10 +18,10 @@
 	position: relative;
 	background-image: 
 		linear-gradient(to right, rgba(0, 0, 0, 0.496), rgba(0, 0, 0, 0.5)), 
-		url('../../assets/img/sun.png'),
+		url('../../assets/img/turn-on-small.png'),
 
 		linear-gradient(to left, rgba(53, 45, 45, 0.87), rgba(243, 202, 202, 0.804)), 
-        url('../../assets/img/moon2.png');
+        url('../../assets/img/turn-off-big.png');
 
 	background-size: 50% auto, 50% auto; /* Cada imagen ocupa el 50% del ancho del contenedor */
     background-repeat: no-repeat; /* Evita que las imágenes se repitan */
@@ -45,7 +30,7 @@
 }
 
 
-.toggle-theme label::after {
+ .toggle-audio label::after {
 	background-color:#3983d7;
 	background: no-repeat url('../../assets/img/moon2.png') auto;
 	border-radius: 50%;
@@ -64,12 +49,13 @@
 }
 
 
- .toggle-theme input[type=checkbox]:checked ~ label {
+.toggle-audio input[type=checkbox]:checked ~ label {
 	background-color: #00a0fced;
 	border-color: #006fc9b4;
    
 }
- .toggle-theme input[type=checkbox]:checked ~ label::after {
+
+ .toggle-audio input[type=checkbox]:checked ~ label::after {
 	background-color: #0054B0;
 	transform: translateX(40px);
     background-size: cover;

@@ -18,7 +18,10 @@ import { LanguageContext } from './context/LanguageContext/LanguageContext.js';
 import {ToggleTheme }from './components/ToggleTheme/ToggleTheme.js'
 import { ThemeContext } from './context/ThemeContext/ThemeContext.js'
 
+import { ToggleAudio } from './components/ToggleAudio/ToggleAudio.js';
+
 // import { AudioContext } from './context/AudioContext/AudioContext.js';
+
 
 import useSound from 'use-sound';
 
@@ -62,7 +65,9 @@ function App() {
   const { userScore, pcScore}= game;
 
 // state for handling audio
- const [isAudioEnabled, setIsAudioEnabled]= useState(true);
+ const [isAudioEnabled, setIsAudioEnabled]= useState(false);
+ const [isAudioChecked, setIsAudioChecked ]= useState(false);
+
 
   //playSounds
   const [playClaps] = useSound(audioClaps, {soundEnabled: isAudioEnabled});
@@ -70,9 +75,15 @@ function App() {
   const [playCongrat] = useSound(audioCongrat, {soundEnabled: isAudioEnabled});
   const [playAplause] = useSound(audioVictory,  {soundEnabled: isAudioEnabled});
 
-    //toggleAudio
-    const toggleAudio=()=>{
-      setIsAudioEnabled(!isAudioEnabled)
+    //handleChangeAudio
+    const handleChangeAudio=(e)=>{
+      const audioChecked= e.target.checked;
+      console.log('audioChecked', audioChecked)
+     
+      setIsAudioChecked(audioChecked);
+      setIsAudioEnabled(audioChecked);
+       console.log('audioChecked', isAudioChecked)
+      console.log('isAudioEnabled', isAudioEnabled)
     }
 
    const selectIcon= (event) =>{
@@ -129,12 +140,18 @@ function App() {
      
         <Header>
           <LanguagesCustomSelect />
-          <ToggleTheme />
-          <button
+          <ToggleTheme 
+           
+          />
+          <ToggleAudio 
+             handleChangeAudio={handleChangeAudio}
+             isAudioChecked={isAudioChecked}
+          />
+          {/* <button
             onClick={toggleAudio}
           >
             {isAudioEnabled ? 'Turn off': 'Turn on'}
-          </button>
+          </button> */}
         </Header>
           <Title />
           <Round {...game}/>

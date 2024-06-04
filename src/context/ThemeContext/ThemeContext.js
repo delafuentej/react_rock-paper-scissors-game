@@ -13,6 +13,7 @@ export const ThemeProvider= ({ children })=>{
     const handleChange= (e) =>{
     
        const checked= e.target.checked;
+       console.log('checked',checked)
        setIsChecked(checked);
        setTheme( checked ? 'light' : 'dark');
       
