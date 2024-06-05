@@ -35,8 +35,9 @@
 		linear-gradient(to right, rgba(0, 0, 0, 0.496), rgba(0, 0, 0, 0.5)), 
 		url('../../assets/img/sun.png'),
 
-		linear-gradient(to left, rgba(53, 45, 45, 0.87), rgba(243, 202, 202, 0.804)), 
-        url('../../assets/img/moon2.png');
+		url('../../assets/img/moon3.png'),
+		linear-gradient(to left, rgba(53, 45, 45, 0.87), rgba(243, 202, 202, 0.804));
+       
 
 	background-size: 50% auto, 50% auto; /* Cada imagen ocupa el 50% del ancho del contenedor */
     background-repeat: no-repeat; /* Evita que las imágenes se repitan */
@@ -47,7 +48,6 @@
 
 .toggle-theme label::after {
 	background-color:#3983d7;
-	background: no-repeat url('../../assets/img/moon2.png') auto;
 	border-radius: 50%;
 	content: ' ';
 	cursor: pointer;
