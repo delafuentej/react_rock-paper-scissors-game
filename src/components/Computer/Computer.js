@@ -17,6 +17,8 @@ export const Computer = ({rockIcon, paperIcon, scissorsIcon, trophyIcon, pcScore
             const { texts } = useContext(LanguageContext);
             //console.log('computer component texts',texts)
             // const {playBoo}= useContext(AudioContext);
+
+      
    
     return(
         <div className='computer-card'>

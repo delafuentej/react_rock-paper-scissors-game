@@ -3,7 +3,7 @@
 import './ToggleAudio.css';
 
 export const ToggleAudio=({handleChangeAudio, isAudioChecked })=>{
-   console.log('isAudioChecked',isAudioChecked)
+//    console.log('isAudioChecked',isAudioChecked)
     
     return(
 

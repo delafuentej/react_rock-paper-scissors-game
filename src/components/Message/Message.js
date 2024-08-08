@@ -12,9 +12,9 @@ export const Message = ({userSelection, message,  thumbsUp, thumbsDown, playClap
     const { texts } = useContext(LanguageContext);
     // const { playClaps, playBoo} = useContext(AudioContext)
   
-    console.log('tieMessage',texts.tieMessage)
-    console.log('winMessage',texts.winMessage)
-    console.log('lostMessage',texts.lostMessage)
+    // console.log('tieMessage',texts.tieMessage)
+    // console.log('winMessage',texts.winMessage)
+    // console.log('lostMessage',texts.lostMessage)
 
    
     return(

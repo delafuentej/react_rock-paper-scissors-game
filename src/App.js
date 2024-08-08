@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 
 import { Header } from './components/Header/Header.js';
 import { Title } from './components/Title/Title.js';
@@ -13,7 +13,7 @@ import { Computer } from './components/Computer/Computer.js';
 import { Reset } from './components/Reset/Reset.js';
 
 import { LanguagesCustomSelect } from './components/LanguagesCustomSelect/LanguagesCustomSelect.js';
-import { LanguageContext } from './context/LanguageContext/LanguageContext.js';
+import { LanguageContext} from './context/LanguageContext/LanguageContext.js';
 
 import {ToggleTheme }from './components/ToggleTheme/ToggleTheme.js'
 import { ThemeContext } from './context/ThemeContext/ThemeContext.js'
@@ -48,6 +48,7 @@ function App() {
  
 //useContext
   const{ texts } = useContext(LanguageContext)
+
   const { theme } = useContext(ThemeContext);
   // const { isAudioEnabled, toggleAudio} = useContext(AudioContext);
 
@@ -62,7 +63,7 @@ function App() {
   });
 
 
-  const { userScore, pcScore}= game;
+  const { userScore, pcScore, message}= game;
 
 // state for handling audio
  const [isAudioEnabled, setIsAudioEnabled]= useState(false);
@@ -85,6 +86,57 @@ function App() {
        console.log('audioChecked', isAudioChecked)
       console.log('isAudioEnabled', isAudioEnabled)
     }
+
+    useEffect(() => {
+      const options = [texts.rock, texts.paper, texts.scissors];
+     
+     
+      if (game.pcSelection && !options.includes(game.pcSelection)) {
+          // Si pcSelection no coincide con el nuevo idioma, lo actualizamos
+          const newPcSelection = options[Math.floor(Math.random() * options.length)];
+          setGame(prevState => ({
+              ...prevState,
+              pcSelection: newPcSelection
+          }));
+      }
+
+      if (game.userSelection && !options.includes(game.userSelection)) {
+        const newUserSelection = options.find(option => {
+          console.log('newUserSelection',newUserSelection)
+            return option === game.userSelection;
+        }) || '';
+        
+        setGame(prevState => ({
+            ...prevState,
+            userSelection: newUserSelection
+        }));
+    }
+  }, [texts, game.pcSelection, game.userSelection]); 
+
+ 
+
+
+
+
+  // useEffect(()=>{
+  //   let newMessage = game.message;
+  //   if (game.message) {
+  //     if (game.message === texts.winMessage || game.message === texts.tieMessage || game.message === texts.lostMessage) {
+  //       newMessage = texts[Object.keys(texts).find(key => texts[key] === game.message)];
+  //   }
+  // }
+
+
+  //   if (newMessage !== game.message) {
+  //       setGame(prevState => ({
+  //           ...prevState,
+  //           message: newMessage
+  //       }));
+  //   }
+  // },[game.message])
+  
+  // Se ejecuta cada vez que texts cambia
+
 
    const selectIcon= (event) =>{
     event.preventDefault();
@@ -136,6 +188,7 @@ function App() {
   };
 
   return (
+   
     <div className= {theme}>
      
         <Header>
@@ -221,6 +274,7 @@ function App() {
           </Playground>
      
         </div>
+       
   );
 }
 

@@ -7,13 +7,13 @@ export const ThemeProvider= ({ children })=>{
     const [theme, setTheme ]= useState('dark');
     const [isChecked , setIsChecked]= useState(false);
    
-    console.log('theme', theme)
-    console.log('setTheme', setTheme)
+    // console.log('theme', theme)
+    // console.log('setTheme', setTheme)
 
     const handleChange= (e) =>{
     
        const checked= e.target.checked;
-       console.log('checked',checked)
+    //    console.log('checked',checked)
        setIsChecked(checked);
        setTheme( checked ? 'light' : 'dark');
       

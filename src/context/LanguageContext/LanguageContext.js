@@ -98,18 +98,25 @@ const options = [
 ]
 
 
-export const LanguageProvider=({children})=>{
+export const LanguageProvider=({children, onLanguageChange})=>{
     const [language, setLanguage] = useState(initialLanguage);
-    const [texts, setTexts] = useState(translations[language]);
-    const [selectedLanguage, setSelectedLanguage] = useState(options[0])
+    const [texts, setTexts] = useState(translations[initialLanguage]);
+    const [selectedLanguage, setSelectedLanguage] = useState(options.find(opt => opt.value === initialLanguage));
     
 
 
     const handleLanguage = (option)=>{
     
         setSelectedLanguage(option);
-        // setLanguage(setSelectedLanguage(option.value));
-        setTexts(translations[option.value])
+         setLanguage(option.value);
+         const newTexts = translations[option.value];
+        setTexts(newTexts);
+
+        if(onLanguageChange){
+            onLanguageChange(newTexts);
+        }
+        
+        console.log('language',language, 'selectedLanguage',selectedLanguage);
     }
    
    
