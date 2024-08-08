@@ -9,7 +9,7 @@
     background-color: rgba(64, 228, 19, 0.357);
     box-shadow: 10px 5px 5px rgba(128, 128, 128, 0.601);
     padding: 0.6rem;
-    animation: spin 4000ms infinite linear;
+    /* animation: spin 4000ms infinite linear; */
     transform: scale(1.1);
 }
 
@@ -17,6 +17,6 @@
     from {
         transform: rotate(0deg);
     }to{
-        transform: rotate(360deg);
+        transform: rotate(180deg);
     }
 }

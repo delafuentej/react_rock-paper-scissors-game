@@ -108,7 +108,7 @@ export const LanguageProvider=({children})=>{
     const handleLanguage = (option)=>{
     
         setSelectedLanguage(option);
-        //setLanguage(setSelectedLanguage(option.value));
+        // setLanguage(setSelectedLanguage(option.value));
         setTexts(translations[option.value])
     }
    
