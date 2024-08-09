@@ -130,26 +130,33 @@ function App() {
 }, [texts, message]);
 
 
+useEffect(() => {
+  const optionsMap = {
+    [translations['es'].rock]: texts.rock,
+    [translations['es'].paper]: texts.paper,
+    [translations['es'].scissors]: texts.scissors,
+    [translations['en'].rock]: texts.rock,
+    [translations['en'].paper]: texts.paper,
+    [translations['en'].scissors]: texts.scissors,
+    [translations['de'].rock]: texts.rock,
+    [translations['de'].paper]: texts.paper,
+    [translations['de'].scissors]: texts.scissors,
+  };
 
-
-  // useEffect(()=>{
-  //   let newMessage = game.message;
-  //   if (game.message) {
-  //     if (game.message === texts.winMessage || game.message === texts.tieMessage || game.message === texts.lostMessage) {
-  //       newMessage = texts[Object.keys(texts).find(key => texts[key] === game.message)];
-  //   }
-  // }
-
-
-  //   if (newMessage !== game.message) {
-  //       setGame(prevState => ({
-  //           ...prevState,
-  //           message: newMessage
-  //       }));
-  //   }
-  // },[game.message])
-  
-  // Se ejecuta cada vez que texts cambia
+  // If the current userSelection matches one of the old translations, update it
+  if (game.userSelection in optionsMap) {
+    setGame(prevState => ({
+      ...prevState,
+      userSelection: optionsMap[game.userSelection],
+    }));
+  } else {
+    // If it doesn't match, you might want to clear it or handle it accordingly
+    setGame(prevState => ({
+      ...prevState,
+      userSelection: '', // or handle differently if needed
+    }));
+  }
+}, [texts, game.userSelection, translations]);
 
 
    const selectIcon= (event) =>{
@@ -191,37 +198,6 @@ function App() {
 }
 };
 
-
-  //   (userSelection === pcSelection) ? setGame({
-  //     ...(game.message = texts.tieMessage),
-  //   }) 
-  //   :
-  //   ((userSelection === texts.rock && pcSelection === texts.scissors) ||
-  //   (userSelection === texts.paper && pcSelection === texts.rock) ||
-  //   (userSelection === texts.scissors && pcSelection === texts.paper) )
-  //   ? 
-  //   setGame({
-  //     ...(game.userScore += 1),
-  //     ...(game.message =` ${texts.winMessage}`),
-  //   })
-  //   :
-  //   setGame({
-  //     ...(game.pcScore += 1),
-  //     ...(game.message = `${texts.lostMessage}`),
-  //     // ...(game.pcScore += 1),
-  //     // ...(game.message = `${texts.lostMessage}`),
-     
-      
-  //   });
-
-  //    setGame({
-  //     ...game,
-  //     round: (game.round += 1),
-  //     userSelection,
-  //     pcSelection,
-  //   })
-  //   } 
-  // } 
 
   const resetGame= () =>{
     setGame({
