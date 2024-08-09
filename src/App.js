@@ -47,7 +47,7 @@ function App() {
   
  
 //useContext
-  const{ texts } = useContext(LanguageContext)
+  const{ texts, translations } = useContext(LanguageContext)
 
   const { theme } = useContext(ThemeContext);
   // const { isAudioEnabled, toggleAudio} = useContext(AudioContext);
@@ -79,20 +79,22 @@ function App() {
     //handleChangeAudio
     const handleChangeAudio=(e)=>{
       const audioChecked= e.target.checked;
-      console.log('audioChecked', audioChecked)
+      // console.log('audioChecked', audioChecked)
      
       setIsAudioChecked(audioChecked);
       setIsAudioEnabled(audioChecked);
-       console.log('audioChecked', isAudioChecked)
-      console.log('isAudioEnabled', isAudioEnabled)
+      //  console.log('audioChecked', isAudioChecked)
+      // console.log('isAudioEnabled', isAudioEnabled)
     }
 
+    // useEffect to update the pcSelection when the language is changed
+    //to solve the problem with the icons in the Computer Component
     useEffect(() => {
       const options = [texts.rock, texts.paper, texts.scissors];
      
      
       if (game.pcSelection && !options.includes(game.pcSelection)) {
-          // Si pcSelection no coincide con el nuevo idioma, lo actualizamos
+          // If pcSelection does not match the new language, we update it.
           const newPcSelection = options[Math.floor(Math.random() * options.length)];
           setGame(prevState => ({
               ...prevState,
@@ -100,20 +102,32 @@ function App() {
           }));
       }
 
-      if (game.userSelection && !options.includes(game.userSelection)) {
-        const newUserSelection = options.find(option => {
-          console.log('newUserSelection',newUserSelection)
-            return option === game.userSelection;
-        }) || '';
-        
-        setGame(prevState => ({
-            ...prevState,
-            userSelection: newUserSelection
-        }));
-    }
-  }, [texts, game.pcSelection, game.userSelection]); 
+     
+  }, [texts, game.pcSelection]); 
 
- 
+ // useEffect to update the message when the language is changed.
+ useEffect(() => {
+  //  Mapping of messages from the old state to the new language
+  const messageMap = {
+    [translations['es'].winMessage]: texts.winMessage,
+    [translations['es'].tieMessage]: texts.tieMessage,
+    [translations['es'].lostMessage]: texts.lostMessage,
+    [translations['en'].winMessage]: texts.winMessage,
+    [translations['en'].tieMessage]: texts.tieMessage,
+    [translations['en'].lostMessage]: texts.lostMessage,
+    [translations['de'].winMessage]: texts.winMessage,
+    [translations['de'].tieMessage]: texts.tieMessage,
+    [translations['de'].lostMessage]: texts.lostMessage,
+  };
+
+  // If the current message is in the mapping, it is updated.
+  if (message in messageMap) {
+    setGame(prevState => ({
+      ...prevState,
+      message: messageMap[message],
+    }));
+  }
+}, [texts, message]);
 
 
 
@@ -147,34 +161,67 @@ function App() {
       const pcSelection= options[index];
    // console.log('pcSelection', pcSelection);
 
-    (userSelection === pcSelection) ? setGame({
-      ...(game.message = texts.tieMessage),
-    }) 
-    :
-    ((userSelection === texts.rock && pcSelection === texts.scissors) ||
+   let newMessage = '';
+   let newUserScore = userScore;
+   let newPcScore = pcScore;
+
+   if (userSelection === pcSelection) {
+    newMessage = texts.tieMessage;
+  } else if (
+    (userSelection === texts.rock && pcSelection === texts.scissors) ||
     (userSelection === texts.paper && pcSelection === texts.rock) ||
-    (userSelection === texts.scissors && pcSelection === texts.paper) )
-    ? 
-    setGame({
-      ...(game.userScore += 1),
-      ...(game.message =` ${texts.winMessage}`),
-    })
-    :
-    setGame({
-      ...(game.pcScore += 1),
-      ...(game.message = `${texts.lostMessage}`),
+    (userSelection === texts.scissors && pcSelection === texts.paper)
+  ) {
+    newMessage = texts.winMessage;
+    newUserScore += 1;
+  } else {
+    newMessage = texts.lostMessage;
+    newPcScore += 1;
+  }
+
+  setGame(prevState => ({
+    ...prevState,
+    userSelection,
+    pcSelection,
+    round: prevState.round + 1,
+    userScore: newUserScore,
+    pcScore: newPcScore,
+    message: newMessage
+  }));
+}
+};
+
+
+  //   (userSelection === pcSelection) ? setGame({
+  //     ...(game.message = texts.tieMessage),
+  //   }) 
+  //   :
+  //   ((userSelection === texts.rock && pcSelection === texts.scissors) ||
+  //   (userSelection === texts.paper && pcSelection === texts.rock) ||
+  //   (userSelection === texts.scissors && pcSelection === texts.paper) )
+  //   ? 
+  //   setGame({
+  //     ...(game.userScore += 1),
+  //     ...(game.message =` ${texts.winMessage}`),
+  //   })
+  //   :
+  //   setGame({
+  //     ...(game.pcScore += 1),
+  //     ...(game.message = `${texts.lostMessage}`),
+  //     // ...(game.pcScore += 1),
+  //     // ...(game.message = `${texts.lostMessage}`),
      
       
-    });
+  //   });
 
-     setGame({
-      ...game,
-      round: (game.round += 1),
-      userSelection,
-      pcSelection
-    })
-    } 
-  } 
+  //    setGame({
+  //     ...game,
+  //     round: (game.round += 1),
+  //     userSelection,
+  //     pcSelection,
+  //   })
+  //   } 
+  // } 
 
   const resetGame= () =>{
     setGame({
@@ -190,6 +237,7 @@ function App() {
   return (
    
     <div className= {theme}>
+    <div className='App'>
      
         <Header>
           <LanguagesCustomSelect />
@@ -272,7 +320,7 @@ function App() {
               onClick= {resetGame}
             />
           </Playground>
-     
+          </div>
         </div>
        
   );

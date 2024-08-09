@@ -123,7 +123,7 @@ export const LanguageProvider=({children, onLanguageChange})=>{
 
 
 
-    const data ={ texts,  handleLanguage, options, selectedLanguage};
+    const data ={ texts,  handleLanguage, options, selectedLanguage, translations};
 
 
     return(
