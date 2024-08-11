@@ -34,8 +34,8 @@
   @media only screen and (min-width: 601px) and (max-width: 900px) {
   
     .choice-icon {
-      width: 120px;
-      margin: 10px 0;
+      width: 100px;
+      
     }
 
   }
@@ -43,8 +43,8 @@
     
   
     .choice-icon {
-      width: 80px;
-      margin: 15px 0;
+      width: 130px;
+      
     }
   
   }

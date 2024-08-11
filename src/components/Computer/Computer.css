@@ -12,7 +12,7 @@
         
 }
 .computer-name{
-        margin-bottom: 100px;
+        margin-bottom:10px;
 }
 .wait-msg{
         margin-top: 10px;
@@ -22,32 +22,32 @@
 
 @media only screen and (max-width: 600px) {
  
-        .computer-name, .wait-msg, .img-container h3 {
+        .computer-name, .wait-msg, .img-container h3, h3, .win-computer-msg{
           font-size: 1.5rem;
         }
-        .img-icon{
-                font-size: 1rem; 
+        .img-icon, .win-computer-trophy{
+               width:100px;
         }
     }
     
     @media only screen and (min-width: 601px) and (max-width: 900px) {
         
       
-        .computer-name, .wait-msg, .img-container h3{
+        .computer-name, .wait-msg, .img-container h3, h3,  .win-computer-msg{
           font-size: 2rem;
         }
-        .img-icon{
-        font-size: 2rem;
+        .img-icon, .win-computer-trophy{
+                width:135px;
         }
       }
     
       @media only screen and (min-width: 901px) {
     
-        .computer-name, .wait-msg, .img-container h3 {
+        .computer-name, .wait-msg, .img-container h3, h3,  .win-computer-msg{
           font-size: 2.5rem;
         }
-        .img-icon{
-                
+        .img-icon, .win-computer-trophy{
+                width:170px;
         }
       }
 

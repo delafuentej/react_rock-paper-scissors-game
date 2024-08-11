@@ -23,13 +23,13 @@ export const Computer = ({rockIcon, paperIcon, scissorsIcon, trophyIcon, pcScore
    
     return(
         <div className='computer-card'>
-            <h2 className='co'>
+            <h2 className='computer-name'>
                 {texts.pcName}
             </h2>
             
                {(pcScore < texts.winTarget) ? 
                     (userSelection === '') ? (
-                <>  
+                <div className='hourglass'>  
                     <Hourglass
                     visible={true}
                     height="70"
@@ -41,7 +41,7 @@ export const Computer = ({rockIcon, paperIcon, scissorsIcon, trophyIcon, pcScore
                 />
                     <h3 className="wait-msg">{texts.waitingMessage}</h3>
                     
-                </>)
+                </div>)
                 :
                 (
                     <div className='img-container'>
@@ -70,7 +70,7 @@ export const Computer = ({rockIcon, paperIcon, scissorsIcon, trophyIcon, pcScore
                         src={trophyIcon}
                         alt='trophy'
                     />
-                    <h3>{texts.victoryMessage}
+                    <h3 className='win-computer-msg'>{texts.victoryMessage}
                         {playBoo()}
                     </h3>
                 </div>
