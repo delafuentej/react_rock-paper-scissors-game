@@ -17,11 +17,11 @@
 	height: 40px;
 	position: relative;
 	background-image: 
-		linear-gradient(to right, rgba(0, 0, 0, 0.496), rgba(0, 0, 0, 0.5)), 
-		url('../../assets/img/sound3.png'),
-
+		linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), 
 		url('../../assets/img/mute2.png'),
-		linear-gradient(to left,  rgba(0, 0, 0, 0.496), rgba(0, 0, 0, 0.5));
+
+		url('../../assets/img/sound3.png'),
+		linear-gradient(to left,  rgba(255, 255, 255, 0), rgba(255, 255, 255, 0));
         
 
 	background-size: 50% auto, 50% auto; /* Cada imagen ocupa el 50% del ancho del contenedor */

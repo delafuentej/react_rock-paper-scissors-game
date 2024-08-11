@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import React, { useState, useContext, useEffect } from 'react';
 
 import { Header } from './components/Header/Header.js';
@@ -48,7 +49,8 @@ function App() {
   
  
 //useContext
-  const{ texts, translations, setLanguageChanged } = useContext(LanguageContext)
+  const{ texts, translations, setLanguageChanged} = useContext(LanguageContext);
+
   const { theme } = useContext(ThemeContext);
   // const { isAudioEnabled, toggleAudio} = useContext(AudioContext);
 
@@ -67,25 +69,29 @@ function App() {
 
 // state for handling audio
  const [isAudioEnabled, setIsAudioEnabled]= useState(false);
- const [isAudioChecked, setIsAudioChecked ]= useState(false);
+//  const [isAudioChecked, setIsAudioChecked ]= useState(false);
+
+
 
 
   //playSounds
-  const [playClaps] = useSound(audioClaps, {soundEnabled: isAudioEnabled});
-  const [playBoo] = useSound(audioBoo,  {soundEnabled: isAudioEnabled});
-  const [playCongrat] = useSound(audioCongrat, {soundEnabled: isAudioEnabled});
-  const [playAplause] = useSound(audioVictory,  {soundEnabled: isAudioEnabled});
+  const [playClaps] =  useSound(audioClaps, {soundEnabled: !isAudioEnabled});
+  const [playBoo] =  useSound(audioBoo,  {soundEnabled: !isAudioEnabled});
+  const [playCongrat] =   useSound(audioCongrat, {soundEnabled: !isAudioEnabled});
+  const [playAplause] =  useSound(audioVictory,  {soundEnabled: !isAudioEnabled});
 
     //handleChangeAudio
     const handleChangeAudio=(e)=>{
-      const audioChecked= e.target.checked;
+      const audioEnabled = e.target.checked;
       // console.log('audioChecked', audioChecked)
-     
-      setIsAudioChecked(audioChecked);
-      setIsAudioEnabled(audioChecked);
-      //  console.log('audioChecked', isAudioChecked)
-      // console.log('isAudioEnabled', isAudioEnabled)
+  
+       setIsAudioEnabled(audioEnabled);
+      // console.log('isAudioChecked',isAudioChecked)
+      console.log('isAudioEnabled',isAudioEnabled)
+      
     }
+
+ 
 
     // useEffect to update the pcSelection when the language is changed
     //to solve the problem with the icons in the Computer Component
@@ -196,6 +202,8 @@ useEffect(() => {
     message: newMessage
   }));
   setLanguageChanged(false);
+  // Solo reproducir el sonido si languageChanged es falso
+ 
 }
 };
 
@@ -224,7 +232,7 @@ useEffect(() => {
           />
           <ToggleAudio 
              handleChangeAudio={handleChangeAudio}
-             isAudioChecked={isAudioChecked}
+             isAudioEnabled={isAudioEnabled}
           />
           {/* <button
             onClick={toggleAudio}
@@ -241,6 +249,7 @@ useEffect(() => {
                   trophyIcon={trophyIcon}
                    playAplause = {playAplause}
                     playCongrat = {playCongrat}
+                  isAudioEnabled= {isAudioEnabled}
                  
                 
               >
@@ -273,7 +282,7 @@ useEffect(() => {
                  playBoo={playBoo}
                 thumbsUp = {<BsHandThumbsUp />}
                 thumbsDown = {<BsHandThumbsDown />} 
-
+                isAudioEnabled = {isAudioEnabled}
               
                 
               />
@@ -286,6 +295,7 @@ useEffect(() => {
                 scissorsIcon={scissorsIcon}
                 trophyIcon={trophyIcon}
                  playBoo={playBoo}
+                 isAudioEnabled={isAudioEnabled}
               >
               
               </Computer>

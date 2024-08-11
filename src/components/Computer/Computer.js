@@ -15,6 +15,7 @@ import './Computer.css';
 export const Computer = ({rockIcon, paperIcon, scissorsIcon, trophyIcon, pcScore, userSelection, pcSelection, playBoo})=>{
    
             const { texts } = useContext(LanguageContext);
+            
             //console.log('computer component texts',texts)
             // const {playBoo}= useContext(AudioContext);
 

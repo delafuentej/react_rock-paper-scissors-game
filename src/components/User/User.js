@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { LanguageContext } from '../../context/LanguageContext/LanguageContext';
+import { LanguageContext, LanguageProvider } from '../../context/LanguageContext/LanguageContext';
 // import { AudioContext } from '../../context/AudioContext/AudioContext';
 import { ConfettiComponent } from '../Confetti/Confetti';
 
@@ -7,10 +7,11 @@ import { ConfettiComponent } from '../Confetti/Confetti';
 
 import './User.css';
 
-export const User = ({ userScore, userSelection, trophyIcon, children, playAplause, playCongrat})=>{
+export const User = ({ userScore, userSelection, trophyIcon, children, playAplause, playCongrat })=>{
 
 
     const { texts } = useContext(LanguageContext);
+   
     // const { playAplause, playCongrat} = useContext(AudioContext);
 
    

@@ -10,12 +10,11 @@ import './Message.css';
 
 export const Message = ({userSelection, message,  thumbsUp, thumbsDown, playClaps, playBoo})=>{
 
-    console.log('userSelection',userSelection)
-    console.log('message', message)
-    const { texts } = useContext(LanguageContext);
-    const {languageChanged} = useContext(LanguageContext);
-    const {setLanguageChanged} = useContext(LanguageContext);
-    console.log('languageChanged', languageChanged)
+    // console.log('userSelection',userSelection)
+    // console.log('message', message)
+    const { texts, languageChanged, setLanguageChanged } = useContext(LanguageContext);
+
+    // console.log('languageChanged', languageChanged)
     
     const [showThumbs, setShowThumbs] = useState(true);
     
@@ -56,9 +55,9 @@ export const Message = ({userSelection, message,  thumbsUp, thumbsDown, playClap
 
      //  Side-effect management for sound
      useEffect(() => {
-        if (message === lostMessage) {
+        if (message === lostMessage && languageChanged === false) {
             playBoo();
-        } else if (message === winMessage) {
+        } else if (message === winMessage  && languageChanged === false) {
             playClaps();
         }
     }, [message, lostMessage, winMessage, playBoo, playClaps]);
