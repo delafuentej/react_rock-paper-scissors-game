@@ -102,7 +102,9 @@ export const LanguageProvider=({children, onLanguageChange})=>{
     const [language, setLanguage] = useState(initialLanguage);
     const [texts, setTexts] = useState(translations[initialLanguage]);
     const [selectedLanguage, setSelectedLanguage] = useState(options.find(opt => opt.value === initialLanguage));
-    
+    const [languageChanged, setLanguageChanged] = useState(false);
+    // console.log('texts', texts)
+    // console.log('languageChanged',languageChanged)
 
 
     const handleLanguage = (option)=>{
@@ -115,15 +117,16 @@ export const LanguageProvider=({children, onLanguageChange})=>{
         if(onLanguageChange){
             onLanguageChange(newTexts);
         }
-        
+        setLanguageChanged(true);
         console.log('language',language, 'selectedLanguage',selectedLanguage);
     }
+    console.log('languageChanged',languageChanged)
    
    
 
 
 
-    const data ={ texts,  handleLanguage, options, selectedLanguage, translations};
+    const data ={ texts,  handleLanguage, options, selectedLanguage, translations, languageChanged, setLanguageChanged };
 
 
     return(

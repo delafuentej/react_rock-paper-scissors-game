@@ -15,6 +15,7 @@ import { Reset } from './components/Reset/Reset.js';
 import { LanguagesCustomSelect } from './components/LanguagesCustomSelect/LanguagesCustomSelect.js';
 import { LanguageContext} from './context/LanguageContext/LanguageContext.js';
 
+
 import {ToggleTheme }from './components/ToggleTheme/ToggleTheme.js'
 import { ThemeContext } from './context/ThemeContext/ThemeContext.js'
 
@@ -48,7 +49,7 @@ function App() {
  
 //useContext
   const{ texts, translations } = useContext(LanguageContext)
-
+  const {setLanguageChanged} = useContext(LanguageContext);
   const { theme } = useContext(ThemeContext);
   // const { isAudioEnabled, toggleAudio} = useContext(AudioContext);
 
@@ -129,7 +130,7 @@ function App() {
   }
 }, [texts, message]);
 
-
+ // useEffect to update the userSelection when the language is changed.
 useEffect(() => {
   const optionsMap = {
     [translations['es'].rock]: texts.rock,
@@ -207,11 +208,12 @@ useEffect(() => {
       userScore: 0,
       pcScore: 0,
       message:'',
-    })
+    });
+   setLanguageChanged(false);
   };
 
   return (
-   
+
     <div className= {theme}>
     <div className='App'>
      
@@ -298,7 +300,7 @@ useEffect(() => {
           </Playground>
           </div>
         </div>
-       
+      
   );
 }
 
