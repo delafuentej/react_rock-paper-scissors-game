@@ -1,7 +1,8 @@
 .user-card{
+    width: 70%;
     height: 220px;
     padding: 25px 0;
-    background-color: rgba(255,255,255,0.5);
+    /* background-color: rgba(255,255,255,0.5); */
     margin-bottom: 15px;
     border-radius: 10px;
     display:flex;
@@ -10,26 +11,39 @@
     align-items: center;
 
 }
-.user-card h2, .user-card h3{
-    text-align:center;
-    margin:0 0 10px 0;
-}
+
 .choice-grid{
     display:grid;
     grid-template-columns: 1fr 1fr 1fr;
     place-items:center;
-    gap: 1.5em;
+    gap: 2em;
 
 
 }
 .win-user-trophy{
     display:flex;
-
-
 }
 
-.img-icon{
-    display:flex;
-    justify-content: center;
-    align-items: center;
+
+
+@media only screen and (max-width: 600px) {
+ 
+    .user-card h2, .user-card h3 {
+      font-size: 1.5rem;
+    }
 }
+
+@media only screen and (min-width: 601px) and (max-width: 900px) {
+    
+  
+    .user-card h2, .user-card h3 {
+      font-size: 2rem;
+    }
+  }
+
+  @media only screen and (min-width: 901px) {
+
+    .user-card h2, .user-card h3 {
+      font-size: 2.5rem;
+    }
+  }

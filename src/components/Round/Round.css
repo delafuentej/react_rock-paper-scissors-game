@@ -4,3 +4,25 @@
     margin:10px 10px;
     background-color: rgba(255,255,255,0.5);
 }
+
+@media only screen and (max-width: 600px) {
+ 
+    .round h2 {
+      font-size: 1.5rem;
+    }
+}
+
+@media only screen and (min-width: 601px) and (max-width: 900px) {
+    
+  
+    .round h2 {
+      font-size: 2rem;
+    }
+  }
+
+  @media only screen and (min-width: 901px) {
+
+    .round h2 {
+      font-size: 2.5rem;
+    }
+  }

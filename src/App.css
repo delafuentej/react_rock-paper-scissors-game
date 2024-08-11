@@ -11,8 +11,11 @@
 body{
   width: 100vw;
   min-height: 100vh;
-  display: grid;
-  place-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* display: grid; */
+ 
   font-weight: 300;
    font-style: normal;
   font-family: "Jersey 15", sans-serif;
@@ -23,11 +26,12 @@ body{
 }
   
 .App {
-  width: 1000px;
-  min-height: 600px;
+  width: 90vw;
+  max-width: 1000px; /* Mantener el ancho máximo en pantallas grandes */
+  min-height: 80vh;
   padding: 20px;
   text-align: center;
-  border-radius: 50%;
+  border-radius: 1rem;
 }
 
 .dark{
@@ -68,4 +72,58 @@ h1{
 .theme-light{
   background-color: #faf8f8;
   color:#0A2647;
+}
+
+/* Pantallas pequeñas (móviles) */
+@media only screen and (max-width: 600px) {
+  .App {
+    width: 95vw;
+    min-height: 70vh;
+    padding: 15px;
+  }
+
+  /* .icons {
+    width: 50px;
+    margin: 5px 0;
+  } */
+
+  h1 {
+    font-size: 1.5rem;
+  }
+}
+
+/* Pantallas medianas (tablets) */
+@media only screen and (min-width: 601px) and (max-width: 900px) {
+  .App {
+    width: 85vw;
+    min-height: 75vh;
+    padding: 20px;
+  }
+
+  /* .icons {
+    width: 60px;
+    margin: 10px 0;
+  } */
+
+  h1 {
+    font-size: 2rem;
+  }
+}
+
+/* Pantallas grandes (desktops) */
+@media only screen and (min-width: 901px) {
+  .App {
+    width: 70vw;
+    max-width: 1000px;
+    min-height: 80vh;
+  }
+
+  /* .icons {
+    width: 80px;
+    margin: 15px 0;
+  } */
+
+  h1 {
+    font-size: 2.5rem;
+  }
 }

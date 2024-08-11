@@ -12,48 +12,70 @@
 
 @keyframes thicken {
    0% {
-    transform: scale(1);
+    transform: scale(0);
     border: 1px solid rgb(236, 230, 230);
    }
    10%{
-    transform: scale(1.4);
+    transform: scale(0.4);
     border: 1px solid rgb(236, 230, 230);
    }
    20% {
-    transform: scale(1.8);
+    transform: scale(0.8);
     border: 1px solid rgb(236, 230, 230);
    }
    30% {
-    transform: scale(2.2);
+    transform: scale(1.2);
     border: 1px solid rgb(236, 230, 230);
    }
    40% {
-    transform: scale(2.6);
+    transform: scale(1.6);
     border: 1px solid rgb(236, 230, 230);
    }
    50% {
-    transform: scale(3);
+    transform: scale(2);
     border: 2px solid rgb(236, 230, 230);
    }
    60% {
-    transform: scale(3.4);
+    transform: scale(2.4);
     border: 2px solid rgb(236, 230, 230);
    }
    70% {
-    transform: scale(3.8);
+    transform: scale(2.8);
     border: 2px solid rgb(236, 230, 230);
    }
    80% {
-    transform: scale(4.2);
+    transform: scale(3.2);
     border: 2px solid rgb(236, 230, 230);
    }
    90% {
-    transform: scale(4.6);
+    transform: scale(3.6);
     border: 2px solid rgb(236, 230, 230);
    }
    100% {
-    transform: scake(5);
+    transform: scake(4);
     border: 2px solid rgb(236, 230, 230);
 
    }
 }
+
+@media only screen and (max-width: 600px) {
+ 
+    .thumbs {
+      font-size: 1.5rem;
+    }
+}
+
+@media only screen and (min-width: 601px) and (max-width: 900px) {
+    
+  
+    .thumbs {
+      font-size: 2rem;
+    }
+  }
+
+  @media only screen and (min-width: 901px) {
+
+    .thumbs {
+      font-size: 2.5rem;
+    }
+  }

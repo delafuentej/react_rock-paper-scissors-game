@@ -18,3 +18,25 @@
 .display {
     display:block;
 }
+
+@media only screen and (max-width: 600px) {
+ 
+    .message {
+      font-size: 1.5rem;
+    }
+}
+
+@media only screen and (min-width: 601px) and (max-width: 900px) {
+    
+  
+    .message {
+      font-size: 2rem;
+    }
+  }
+
+  @media only screen and (min-width: 901px) {
+
+    .message {
+      font-size: 2.5rem;
+    }
+  }

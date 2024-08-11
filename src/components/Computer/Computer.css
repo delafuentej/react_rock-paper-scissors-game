@@ -1,7 +1,8 @@
 .computer-card{
         height: 220px;
+        width: 90%;
         padding: 25px 0;
-        background-color: #ffffff80;
+        /* background-color: #ffffff80; */
         margin-bottom: 15px;
         border-radius: 10px;
         display: flex;
@@ -10,24 +11,44 @@
         align-items: center;
         
 }
-.computer-card h2, 
-.computer-card h3 {
-        text-align:center;
-        margin:0 0 10px 0;   
+.computer-name{
+        margin-bottom: 100px;
 }
 .wait-msg{
-        text-align: center;
-        margin-top: 20px;
+        margin-top: 10px;
 }
- .img-container{
-        display:grid;
-        
-        
-} */
 
-.img-icon{
-        display: grid;
+
+
+@media only screen and (max-width: 600px) {
+ 
+        .computer-name, .wait-msg, .img-container h3 {
+          font-size: 1.5rem;
+        }
+        .img-icon{
+                font-size: 1rem; 
+        }
+    }
+    
+    @media only screen and (min-width: 601px) and (max-width: 900px) {
         
-}
+      
+        .computer-name, .wait-msg, .img-container h3{
+          font-size: 2rem;
+        }
+        .img-icon{
+        font-size: 2rem;
+        }
+      }
+    
+      @media only screen and (min-width: 901px) {
+    
+        .computer-name, .wait-msg, .img-container h3 {
+          font-size: 2.5rem;
+        }
+        .img-icon{
+                
+        }
+      }
 
 

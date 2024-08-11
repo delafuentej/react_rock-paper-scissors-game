@@ -23,7 +23,7 @@ export const Computer = ({rockIcon, paperIcon, scissorsIcon, trophyIcon, pcScore
    
     return(
         <div className='computer-card'>
-            <h2>
+            <h2 className='co'>
                 {texts.pcName}
             </h2>
             
@@ -32,8 +32,8 @@ export const Computer = ({rockIcon, paperIcon, scissorsIcon, trophyIcon, pcScore
                 <>  
                     <Hourglass
                     visible={true}
-                    height="60"
-                    width="60"
+                    height="70"
+                    width="70"
                     ariaLabel="hourglass-loading"
                     wrapperStyle={{}}
                     wrapperClass="color-ring-wrapper"

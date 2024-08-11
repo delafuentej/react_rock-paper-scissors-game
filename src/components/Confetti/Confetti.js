@@ -1,9 +1,11 @@
 import React from 'react';
 import Confetti from 'react-confetti';
+import './Confetti.css';
 
 export const ConfettiComponent=()=>{
     
     return(
+      <div className='container-confetti'>
         <Confetti
             drawShape={ctx => {
             ctx.beginPath()
@@ -17,5 +19,6 @@ export const ConfettiComponent=()=>{
             ctx.closePath()
           }}
         />
+        </div>
     )
 }
