@@ -39,7 +39,7 @@ export const Message = ({userSelection, message,  thumbsUp, thumbsDown, playClap
             timer = setTimeout(() => {
                 setShowThumbs(false); // Hide thumbs after 3 seconds
             }, 3000);
-        } else if(languageChanged && userSelection !== '' && (message === lostMessage || message === winMessage)){
+        } else if(languageChanged){
             setShowThumbs(false);
             
             

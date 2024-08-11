@@ -48,8 +48,7 @@ function App() {
   
  
 //useContext
-  const{ texts, translations } = useContext(LanguageContext)
-  const {setLanguageChanged} = useContext(LanguageContext);
+  const{ texts, translations, setLanguageChanged } = useContext(LanguageContext)
   const { theme } = useContext(ThemeContext);
   // const { isAudioEnabled, toggleAudio} = useContext(AudioContext);
 
@@ -196,6 +195,7 @@ useEffect(() => {
     pcScore: newPcScore,
     message: newMessage
   }));
+  setLanguageChanged(false);
 }
 };
 
