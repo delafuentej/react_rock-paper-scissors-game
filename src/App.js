@@ -218,6 +218,7 @@ useEffect(() => {
       message:'',
     });
    setLanguageChanged(false);
+   setIsAudioEnabled(isAudioEnabled);
   };
 
   return (
