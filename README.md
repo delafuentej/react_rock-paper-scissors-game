@@ -9,7 +9,7 @@ Here are some screenshots of the Rock, Paper, Scissors application:
 
 ### Screens
 <div style="display: flex; justify-content: space-around;">
-  <img src="src/assets/img/app1.png" alt="Home Screen" width="200"/>
+  <img src="src/assets/img/app1.png" alt="Home Screen" width="1"/>
   <img src="src/assets/img/app2.png" alt="Game in Action 1" width="200"/>
   <img src="src/assets/img/app3.png" alt="Game in Action 2" width="200"/>
 </div>
@@ -28,6 +28,7 @@ Here are some screenshots of the Rock, Paper, Scissors application:
 To get started with the project, clone the repository and install the necessary dependencies:
 
 ```bash
-git clone https://github.com/your-username/rock-paper-scissors.git
-cd rock-paper-scissors
+git clone https://github.com/delafuentej/react_rock-paper-scissors-game.git
+cd react_rock-paper-scissors
 npm install
+npm start
