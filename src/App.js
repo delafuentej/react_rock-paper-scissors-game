@@ -225,22 +225,22 @@ useEffect(() => {
 
     <div className= {theme}>
     <div className='App'>
-     
-        <Header>
-          <LanguagesCustomSelect />
-          <ToggleTheme 
-           
-          />
-          <ToggleAudio 
-             handleChangeAudio={handleChangeAudio}
-             isAudioEnabled={isAudioEnabled}
-          />
-          {/* <button
-            onClick={toggleAudio}
-          >
-            {isAudioEnabled ? 'Turn off': 'Turn on'}
-          </button> */}
-        </Header>
+
+      {(userScore < 5 && pcScore < 5 ) ? (
+         <Header>
+         <LanguagesCustomSelect />
+         <ToggleTheme 
+          
+         />
+         <ToggleAudio 
+            handleChangeAudio={handleChangeAudio}
+            isAudioEnabled={isAudioEnabled}
+         />
+        
+       </Header>
+      ): null}
+       
+      
           <Title />
           <Round {...game}/>
           <Playground>
@@ -284,7 +284,7 @@ useEffect(() => {
                 thumbsUp = {<BsHandThumbsUp />}
                 thumbsDown = {<BsHandThumbsDown />} 
                 isAudioEnabled = {isAudioEnabled}
-              
+                userScore= {userScore}
                 
               />
 

@@ -19,6 +19,7 @@ const translations = {
         userScore: 0,
         pcName: "Computadora",
         winMessage: "Eres el ganador de la ronda!",
+        winMessageGame: "Eres el ganador del juego! Juega de nuevo!",
         initMessageFirst: "Gana quien consiga ",
         initMessageSecond: "victorias! Adelante!",
         tieMessage: "Empate",
@@ -45,6 +46,7 @@ const translations = {
         userScore: 0,
         pcName: "Computer",
         winMessage: "You are the winner of this round!",
+        winMessageGame: "You are the winner of the game! Play again!",
         initMessageFirst: "Win whoever gets ",
         initMessageSecond: "victories! Go ahead!",
         tieMessage: "It is a tie",
@@ -70,6 +72,7 @@ const translations = {
         userScore: 0,
         pcName: "Rechner",
         winMessage: "Sie sind der Gewinner der Runde!",
+        winMessageGame: "Sie sind der Gewinner des Spiels! Spielen Sie weiter!",
         initMessageFirst: "Win whoever gets ",
         initMessageSecond: "Siege erzielt! Weiter so!",
         tieMessage: "Unentschieden",
@@ -107,7 +110,7 @@ export const LanguageProvider=({children, onLanguageChange})=>{
 
 
     const handleLanguage = (option)=>{
-    
+        
         setSelectedLanguage(option);
          setLanguage(option.value);
          const newTexts = translations[option.value];

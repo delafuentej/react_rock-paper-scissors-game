@@ -12,12 +12,6 @@
     font-size:2.5rem;
 }
 
-.hidden {
-    display:none;
-}
-.display {
-    display:block;
-}
 
 @media only screen and (max-width: 600px) {
  

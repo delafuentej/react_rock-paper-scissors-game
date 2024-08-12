@@ -39,9 +39,9 @@
         .img-icon, .win-computer-trophy{
                 width:135px;
         }
-        .computer-card{
-                padding: 125px 0;
-        }
+        /* .computer-card{
+                padding: 100px 0;
+        } */
       }
     
       @media only screen and (min-width: 901px) {
@@ -52,9 +52,9 @@
         .img-icon, .win-computer-trophy{
                 width:150px;
         }
-        .computer-card{
-                padding: 125px 0;
-        }
+        /* .computer-card{
+                padding: 100px 0;
+        } */
       }
 
 

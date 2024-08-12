@@ -25,7 +25,7 @@ export const User = ({ userScore, userSelection, trophyIcon, children, playAplau
                         {children}
                     </div>
                     <h3>
-                        {(userSelection === '') ? `${texts.selectMessage}`: `${texts.userSelectedMessage} ${userSelection}`}
+                        {(userSelection === '') ? `${texts.selectMessage}`: `${texts.userSelectedMessage} ${userSelection.charAt(0).toUpperCase()+ userSelection.slice(1).toLowerCase()}`}
                     </h3>
                 </div>
 

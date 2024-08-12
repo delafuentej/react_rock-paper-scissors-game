@@ -4,9 +4,10 @@ import { LanguageContext } from '../../context/LanguageContext/LanguageContext';
 
 
 //import { settings } from '../../configs/game';
-import { Hourglass } from 'react-loader-spinner';
+
 
 import './Computer.css';
+import HourglassComponent from '../Hourglass/HourglassComponent';
 
 
 
@@ -15,12 +16,7 @@ import './Computer.css';
 export const Computer = ({rockIcon, paperIcon, scissorsIcon, trophyIcon, pcScore, userSelection, pcSelection, playBoo})=>{
    
             const { texts } = useContext(LanguageContext);
-            
-            //console.log('computer component texts',texts)
-            // const {playBoo}= useContext(AudioContext);
 
-      
-   
     return(
         <div className='computer-card'>
             <h2 className='computer-name'>
@@ -30,15 +26,7 @@ export const Computer = ({rockIcon, paperIcon, scissorsIcon, trophyIcon, pcScore
                {(pcScore < texts.winTarget) ? 
                     (userSelection === '') ? (
                 <div className='hourglass'>  
-                    <Hourglass
-                    visible={true}
-                    height="70"
-                    width="70"
-                    ariaLabel="hourglass-loading"
-                    wrapperStyle={{}}
-                    wrapperClass="color-ring-wrapper"
-                    colors={['#0a2647', '#67f806dc']}
-                />
+                   <HourglassComponent />
                     <h3 className="wait-msg">{texts.waitingMessage}</h3>
                     
                 </div>)
@@ -55,7 +43,7 @@ export const Computer = ({rockIcon, paperIcon, scissorsIcon, trophyIcon, pcScore
                         }
                             alt= 'icon'
                         />
-                        <h3>{texts.pcSelectedMessage} {pcSelection}
+                        <h3>{texts.pcSelectedMessage} {pcSelection.charAt(0).toUpperCase()+ pcSelection.slice(1).toLowerCase()}
                         
                         </h3>
                     </div>

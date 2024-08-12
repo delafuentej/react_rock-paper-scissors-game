@@ -8,7 +8,7 @@ import './Message.css';
 
     
 
-export const Message = ({userSelection, message,  thumbsUp, thumbsDown, playClaps, playBoo})=>{
+export const Message = ({userSelection, message,  thumbsUp, thumbsDown, playClaps, playBoo, userScore})=>{
 
     // console.log('userSelection',userSelection)
     // console.log('message', message)
@@ -22,15 +22,14 @@ export const Message = ({userSelection, message,  thumbsUp, thumbsDown, playClap
      //  to store the messages used to display thumbs in independent variables.
      const winMessage = texts.winMessage;
      const lostMessage = texts.lostMessage;
-
-
+     const winMessageGame = texts.winMessageGame;
 
 
     useEffect(()=>{
 
         let timer;
 
-
+       
         if (!languageChanged && userSelection !== '' && (message === lostMessage || message === winMessage)) {
            
             setShowThumbs(true);
@@ -68,8 +67,8 @@ export const Message = ({userSelection, message,  thumbsUp, thumbsDown, playClap
     return(
         <div className='msg-container'>
         <h3 className="message">
-           {(userSelection === '') ? 'VS' : message}
-            {/* {(message === texts.lostMessage) ? playBoo() : (message === texts.tieMessage) ?  "": playClaps()} */}
+           {(userScore === 5) ? winMessageGame :(userSelection === '') ? 'VS' : message}
+         
         </h3> 
 
         <div>
