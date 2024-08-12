@@ -9,9 +9,9 @@ Here are some screenshots of the Rock, Paper, Scissors application:
 
 ### Screens
 <div style="display: flex; justify-content: space-around;">
-  <img src="src/assets/img/app1.png" alt="Home Screen" width="150"/>
-  <img src="src/assets/img/app2.png" alt="Game in Action 1" width="150"/>
-  <img src="src/assets/img/app3.png" alt="Game in Action 2" width="150"/>
+  <img src="src/assets/img/app1.png" alt="Home Screen" width="200"/>
+  <img src="src/assets/img/app2.png" alt="Game in Action 1" width="200"/>
+  <img src="src/assets/img/app3.png" alt="Game in Action 2" width="200"/>
 </div>
 
 ## Main Features
