@@ -20,7 +20,7 @@ export const ConfettiComponent=()=>{
               const y = (0.2 + (1.5 * angle)) * Math.sin(angle)
               ctx.lineTo(x, y)
             }
-            ctx.stroke()
+             ctx.stroke()
             ctx.closePath()
           }}
         />

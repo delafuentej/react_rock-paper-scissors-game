@@ -70,11 +70,10 @@ function App() {
 
 // state for handling audio
  const [isAudioEnabled, setIsAudioEnabled]= useState(false);
-//  const [isAudioChecked, setIsAudioChecked ]= useState(false);
 
 // animation texts
 const[ animationClass, setAnimationClass] = useState('');
- console.log('XXXanimationClass', animationClass)
+
 
  // Actualiza los textos con animación
  useEffect(() => {
@@ -108,12 +107,7 @@ const[ animationClass, setAnimationClass] = useState('');
     //handleChangeAudio
     const handleChangeAudio=(e)=>{
       const audioEnabled = e.target.checked;
-      // console.log('audioChecked', audioChecked)
-  
        setIsAudioEnabled(audioEnabled);
-      // console.log('isAudioChecked',isAudioChecked)
-      console.log('isAudioEnabled',isAudioEnabled)
-      
     }
 
  

@@ -31,14 +31,14 @@ export const User = ({ userScore, userSelection, trophyIcon, children, playAplau
 
                ):
                (
-                <div>
+                <div className='user-card'>
                     <img
                         className= "win-user-trophy"
                         src={trophyIcon}
                         alt='trophy'
                        
                     />
-                    <h3>{texts.victoryMessage}
+                    <h3 >{texts.victoryMessage}
                        {playCongrat()}
                         {playAplause()}
                     

@@ -8,9 +8,6 @@ export const ThemeProvider= ({ children })=>{
     const [theme, setTheme ]= useState(storedTheme);
     const [isChecked , setIsChecked]= useState(storedTheme === 'light');
     const [themeChanged,  setThemeChanged] = useState(false);
-   
-     console.log('theme', theme)
-    // console.log('setTheme', setTheme)
 
     const handleChange= (e) =>{
     
