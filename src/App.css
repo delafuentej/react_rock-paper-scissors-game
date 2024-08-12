@@ -73,6 +73,158 @@ h1{
   background-color: #faf8f8;
   color:#0A2647;
 }
+/* animations language change */
+
+@keyframes fadeOutScaleDown {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.95); /* Reducimos un poco el tamaño */
+  }
+}
+
+@keyframes fadeInScaleUp {
+  0% {
+    opacity: 0;
+    transform: scale(1.05); /* Comienza un poco más grande */
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1); /* Vuelve al tamaño original pero sigue semi transparente */
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1); /* Tamaño y opacidad originales */
+  }
+}
+
+.fade-out-scale-down {
+  animation: fadeOutScaleDown 0.6s ease-in forwards;
+}
+
+.fade-in-scale-up {
+  animation: fadeInScaleUp 0.8s ease-out forwards;
+  animation-delay: 0.2s; /* Añadimos un pequeño retraso */
+}
+.slide-out-left {
+  animation: slideOutLeft 1s forwards;
+}
+
+.slide-in-right {
+  animation: slideInRight 1s forwards;
+}
+
+@keyframes slideOutLeft {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+
+.fade-out {
+  animation: fadeOut 1s forwards;
+}
+
+.fade-in {
+  animation: fadeIn 1s forwards;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.rotate-out {
+  animation: rotateOut 0.5s forwards;
+}
+
+.rotate-in {
+  animation: rotateIn 0.5s forwards;
+}
+
+@keyframes rotateOut {
+  from {
+    transform: rotate(0deg);
+    opacity: 1;
+  }
+  to {
+    transform: rotate(90deg);
+    opacity: 0;
+  }
+}
+
+@keyframes rotateIn {
+  from {
+    transform: rotate(-90deg);
+    opacity: 0;
+  }
+  to {
+    transform: rotate(0deg);
+    opacity: 1;
+  }
+}
+
+.scale-out {
+  animation: scaleOut 0.5s forwards;
+}
+
+.scale-in {
+  animation: scaleIn 0.5s forwards;
+}
+
+@keyframes scaleOut {
+  from {
+    transform: scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: scale(0);
+    opacity: 0;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
 
 /* Pantallas pequeñas (móviles) */
 @media only screen and (max-width: 600px) {

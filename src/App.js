@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import React, { useState, useContext, useEffect } from 'react';
 
+import './App.css';
 import { Header } from './components/Header/Header.js';
 import { Title } from './components/Title/Title.js';
 import { Playground } from './components/Playground/Playground.js';
@@ -42,14 +43,13 @@ import trophyIcon from './assets/img/trophy.png';
 
 import { BsHandThumbsUp, BsHandThumbsDown } from "react-icons/bs";
 
-import './App.css';
 
 
 function App() {
   
  
 //useContext
-  const{ texts, translations, setLanguageChanged} = useContext(LanguageContext);
+  const{ texts, translations, setLanguageChanged, languageChanged} = useContext(LanguageContext);
 
   const { theme } = useContext(ThemeContext);
   // const { isAudioEnabled, toggleAudio} = useContext(AudioContext);
@@ -71,8 +71,23 @@ function App() {
  const [isAudioEnabled, setIsAudioEnabled]= useState(false);
 //  const [isAudioChecked, setIsAudioChecked ]= useState(false);
 
+// animation texts
+const[ animationClass, setAnimationClass] = useState('');
+console.log('animationClass', animationClass)
 
-
+ // Actualiza los textos con animación
+ useEffect(() => {
+  if (languageChanged) {
+    setAnimationClass('slide-out-left');
+    setTimeout(() => {
+      // setLanguageChanged(false);
+      setAnimationClass('slide-in-right');
+     
+      
+    }, 
+    300); // La duración debe coincidir con la duración de la animación en CSS
+  }
+}, [texts, languageChanged, setLanguageChanged]);
 
   //playSounds
   const [playClaps] =  useSound(audioClaps, {soundEnabled: !isAudioEnabled});
@@ -224,13 +239,12 @@ useEffect(() => {
   return (
 
     <div className= {theme}>
-    <div className='App'>
+    <div className={`App ${animationClass}`}>
 
       {(userScore < 5 && pcScore < 5 ) ? (
-         <Header>
+         <Header >
          <LanguagesCustomSelect />
          <ToggleTheme 
-          
          />
          <ToggleAudio 
             handleChangeAudio={handleChangeAudio}
@@ -242,7 +256,7 @@ useEffect(() => {
        
       
           <Title />
-          <Round {...game}/>
+          <Round {...game} />
           <Playground>
             <Profile>
               <User
@@ -273,7 +287,7 @@ useEffect(() => {
                   choiceIcon={scissorsIcon}
                 />
               </User>
-              <Score score={userScore}/>
+              <Score score={userScore} />
 
             </Profile>
 
@@ -285,6 +299,7 @@ useEffect(() => {
                 thumbsDown = {<BsHandThumbsDown />} 
                 isAudioEnabled = {isAudioEnabled}
                 userScore= {userScore}
+               
                 
               />
 
@@ -297,9 +312,10 @@ useEffect(() => {
                 trophyIcon={trophyIcon}
                  playBoo={playBoo}
                  isAudioEnabled={isAudioEnabled}
+                
               >
               
-              </Computer>
+              </Computer >
               <Score score={pcScore} />
               
 

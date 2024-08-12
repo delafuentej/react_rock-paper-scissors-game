@@ -1,14 +1,15 @@
 .computer-card{
-        height: 220px;
         width: 90%;
+        height: 220px;
         padding: 25px 0;
-        /* background-color: #ffffff80; */
+        /* background-color: rgba(255,255,255,0.5); */
         margin-bottom: 15px;
         border-radius: 10px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
+        display:flex;
+        flex-direction:column;
+        justify-content: center; /* Centrar verticalmente */
         align-items: center;
+    
         
 }
 .computer-name{

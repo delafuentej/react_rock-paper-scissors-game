@@ -1,5 +1,5 @@
 .user-card{
-    width: 70%;
+    width: 90%;
     height: 220px;
     padding: 25px 0;
     /* background-color: rgba(255,255,255,0.5); */
@@ -25,7 +25,7 @@
 }
 
 .user-card h2{
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 @media only screen and (max-width: 600px) {

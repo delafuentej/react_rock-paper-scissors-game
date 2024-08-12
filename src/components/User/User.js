@@ -1,10 +1,10 @@
 import { useContext } from 'react';
-import { LanguageContext, LanguageProvider } from '../../context/LanguageContext/LanguageContext';
+import { LanguageContext } from '../../context/LanguageContext/LanguageContext';
 // import { AudioContext } from '../../context/AudioContext/AudioContext';
 import { ConfettiComponent } from '../Confetti/Confetti';
 
 
-
+import '../../App.css'
 import './User.css';
 
 export const User = ({ userScore, userSelection, trophyIcon, children, playAplause, playCongrat })=>{
@@ -16,7 +16,7 @@ export const User = ({ userScore, userSelection, trophyIcon, children, playAplau
 
    
     return(
-        <div className='user-card'>
+        <div className='use-card'>
             <h2>{texts.userName}</h2>
             {
                ( userScore < texts.winTarget) ? (

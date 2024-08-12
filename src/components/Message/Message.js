@@ -8,8 +8,9 @@ import './Message.css';
 
     
 
-export const Message = ({userSelection, message,  thumbsUp, thumbsDown, playClaps, playBoo, userScore})=>{
+export const Message = ({userSelection, message,  thumbsUp, thumbsDown, playClaps, playBoo, userScore, animationClass})=>{
 
+    console.log('animation_Class', animationClass)
     // console.log('userSelection',userSelection)
     // console.log('message', message)
     const { texts, languageChanged, setLanguageChanged } = useContext(LanguageContext);
@@ -64,7 +65,7 @@ export const Message = ({userSelection, message,  thumbsUp, thumbsDown, playClap
    
 
     return(
-        <div className='msg-container'>
+        <div className='msg-container animationClass'>
         <h3 className="message">
            {(userScore === 5) ? winMessageGame :(userSelection === '') ? 'VS' : message}
          

@@ -13,13 +13,13 @@ import HourglassComponent from '../Hourglass/HourglassComponent';
 
 
 
-export const Computer = ({rockIcon, paperIcon, scissorsIcon, trophyIcon, pcScore, userSelection, pcSelection, playBoo})=>{
+export const Computer = ({rockIcon, paperIcon, scissorsIcon, trophyIcon, pcScore, userSelection, pcSelection, playBoo, className})=>{
    
             const { texts } = useContext(LanguageContext);
 
     return(
         <div className='computer-card'>
-            <h2 className='computer-name'>
+            <h2 className='computer-name className'>
                 {texts.pcName}
             </h2>
             
