@@ -17,7 +17,7 @@ export const User = ({ userScore, userSelection, trophyIcon, children, playAplau
    
     return(
         <div className='use-card'>
-            <h2>{texts.userName}</h2>
+            <h2 className='user-name'>{texts.userName}</h2>
             {
                ( userScore < texts.winTarget) ? (
                 <div>
