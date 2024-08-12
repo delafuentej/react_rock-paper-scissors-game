@@ -7,12 +7,12 @@ Welcome to the **Rock, Paper, Scissors** application! This is a modern take on t
 
 Here are some screenshots of the Rock, Paper, Scissors application:
 
-### Home Screen
-![Home Screen](src/assets/img/app1.png)
-
-### Game in Action
-![Game in Action](src/assets/img/app2.png)
-![Game in Action](src/assets/img/app3.png)
+### Screens
+<div style="display: flex; justify-content: space-around;">
+  <img src="src/assets/img/app1.png" alt="Home Screen" width="150"/>
+  <img src="src/assets/img/app2.png" alt="Game in Action 1" width="150"/>
+  <img src="src/assets/img/app3.png" alt="Game in Action 2" width="150"/>
+</div>
 
 ## Main Features
 
