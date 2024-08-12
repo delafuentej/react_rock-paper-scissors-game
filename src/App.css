@@ -73,9 +73,61 @@ h1{
   background-color: #faf8f8;
   color:#0A2647;
 }
+
+/* animation theme change */
+
+@keyframes fadeOutBlur {
+  0% {
+    opacity: 1;
+    filter: blur(0);
+  }
+  50% {
+    opacity: 0;
+    filter: blur(5px);
+  }
+  100% {
+    opacity: 0;
+    filter: blur(10px);
+  }
+}
+
+@keyframes fadeInBlur {
+  0% {
+    opacity: 0;
+    filter: blur(10px);
+  }
+  50% {
+    opacity: 0.5;
+    filter: blur(5px);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.theme-transition-out {
+  animation: fadeOutBlur 1s ease-in forwards;
+}
+
+.theme-transition-in {
+  animation: fadeInBlur 1s ease-out forwards, slideIn 1s ease-out forwards;
+}
+
+
+
 /* animations language change */
 
-@keyframes fadeOutScaleDown {
+ @keyframes fadeOutScaleDown {
   0% {
     opacity: 1;
     transform: scale(1);
@@ -111,7 +163,7 @@ h1{
 }
 .slide-out-left {
   animation: slideOutLeft 1s forwards;
-}
+} 
 
 .slide-in-right {
   animation: slideInRight 1s forwards;

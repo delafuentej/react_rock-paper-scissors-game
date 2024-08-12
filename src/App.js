@@ -51,7 +51,8 @@ function App() {
 //useContext
   const{ texts, translations, setLanguageChanged, languageChanged} = useContext(LanguageContext);
 
-  const { theme } = useContext(ThemeContext);
+  const { theme, themeChanged} = useContext(ThemeContext);
+ 
   // const { isAudioEnabled, toggleAudio} = useContext(AudioContext);
 
 
@@ -73,7 +74,7 @@ function App() {
 
 // animation texts
 const[ animationClass, setAnimationClass] = useState('');
-console.log('animationClass', animationClass)
+ console.log('XXXanimationClass', animationClass)
 
  // Actualiza los textos con animación
  useEffect(() => {
@@ -85,10 +86,19 @@ console.log('animationClass', animationClass)
      
       
     }, 
-    300); // La duración debe coincidir con la duración de la animación en CSS
+    1000); // La duración debe coincidir con la duración de la animación en CSS
   }
 }, [texts, languageChanged, setLanguageChanged]);
 
+    // Manejo de la animación para el cambio de tema
+    useEffect(() => {
+      if (themeChanged) {
+          setAnimationClass('theme-transition-out');
+          setTimeout(() => {
+              setAnimationClass('theme-transition-in');
+          }, 1000); // Duración que coincide con la animación en CSS
+      }
+  }, [themeChanged]);
   //playSounds
   const [playClaps] =  useSound(audioClaps, {soundEnabled: !isAudioEnabled});
   const [playBoo] =  useSound(audioBoo,  {soundEnabled: !isAudioEnabled});
@@ -238,8 +248,8 @@ useEffect(() => {
 
   return (
 
-    <div className= {theme}>
-    <div className={`App ${animationClass}`}>
+   
+    <div className={`App ${animationClass} ${theme}`}>
 
       {(userScore < 5 && pcScore < 5 ) ? (
          <Header >
@@ -326,7 +336,6 @@ useEffect(() => {
             />
           </Playground>
           </div>
-        </div>
       
   );
 }
