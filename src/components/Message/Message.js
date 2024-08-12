@@ -63,7 +63,6 @@ export const Message = ({userSelection, message,  thumbsUp, thumbsDown, playClap
 
    
 
-
     return(
         <div className='msg-container'>
         <h3 className="message">
