@@ -8,11 +8,11 @@ Welcome to the **Rock, Paper, Scissors** application! This is a modern take on t
 Here are some screenshots of the Rock, Paper, Scissors application:
 
 ### Home Screen
-![Home Screen](./assets/img/app1.png)
+![Home Screen](src/assets/img/app1.png)
 
 ### Game in Action
-![Game in Action](./assets/img/app2.png)
-![Game in Action](./assets/img/app3.png)
+![Game in Action](src/assets/img/app2.png)
+![Game in Action](src/assets/img/app3.png)
 
 ## Main Features
 
