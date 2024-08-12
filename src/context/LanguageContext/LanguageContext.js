@@ -7,7 +7,7 @@ import deFlag from '../../assets/img/germany.png';
 
 export const LanguageContext = React.createContext();
 
-const initialLanguage='es';
+const initialLanguage= localStorage.getItem('language') || 'es';
 
 const translations = {
     es: {
@@ -26,7 +26,7 @@ const translations = {
         selectMessage: "Selecciona una opción",
         pcSelectedMessage: "PC elige: ",
         userSelectedMessage: "Tu elección es: ",
-        lostMessage: "Perdiste! Intentalo de nuevo",
+        lostMessage: "Perdiste! Intentalo de nuevo!",
         waitingMessage: "Esperando tu elección!",
         victoryMessage:"Victoria!",
         score: "Puntuación",
@@ -106,7 +106,7 @@ export const LanguageProvider=({children, onLanguageChange})=>{
     const [selectedLanguage, setSelectedLanguage] = useState(options.find(opt => opt.value === initialLanguage));
     const [languageChanged, setLanguageChanged] = useState(false);
     // console.log('texts', texts)
-     console.log('languageChanged',languageChanged)
+    // console.log('languageChanged',languageChanged)
 
 
     const handleLanguage = (option)=>{
@@ -115,6 +115,8 @@ export const LanguageProvider=({children, onLanguageChange})=>{
          setLanguage(option.value);
          const newTexts = translations[option.value];
         setTexts(newTexts);
+
+        localStorage.setItem('language', option.value);
 
         if(onLanguageChange){
             onLanguageChange(newTexts);
