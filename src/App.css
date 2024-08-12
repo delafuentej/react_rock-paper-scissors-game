@@ -116,11 +116,11 @@ h1{
 }
 
 .theme-transition-out {
-  animation: fadeOutBlur 1s ease-in forwards;
+  animation: fadeOutBlur 0.5s ease-in forwards;
 }
 
 .theme-transition-in {
-  animation: fadeInBlur 1s ease-out forwards, slideIn 1s ease-out forwards;
+  animation: fadeInBlur 0.5s ease-out forwards, slideIn 0.5s ease-out forwards;
 }
 
 
@@ -162,11 +162,11 @@ h1{
   animation-delay: 0.2s; /* Añadimos un pequeño retraso */
 }
 .slide-out-left {
-  animation: slideOutLeft 1s forwards;
+  animation: slideOutLeft 0.5s forwards;
 } 
 
 .slide-in-right {
-  animation: slideInRight 1s forwards;
+  animation: slideInRight 0.5s forwards;
 }
 
 @keyframes slideOutLeft {

@@ -86,7 +86,7 @@ const[ animationClass, setAnimationClass] = useState('');
      
       
     }, 
-    1000); // La duración debe coincidir con la duración de la animación en CSS
+    500); // La duración debe coincidir con la duración de la animación en CSS
   }
 }, [texts, languageChanged, setLanguageChanged]);
 
@@ -96,7 +96,7 @@ const[ animationClass, setAnimationClass] = useState('');
           setAnimationClass('theme-transition-out');
           setTimeout(() => {
               setAnimationClass('theme-transition-in');
-          }, 1000); // Duración que coincide con la animación en CSS
+          }, 500); // Duración que coincide con la animación en CSS
       }
   }, [themeChanged]);
   //playSounds
