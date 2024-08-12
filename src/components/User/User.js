@@ -20,11 +20,11 @@ export const User = ({ userScore, userSelection, trophyIcon, children, playAplau
             <h2 className='user-name'>{texts.userName}</h2>
             {
                ( userScore < texts.winTarget) ? (
-                <div>
+                <div className='user-selection'>
                     <div className="choice-grid">
                         {children}
                     </div>
-                    <h3>
+                    <h3 className='user-message' >
                         {(userSelection === '') ? `${texts.selectMessage}`: `${texts.userSelectedMessage} ${userSelection.charAt(0).toUpperCase()+ userSelection.slice(1).toLowerCase()}`}
                     </h3>
                 </div>

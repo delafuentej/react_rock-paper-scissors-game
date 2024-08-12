@@ -13,13 +13,13 @@ import HourglassComponent from '../Hourglass/HourglassComponent';
 
 
 
-export const Computer = ({rockIcon, paperIcon, scissorsIcon, trophyIcon, pcScore, userSelection, pcSelection, playBoo, className})=>{
+export const Computer = ({rockIcon, paperIcon, scissorsIcon, trophyIcon, pcScore, userSelection, pcSelection, playBoo, })=>{
    
             const { texts } = useContext(LanguageContext);
 
     return(
         <div className='computer-card'>
-            <h2 className='computer-name className'>
+            <h2 className='computer-name'>
                 {texts.pcName}
             </h2>
             
@@ -43,7 +43,7 @@ export const Computer = ({rockIcon, paperIcon, scissorsIcon, trophyIcon, pcScore
                         }
                             alt= 'icon'
                         />
-                        <h3>{texts.pcSelectedMessage} {pcSelection.charAt(0).toUpperCase()+ pcSelection.slice(1).toLowerCase()}
+                        <h3 className='pc-selection'>{texts.pcSelectedMessage} {pcSelection.charAt(0).toUpperCase()+ pcSelection.slice(1).toLowerCase()}
                         
                         </h3>
                     </div>

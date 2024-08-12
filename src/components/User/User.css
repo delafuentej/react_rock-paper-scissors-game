@@ -2,21 +2,27 @@
     width: 90%;
     height: 220px;
     padding: 25px 0;
-    /* background-color: rgba(255,255,255,0.5); */
-    margin-bottom: 15px;
     border-radius: 10px;
     display:flex;
     flex-direction:column;
     justify-content: center; /* Centrar verticalmente */
     align-items: center;
+    margin-bottom: 2em;
 
+}
+
+.user-name{
+  margin-bottom: 10px;
+} 
+.user-message{
+  margin-bottom: 50px;
 }
 
 .choice-grid{
     display:grid;
     grid-template-columns: 1fr 1fr 1fr;
     place-items:center;
-    gap: 2em;
+     margin-bottom: 0.75rem; 
 
 
 }
@@ -24,38 +30,46 @@
     display:flex;
 }
 
-.user-name{
-  margin-bottom: 10px;
-}
 
 @media only screen and (max-width: 600px) {
  
-    .user-name, .user-card h3 {
-      font-size: 1.5rem;
+    .user-name, .user-selection {
+      font-size: 1.75rem;
     }
     .win-user-trophy{
         width:100px;
-    }
+    } 
+    .choice-grid{
+      gap:1.25em;
+  }
 }
 
 @media only screen and (min-width: 601px) and (max-width: 900px) {
     
   
-    .user-name, .user-card h3 {
+     .user-name, .user-selection {
       font-size: 2rem;
+      
     }
     .win-user-trophy{
         width:135px;
+    } 
+    .choice-grid{
+      gap:1.75em;
     }
   }
 
   @media only screen and (min-width: 901px) {
-
-    .user-name, .user-card h3 {
-      font-size: 2.5rem;
+ 
+    .user-name, .user-selection {
+      font-size: 2.25rem;
     }
     .win-user-trophy{
         width:170px;
     }
+    .choice-grid{
+      gap:2.25em;
+  }
+
   }
  
