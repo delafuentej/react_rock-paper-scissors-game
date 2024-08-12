@@ -4,8 +4,9 @@ export const ThemeContext = React.createContext();
 
 
 export const ThemeProvider= ({ children })=>{
-    const [theme, setTheme ]= useState('dark');
-    const [isChecked , setIsChecked]= useState(false);
+    const storedTheme = localStorage.getItem('theme') || 'dark';
+    const [theme, setTheme ]= useState(storedTheme);
+    const [isChecked , setIsChecked]= useState(storedTheme === 'light');
     const [themeChanged,  setThemeChanged] = useState(false);
    
     // console.log('theme', theme)
@@ -14,9 +15,12 @@ export const ThemeProvider= ({ children })=>{
     const handleChange= (e) =>{
     
        const checked= e.target.checked;
+       const newTheme = checked ? 'light': 'dark';
        setIsChecked(checked);
-       setTheme( checked ? 'light' : 'dark');
+       setTheme(newTheme);
        setThemeChanged(true);
+
+       localStorage.setItem('theme', newTheme);
       
     }
 
@@ -24,7 +28,7 @@ export const ThemeProvider= ({ children })=>{
         if (themeChanged) {
             setTimeout(() => {
                  setThemeChanged(false);
-            }, 1000); // Duración de la animación
+            }, 500); // Duración de la animación
         }
     }, [themeChanged]);
 
