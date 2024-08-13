@@ -240,6 +240,11 @@ useEffect(() => {
    setIsAudioEnabled(isAudioEnabled);
   };
 
+   // Logic for determining whether an icon is selected
+   const isSelected = (iconValue) => {
+    return game.userSelection === iconValue;
+};
+
   return (
 
    
@@ -277,18 +282,21 @@ useEffect(() => {
                   onClick= {selectIcon}
                   value= {texts.rock}
                   choiceIcon={rockIcon}
+                  isSelected={isSelected(texts.rock)}
                   />
                 <Choice
                   {...game}
                   onClick= {selectIcon}
                   value= {texts.paper}
                   choiceIcon={paperIcon}
+                  isSelected={isSelected(texts.paper)}
                 />
                 <Choice
                   {...game}
                   onClick= {selectIcon}
                   value= {texts.scissors}
                   choiceIcon={scissorsIcon}
+                  isSelected={isSelected(texts.scissors)}
                 />
               </User>
               <Score score={userScore} />
