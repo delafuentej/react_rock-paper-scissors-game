@@ -25,13 +25,9 @@ export const ThemeProvider= ({ children })=>{
         if (themeChanged) {
             setTimeout(() => {
                  setThemeChanged(false);
-            }, 500); // Duración de la animación
+            }, 500); 
         }
     }, [themeChanged]);
-
-    // console.log('theme', theme)
-    // console.log('setTheme', setTheme)
-
 
     const data = {
         theme,

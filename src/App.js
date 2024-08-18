@@ -13,26 +13,22 @@ import { Round } from './components/Round/Round.js';
 import { Message } from './components/Message/Message.js';
 import { Computer } from './components/Computer/Computer.js';
 import { Reset } from './components/Reset/Reset.js';
-
 import { LanguagesCustomSelect } from './components/LanguagesCustomSelect/LanguagesCustomSelect.js';
+import {ToggleTheme }from './components/ToggleTheme/ToggleTheme.js';
+import { ToggleAudio } from './components/ToggleAudio/ToggleAudio.js';
+
 import { LanguageContext} from './context/LanguageContext/LanguageContext.js';
-
-
-import {ToggleTheme }from './components/ToggleTheme/ToggleTheme.js'
 import { ThemeContext } from './context/ThemeContext/ThemeContext.js'
 
-import { ToggleAudio } from './components/ToggleAudio/ToggleAudio.js';
+
 
 // import { AudioContext } from './context/AudioContext/AudioContext.js';
 
-
 import useSound from 'use-sound';
-
 import  audioVictory from './assets/sounds/applause-victory.mp3'; 
 import  audioBoo from './assets/sounds/boo-round-lost.mp3';
 import  audioClaps from './assets/sounds/claps-round-win.mp3';
 import  audioCongrat from './assets/sounds/congratulations-victory.mp3';
-
 
 
 //import imgIcons
@@ -47,15 +43,12 @@ import { BsHandThumbsUp, BsHandThumbsDown } from "react-icons/bs";
 
 function App() {
   
- 
 //useContext
   const{ texts, translations, setLanguageChanged, languageChanged} = useContext(LanguageContext);
 
   const { theme, themeChanged} = useContext(ThemeContext);
  
   // const { isAudioEnabled, toggleAudio} = useContext(AudioContext);
-
-
    let [ game, setGame ] = useState({
     userSelection:'',
     pcSelection:'',
@@ -74,45 +67,36 @@ function App() {
 // animation texts
 const[ animationClass, setAnimationClass] = useState('');
 
+ //playSounds
+ const [playClaps] =  useSound(audioClaps, {soundEnabled: !isAudioEnabled});
+ const [playBoo] =  useSound(audioBoo,  {soundEnabled: !isAudioEnabled});
+ const [playCongrat] =   useSound(audioCongrat, {soundEnabled: !isAudioEnabled});
+ const [playAplause] =  useSound(audioVictory,  {soundEnabled: !isAudioEnabled});
 
- // Actualiza los textos con animación
+ // Handling animation for language change
  useEffect(() => {
   if (languageChanged) {
-    setAnimationClass('slide-out-left');
-    setTimeout(() => {
-      // setLanguageChanged(false);
-      setAnimationClass('slide-in-right');
-     
-      
-    }, 
-    500); // La duración debe coincidir con la duración de la animación en CSS
+    triggerAnimation('slide-out-left','sline-in-right');
   }
-}, [texts, languageChanged, setLanguageChanged]);
+}, [texts, languageChanged]);
 
-    // Manejo de la animación para el cambio de tema
+    // Handling animation for theme change
     useEffect(() => {
       if (themeChanged) {
-          setAnimationClass('theme-transition-out');
-          setTimeout(() => {
-              setAnimationClass('theme-transition-in');
-          }, 500); // Duración que coincide con la animación en CSS
+        triggerAnimation('theme-transition-out', 'theme-transition-in');
       }
   }, [themeChanged]);
-  //playSounds
-  const [playClaps] =  useSound(audioClaps, {soundEnabled: !isAudioEnabled});
-  const [playBoo] =  useSound(audioBoo,  {soundEnabled: !isAudioEnabled});
-  const [playCongrat] =   useSound(audioCongrat, {soundEnabled: !isAudioEnabled});
-  const [playAplause] =  useSound(audioVictory,  {soundEnabled: !isAudioEnabled});
 
-    //handleChangeAudio
-    const handleChangeAudio=(e)=>{
-      const audioEnabled = e.target.checked;
-       setIsAudioEnabled(audioEnabled);
-    }
 
- 
+  const triggerAnimation = (outClass, inClass) => {
+    setAnimationClass(outClass);
+    setTimeout(()=> {
+      setAnimationClass(inClass);
+    }, 500);
+  }
 
-    // useEffect to update the pcSelection when the language is changed
+
+   // useEffect to update the pcSelection when the language is changed
     //to solve the problem with the icons in the Computer Component
     useEffect(() => {
       const options = [texts.rock, texts.paper, texts.scissors];
@@ -184,13 +168,18 @@ useEffect(() => {
 }, [texts, game.userSelection, translations]);
 
 
+
    const selectIcon= (event) =>{
+   
     event.preventDefault();
+    if(pcScore >= texts.winTarget) return;
+
     if(pcScore < texts.winTarget){
       const userSelection= event.target.parentNode.getAttribute('value');
       const options = [texts.rock, texts.paper, texts.scissors];
       const index = Math.floor( Math.random()* options.length);
       const pcSelection= options[index];
+
    // console.log('pcSelection', pcSelection);
 
    let newMessage = '';
@@ -240,10 +229,16 @@ useEffect(() => {
    setIsAudioEnabled(isAudioEnabled);
   };
 
+   //handleChangeAudio
+   const handleChangeAudio=(e)=>{
+    const audioEnabled = e.target.checked;
+     setIsAudioEnabled(audioEnabled);
+  }
    // Logic for determining whether an icon is selected
    const isSelected = (iconValue) => {
     return game.userSelection === iconValue;
 };
+ 
 
   return (
 

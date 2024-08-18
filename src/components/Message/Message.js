@@ -4,17 +4,12 @@ import { Thumbs } from '../Thumbs/Thumbs';
 
 
 import './Message.css';
- 
-
-    
 
 export const Message = ({userSelection, message,  thumbsUp, thumbsDown, playClaps, playBoo, userScore})=>{
-    // console.log('userSelection',userSelection)
-    // console.log('message', message)
+   
     const { texts, languageChanged, setLanguageChanged } = useContext(LanguageContext);
 
-    // console.log('languageChanged', languageChanged)
-    
+
     const [showThumbs, setShowThumbs] = useState(true);
     
 
