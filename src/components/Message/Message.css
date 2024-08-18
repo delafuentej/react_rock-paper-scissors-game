@@ -12,6 +12,9 @@
     font-size:1.75rem;
 }
 
+.margin-top{
+  margin-top: 75px;
+}
 
 @media only screen and (max-width: 600px) {
  

@@ -8,7 +8,7 @@ import './Message.css';
 export const Message = ({userSelection, message,  thumbsUp, thumbsDown, playClaps, playBoo, userScore, isLoading})=>{
    
     const { texts, languageChanged, setLanguageChanged } = useContext(LanguageContext);
-    console.log('isLoading', isLoading)
+
 
 
     const [showThumbs, setShowThumbs] = useState(true);
@@ -59,11 +59,14 @@ export const Message = ({userSelection, message,  thumbsUp, thumbsDown, playClap
    
 
     return(
-        <div className='msg-container animationClass'>
-        <h3 className="message">
-           {(userScore === 5) ? winMessageGame :(userSelection === '') ? 'VS' : message}
-         
-        </h3> 
+        <div className={`msg-container ${isLoading ? 'margin-top' : ''}`}>
+            {!isLoading && (
+                <h3 className="message">
+                { (userScore === 5) ? winMessageGame :(userSelection === '') ? 'VS' : message}
+              
+             </h3> 
+            )}
+        
 
         <div>
           
