@@ -73,6 +73,7 @@ const[ animationClass, setAnimationClass] = useState('');
  const [playCongrat] =   useSound(audioCongrat, {soundEnabled: !isAudioEnabled});
  const [playAplause] =  useSound(audioVictory,  {soundEnabled: !isAudioEnabled});
 
+ const [isLoading, setIsLoading] = useState(false);
  // Handling animation for language change
  useEffect(() => {
   if (languageChanged) {
@@ -306,6 +307,8 @@ useEffect(() => {
                 thumbsDown = {<BsHandThumbsDown />} 
                 isAudioEnabled = {isAudioEnabled}
                 userScore= {userScore}
+                isLoading={isLoading}
+                
                
                 
               />
@@ -319,6 +322,8 @@ useEffect(() => {
                 trophyIcon={trophyIcon}
                  playBoo={playBoo}
                  isAudioEnabled={isAudioEnabled}
+                 setIsLoading={setIsLoading}
+                 isLoading={isLoading}
                 
               >
               

@@ -5,9 +5,10 @@ import { Thumbs } from '../Thumbs/Thumbs';
 
 import './Message.css';
 
-export const Message = ({userSelection, message,  thumbsUp, thumbsDown, playClaps, playBoo, userScore})=>{
+export const Message = ({userSelection, message,  thumbsUp, thumbsDown, playClaps, playBoo, userScore, isLoading})=>{
    
     const { texts, languageChanged, setLanguageChanged } = useContext(LanguageContext);
+    console.log('isLoading', isLoading)
 
 
     const [showThumbs, setShowThumbs] = useState(true);
@@ -23,8 +24,7 @@ export const Message = ({userSelection, message,  thumbsUp, thumbsDown, playClap
 
         let timer;
 
-       
-        if (!languageChanged && userSelection !== '' && (message === lostMessage || message === winMessage)) {
+        if ( !isLoading && !languageChanged && userSelection !== '' && (message === lostMessage || message === winMessage)) {
            
             setShowThumbs(true);
             // Starting the  timer to hide the thumbs after 3 seconds
@@ -42,18 +42,19 @@ export const Message = ({userSelection, message,  thumbsUp, thumbsDown, playClap
         // Clear the timer if the component is disassembled or if the message changes.
         return () => clearTimeout(timer);
 
-    },[userSelection, message, lostMessage, winMessage, languageChanged, setLanguageChanged])
+    },[userSelection, message, lostMessage, winMessage, languageChanged, setLanguageChanged, isLoading])
 
 
-
+   
      //  Side-effect management for sound
      useEffect(() => {
-        if (message === lostMessage && languageChanged === false) {
+        
+        if (!isLoading && message === lostMessage && languageChanged === false && !isLoading) {
             playBoo();
-        } else if (message === winMessage  && languageChanged === false) {
+        } else if (!isLoading && message === winMessage  && languageChanged === false && !isLoading) {
             playClaps();
         }
-    }, [message, lostMessage, winMessage, playBoo, playClaps]);
+    }, [message, lostMessage, winMessage, playBoo, playClaps, isLoading]);
 
    
 

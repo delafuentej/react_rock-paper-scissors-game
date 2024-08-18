@@ -1,5 +1,6 @@
-import { useContext } from 'react';
+import {  useContext, useEffect} from 'react';
 import { LanguageContext } from '../../context/LanguageContext/LanguageContext';
+
 // import { AudioContext } from '../../context/AudioContext/AudioContext';
 
 
@@ -8,14 +9,32 @@ import { LanguageContext } from '../../context/LanguageContext/LanguageContext';
 
 import './Computer.css';
 import HourglassComponent from '../Hourglass/HourglassComponent';
+import {Loading} from '../Loading/Loading';
 
 
 
 
-
-export const Computer = ({rockIcon, paperIcon, scissorsIcon, trophyIcon, pcScore, userSelection, pcSelection, playBoo, })=>{
+export const Computer = ({rockIcon, paperIcon, scissorsIcon, trophyIcon, pcScore, userSelection, pcSelection, playBoo, setIsLoading,isLoading})=>{
    
             const { texts } = useContext(LanguageContext);
+           
+
+            useEffect(() => {
+                let timer; 
+                if (userSelection !== '') {
+                    setIsLoading(true);
+                   timer = setTimeout(() => {
+                    setIsLoading(false)
+                  }, 350);
+                }
+                  // Cleanup function to reset loading state if userSelection changes again
+                  return () => {
+                    clearTimeout(timer);
+                   
+                  };
+               
+              }, [userSelection]);
+
 
     return(
         <div className='computer-card'>
@@ -30,9 +49,15 @@ export const Computer = ({rockIcon, paperIcon, scissorsIcon, trophyIcon, pcScore
                     <h3 className="wait-msg">{texts.waitingMessage}</h3>
                     
                 </div>)
+                : isLoading ? (
+                    <div className='img-container'>
+                         <Loading />
+                    </div>
+                   
+                )
                 :
                 (
-                    <div className='img-container'>
+                    <div>
                         <img
                             className= 'img-icon'
                             src= {

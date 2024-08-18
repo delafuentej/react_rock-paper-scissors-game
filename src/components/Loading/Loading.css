@@ -1,0 +1,32 @@
+/* Loading.css */
+.loading-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+  }
+  
+  .spinner {
+    width: 100px;
+    height: 100px;
+    border: 8px solid rgba(0, 0, 0, 0.1);
+    border-top-color: #000;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+  .spinner-light{
+    border-top-color: rgba(13, 103, 181, 0.535);
+  }
+  .spinner-dark{
+    border-top-color:  rgba(240, 248, 255, 0.472); 
+  }
+  
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+ 
+  
