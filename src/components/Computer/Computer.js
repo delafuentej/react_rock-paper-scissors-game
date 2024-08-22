@@ -1,7 +1,7 @@
 import {  useContext, useEffect} from 'react';
 import { LanguageContext } from '../../context/LanguageContext/LanguageContext';
 
-// import { AudioContext } from '../../context/AudioContext/AudioContext';
+import { AudioContext } from '../../context/AudioContext/AudioContext';
 
 
 //import { settings } from '../../configs/game';
@@ -14,10 +14,11 @@ import {Loading} from '../Loading/Loading';
 
 
 
-export const Computer = ({rockIcon, paperIcon, scissorsIcon, trophyIcon, pcScore, userSelection, pcSelection, playBoo, setIsLoading,isLoading})=>{
+export const Computer = ({rockIcon, paperIcon, scissorsIcon, trophyIcon, pcScore, userSelection, pcSelection, setIsLoading,isLoading})=>{
    
             const { texts } = useContext(LanguageContext);
            
+            const {playBoo} = useContext(AudioContext);
 
             useEffect(() => {
                 let timer; 

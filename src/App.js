@@ -22,13 +22,13 @@ import { ThemeContext } from './context/ThemeContext/ThemeContext.js'
 
 
 
-// import { AudioContext } from './context/AudioContext/AudioContext.js';
+import { AudioContext } from './context/AudioContext/AudioContext.js';
 
-import useSound from 'use-sound';
-import  audioVictory from './assets/sounds/applause-victory.mp3'; 
-import  audioBoo from './assets/sounds/boo-round-lost.mp3';
-import  audioClaps from './assets/sounds/claps-round-win.mp3';
-import  audioCongrat from './assets/sounds/congratulations-victory.mp3';
+//import useSound from 'use-sound';
+//import  audioVictory from './assets/sounds/applause-victory.mp3'; 
+//import  audioBoo from './assets/sounds/boo-round-lost.mp3';
+//import  audioClaps from './assets/sounds/claps-round-win.mp3';
+//import  audioCongrat from './assets/sounds/congratulations-victory.mp3';
 
 
 //import imgIcons
@@ -48,7 +48,8 @@ function App() {
 
   const { theme, themeChanged} = useContext(ThemeContext);
  
-  // const { isAudioEnabled, toggleAudio} = useContext(AudioContext);
+   const { isAudioEnabled, setIsAudioEnabled} = useContext(AudioContext);
+
    let [ game, setGame ] = useState({
     userSelection:'',
     pcSelection:'',
@@ -61,17 +62,11 @@ function App() {
 
   const { userScore, pcScore, message}= game;
 
-// state for handling audio
- const [isAudioEnabled, setIsAudioEnabled]= useState(false);
 
 // animation texts
 const[ animationClass, setAnimationClass] = useState('');
 
- //playSounds
- const [playClaps] =  useSound(audioClaps, {soundEnabled: !isAudioEnabled});
- const [playBoo] =  useSound(audioBoo,  {soundEnabled: !isAudioEnabled});
- const [playCongrat] =   useSound(audioCongrat, {soundEnabled: !isAudioEnabled});
- const [playAplause] =  useSound(audioVictory,  {soundEnabled: !isAudioEnabled});
+ 
 
  const [isLoading, setIsLoading] = useState(false);
  // Handling animation for language change
@@ -230,11 +225,6 @@ useEffect(() => {
    setIsAudioEnabled(isAudioEnabled);
   };
 
-   //handleChangeAudio
-   const handleChangeAudio=(e)=>{
-    const audioEnabled = e.target.checked;
-     setIsAudioEnabled(audioEnabled);
-  }
    // Logic for determining whether an icon is selected
    const isSelected = (iconValue) => {
     return game.userSelection === iconValue;
@@ -251,10 +241,7 @@ useEffect(() => {
          <LanguagesCustomSelect />
          <ToggleTheme 
          />
-         <ToggleAudio 
-            handleChangeAudio={handleChangeAudio}
-            isAudioEnabled={isAudioEnabled}
-         />
+         <ToggleAudio />
         
        </Header>
       ): null}
@@ -267,9 +254,7 @@ useEffect(() => {
               <User
                   {...game}
                   trophyIcon={trophyIcon}
-                   playAplause = {playAplause}
-                    playCongrat = {playCongrat}
-                  isAudioEnabled= {isAudioEnabled}
+                   
                  
                 
               >
@@ -301,11 +286,8 @@ useEffect(() => {
 
               <Message
                 {...game}
-                 playClaps={playClaps}
-                 playBoo={playBoo}
                 thumbsUp = {<BsHandThumbsUp />}
                 thumbsDown = {<BsHandThumbsDown />} 
-                isAudioEnabled = {isAudioEnabled}
                 userScore= {userScore}
                 isLoading={isLoading}
                 
@@ -320,8 +302,6 @@ useEffect(() => {
                 paperIcon={paperIcon}
                 scissorsIcon={scissorsIcon}
                 trophyIcon={trophyIcon}
-                 playBoo={playBoo}
-                 isAudioEnabled={isAudioEnabled}
                  setIsLoading={setIsLoading}
                  isLoading={isLoading}
                 
