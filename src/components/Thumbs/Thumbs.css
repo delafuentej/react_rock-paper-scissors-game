@@ -10,11 +10,11 @@
 .thumbs-light{
   /* background-color: rgba(240, 248, 255, 0.472); */
   background-color: rgba(13, 103, 181, 0.535); 
-  animation: thicken-light 3s ease-in-out 1ms;
+  animation: thicken-light 2s ease-in-out 1ms;
 }
 .thumbs-dark{
   background-color: rgba(240, 248, 255, 0.472); 
-  animation: thicken-dark 3s ease-in-out 1ms;
+  animation: thicken-dark 2s ease-in-out 1ms;
 }
 
 @keyframes thicken-dark {

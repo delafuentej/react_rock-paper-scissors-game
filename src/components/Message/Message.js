@@ -1,4 +1,4 @@
-import { useContext, useState, useEffect} from 'react';
+import { useContext, useState, useEffect, useLayoutEffect} from 'react';
 import { LanguageContext } from '../../context/LanguageContext/LanguageContext';
 import { Thumbs } from '../Thumbs/Thumbs';
 
@@ -20,7 +20,7 @@ export const Message = ({userSelection, message,  thumbsUp, thumbsDown, playClap
      const winMessageGame = texts.winMessageGame;
 
 
-    useEffect(()=>{
+    useLayoutEffect(()=>{
 
         let timer;
 
@@ -30,7 +30,7 @@ export const Message = ({userSelection, message,  thumbsUp, thumbsDown, playClap
             // Starting the  timer to hide the thumbs after 3 seconds
             timer = setTimeout(() => {
                 setShowThumbs(false); // Hide thumbs after 3 seconds
-            }, 3000);
+            }, 2000);
         } else if(languageChanged){
             setShowThumbs(false);
             
