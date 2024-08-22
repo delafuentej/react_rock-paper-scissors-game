@@ -1,11 +1,13 @@
 import React, { useState, createContext, useContext, useEffect } from 'react';
 import { LanguageContext } from '../LanguageContext/LanguageContext';
+import { AudioContext } from '../AudioContext/AudioContext';
 
 export const GameContext = createContext();
 
 export const GameProvider = ({ children }) => {
     const{texts, translations, setLanguageChanged} = useContext(LanguageContext);
     const {setIsAudioEnabled, isAudioEnabled} = useContext(AudioContext);
+
   const [game, setGame] = useState({
     userSelection: '',
     pcSelection: '',
@@ -15,20 +17,20 @@ export const GameProvider = ({ children }) => {
     message: '',
   });
 
-  const { message}= game;
+  const { message, pcSelection, userSelection}= game;
   // useEffect to update the pcSelection when the language is changed
     //to solve the problem with the icons in the Computer Component
   useEffect(() => {
     const options = [texts.rock, texts.paper, texts.scissors];
 
-    if (game.pcSelection && !options.includes(game.pcSelection)) {
+    if (pcSelection && !options.includes(pcSelection)) {
       const newPcSelection = options[Math.floor(Math.random() * options.length)];
       setGame(prevState => ({
         ...prevState,
         pcSelection: newPcSelection
       }));
     }
-  }, [texts, game.pcSelection]);
+  }, [texts, pcSelection]);
 
   // useEffect to update the message when the language is changed.
  useEffect(() => {
@@ -69,7 +71,7 @@ useEffect(() => {
       [translations['de'].scissors]: texts.scissors,
     };
     // If the current userSelection matches one of the old translations, update it
-  if (game.userSelection in optionsMap) {
+  if (userSelection in optionsMap) {
     setGame(prevState => ({
       ...prevState,
       userSelection: optionsMap[game.userSelection],
@@ -81,7 +83,7 @@ useEffect(() => {
       userSelection: '', // or handle differently if needed
     }));
   }
-}, [texts, game.userSelection, translations]);
+}, [texts, userSelection, translations]);
 
 
   const resetGame = () => {

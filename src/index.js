@@ -4,6 +4,7 @@ import { ThemeProvider } from './context/ThemeContext/ThemeContext';
 import { LanguageProvider } from './context/LanguageContext/LanguageContext';
 import { AudioProvider } from './context/AudioContext/AudioContext';
 import { AnimationProvider } from './context/AnimationContext/AnimationContext';
+import { GameProvider } from './context/GameContext/GameContext';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
@@ -18,6 +19,7 @@ root.render(
    <LanguageProvider>
    <AudioProvider> 
      <ThemeProvider>
+      <GameProvider>
      <AnimationProvider>
      
     
@@ -26,6 +28,7 @@ root.render(
          
          
          </AnimationProvider>
+         </GameProvider>
      </ThemeProvider>
      </AudioProvider> 
      </LanguageProvider>
