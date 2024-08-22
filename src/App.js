@@ -19,17 +19,9 @@ import { ToggleAudio } from './components/ToggleAudio/ToggleAudio.js';
 
 import { LanguageContext} from './context/LanguageContext/LanguageContext.js';
 import { ThemeContext } from './context/ThemeContext/ThemeContext.js'
-
-
+import { AnimationContext } from './context/AnimationContext/AnimationContext.js';
 
 import { AudioContext } from './context/AudioContext/AudioContext.js';
-
-//import useSound from 'use-sound';
-//import  audioVictory from './assets/sounds/applause-victory.mp3'; 
-//import  audioBoo from './assets/sounds/boo-round-lost.mp3';
-//import  audioClaps from './assets/sounds/claps-round-win.mp3';
-//import  audioCongrat from './assets/sounds/congratulations-victory.mp3';
-
 
 //import imgIcons
 import rockIcon from './assets/img/rock.png';
@@ -45,9 +37,9 @@ function App() {
   
 //useContext
   const{ texts, translations, setLanguageChanged, languageChanged} = useContext(LanguageContext);
-
   const { theme, themeChanged} = useContext(ThemeContext);
- 
+  const {animationClass} = useContext(AnimationContext);
+
    const { isAudioEnabled, setIsAudioEnabled} = useContext(AudioContext);
 
    let [ game, setGame ] = useState({
@@ -64,32 +56,32 @@ function App() {
 
 
 // animation texts
-const[ animationClass, setAnimationClass] = useState('');
+//const[ animationClass, setAnimationClass] = useState('');
 
  
 
  const [isLoading, setIsLoading] = useState(false);
  // Handling animation for language change
- useEffect(() => {
-  if (languageChanged) {
-    triggerAnimation('slide-out-left','sline-in-right');
-  }
-}, [texts, languageChanged]);
+ //useEffect(() => {
+ // if (languageChanged) {
+   // triggerAnimation('slide-out-left','sline-in-right');
+////  }
+//}, [texts, languageChanged]);
 
     // Handling animation for theme change
-    useEffect(() => {
-      if (themeChanged) {
-        triggerAnimation('theme-transition-out', 'theme-transition-in');
-      }
-  }, [themeChanged]);
+   // useEffect(() => {
+   //   if (themeChanged) {
+    //    triggerAnimation('theme-transition-out', 'theme-transition-in');
+    //  }
+ // }, [themeChanged]);
 
 
-  const triggerAnimation = (outClass, inClass) => {
-    setAnimationClass(outClass);
-    setTimeout(()=> {
-      setAnimationClass(inClass);
-    }, 500);
-  }
+  // const triggerAnimation = (outClass, inClass) => {
+  //   setAnimationClass(outClass);
+  //   setTimeout(()=> {
+  //     setAnimationClass(inClass);
+  //   }, 500);
+  // }
 
 
    // useEffect to update the pcSelection when the language is changed

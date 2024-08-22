@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import { ThemeProvider } from './context/ThemeContext/ThemeContext';
 import { LanguageProvider } from './context/LanguageContext/LanguageContext';
 import { AudioProvider } from './context/AudioContext/AudioContext';
+import { AnimationProvider } from './context/AnimationContext/AnimationContext';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
@@ -13,19 +14,22 @@ import reportWebVitals from './reportWebVitals';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+    
    <LanguageProvider>
    <AudioProvider> 
      <ThemeProvider>
-   
+     <AnimationProvider>
+     
     
          
          <App/> 
          
          
-   
+         </AnimationProvider>
      </ThemeProvider>
      </AudioProvider> 
      </LanguageProvider>
+     
   </React.StrictMode>
 );
 
