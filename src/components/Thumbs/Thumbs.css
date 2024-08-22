@@ -43,23 +43,23 @@
     border: 2px solid rgb(236, 230, 230);
    }
    60% {
-    transform: scale(2.4);
+    transform: scale(1.6);
     border: 2px solid rgb(236, 230, 230);
    }
    70% {
-    transform: scale(2.8);
+    transform: scale(1.2);
     border: 2px solid rgb(236, 230, 230);
    }
    80% {
-    transform: scale(3.2);
+    transform: scale(0.8);
     border: 2px solid rgb(236, 230, 230);
    }
    90% {
-    transform: scale(3.6);
+    transform: scale(0.4);
     border: 2px solid rgb(236, 230, 230);
    }
    100% {
-    transform: scake(4);
+    transform: scale(0);
     border: 2px solid rgb(236, 230, 230);
 
    }
@@ -91,23 +91,23 @@
    border: 2px solid rgba(13, 103, 181, 0.535);
   }
   60% {
-   transform: scale(2.4);
+   transform: scale(1.6);
    border: 2px solid rgba(13, 103, 181, 0.535);
   }
   70% {
-   transform: scale(2.8);
+   transform: scale(1.2);
    border: 2px solid rgba(13, 103, 181, 0.535);
   }
   80% {
-   transform: scale(3.2);
+   transform: scale(0.8);
    border: 2px solid rgba(13, 103, 181, 0.535);
   }
   90% {
-   transform: scale(3.6);
+   transform: scale(0.4);
    border: 2px solid rgba(13, 103, 181, 0.535);
   }
   100% {
-   transform: scake(4);
+   transform: scale(0);
    border: 2px solid rgba(13, 103, 181, 0.535);
 
   }
