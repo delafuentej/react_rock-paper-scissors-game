@@ -2,6 +2,11 @@ import React, { useState, createContext, useContext, useEffect } from 'react';
 import { LanguageContext } from '../LanguageContext/LanguageContext';
 import { AudioContext } from '../AudioContext/AudioContext';
 
+import rockIcon from '../../assets/img/rock.png';
+import paperIcon from '../../assets/img/paper.png';
+import scissorsIcon from '../../assets/img/scissors.png';
+import trophyIcon from '../../assets/img/trophy.png';
+
 export const GameContext = createContext();
 
 export const GameProvider = ({ children }) => {
@@ -17,7 +22,7 @@ export const GameProvider = ({ children }) => {
     message: '',
   });
 
-  const { message, pcSelection, userSelection}= game;
+  const { message, pcSelection,pcScore, userScore, userSelection}= game;
   // useEffect to update the pcSelection when the language is changed
     //to solve the problem with the icons in the Computer Component
   useEffect(() => {
@@ -86,6 +91,57 @@ useEffect(() => {
 }, [texts, userSelection, translations]);
 
 
+const selectIcon= (event) =>{
+   
+  event.preventDefault();
+  if(pcScore >= texts.winTarget) return;
+
+  if(pcScore < texts.winTarget){
+    const userSelection= event.target.parentNode.getAttribute('value');
+    const options = [texts.rock, texts.paper, texts.scissors];
+    const index = Math.floor( Math.random()* options.length);
+    const pcSelection= options[index];
+
+ // console.log('pcSelection', pcSelection);
+
+ let newMessage = '';
+ let newUserScore = userScore;
+ let newPcScore = pcScore;
+
+ if (userSelection === pcSelection) {
+  newMessage = texts.tieMessage;
+} else if (
+  (userSelection === texts.rock && pcSelection === texts.scissors) ||
+  (userSelection === texts.paper && pcSelection === texts.rock) ||
+  (userSelection === texts.scissors && pcSelection === texts.paper)
+) {
+  newMessage = texts.winMessage;
+  newUserScore += 1;
+} else {
+  newMessage = texts.lostMessage;
+  newPcScore += 1;
+}
+
+setGame(prevState => ({
+  ...prevState,
+  userSelection,
+  pcSelection,
+  round: prevState.round + 1,
+  userScore: newUserScore,
+  pcScore: newPcScore,
+  message: newMessage
+}));
+setLanguageChanged(false);
+
+}
+};
+
+ // Logic for determining whether an icon is selected
+ const isSelected = (iconValue) => {
+  return userSelection === iconValue;
+};
+
+
   const resetGame = () => {
     setGame({
       userSelection: '',
@@ -100,8 +156,10 @@ useEffect(() => {
 
   };
 
+  const data ={ game, setGame, resetGame, isSelected, selectIcon, rockIcon, paperIcon, scissorsIcon, trophyIcon};
+
   return (
-    <GameContext.Provider value={{ game, setGame, resetGame }}>
+    <GameContext.Provider value={data}>
       {children}
     </GameContext.Provider>
   );

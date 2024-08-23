@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 
 import esFlag from '../../assets/img/spain.png';
 import ukFlag from '../../assets/img/uk.png';
@@ -105,30 +105,43 @@ export const LanguageProvider=({children, onLanguageChange})=>{
     const [texts, setTexts] = useState(translations[initialLanguage]);
     const [selectedLanguage, setSelectedLanguage] = useState(options.find(opt => opt.value === initialLanguage));
     const [languageChanged, setLanguageChanged] = useState(false);
-    // console.log('texts', texts)
-    // console.log('languageChanged',languageChanged)
+   
+
+useEffect(()=>{
+    localStorage.setItem('language', language);
+    const newTexts = translations[language];
+    setTexts(newTexts);
+    
+    //setLanguageChanged(true);
+
+    if(onLanguageChange){
+        onLanguageChange(newTexts);
+    }
+
+},[language, onLanguageChange])
 
 
     const handleLanguage = (option)=>{
         
         setSelectedLanguage(option);
          setLanguage(option.value);
-         const newTexts = translations[option.value];
-        setTexts(newTexts);
+         setLanguageChanged(true);
+       //  const newTexts = translations[option.value];
+        //setTexts(newTexts);
 
-        localStorage.setItem('language', option.value);
+        //localStorage.setItem('language', option.value);
 
-        if(onLanguageChange){
-            onLanguageChange(newTexts);
-        }
-        setLanguageChanged(true);
+        //if(onLanguageChange){
+          //  onLanguageChange(newTexts);
+       // }
+        
        
     }
+    console.log('selectedLanguage', selectedLanguage)
    
-   
-    const data ={ texts,  handleLanguage, options, selectedLanguage, translations, languageChanged, setLanguageChanged };
+    const data ={ texts, handleLanguage, options, selectedLanguage, translations, languageChanged, setLanguageChanged };
 
-
+  
     return(
         <LanguageContext.Provider value={data}>
             {children}

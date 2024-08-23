@@ -1,9 +1,13 @@
-import {useState} from 'react';
+import { useContext} from 'react';
+import { GameContext } from '../../context/GameContext/GameContext';
 
 import './Choice.css';
 
-export const Choice = ({value, choiceIcon, onClick, isSelected})=>{
-  
+
+export const Choice = ({value, onClick, choiceIcon, isSelected})=>{
+    // const {choiceIcon,isSelected}= useContext(GameContext);
+    console.log('choiceIcon', choiceIcon)
+    console.log('isSelected',isSelected)
     return(
         <div 
             value={value}

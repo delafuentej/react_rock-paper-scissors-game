@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 
 //import sounds
 import useSound from 'use-sound';
@@ -14,7 +14,22 @@ export const AudioContext= React.createContext();
 
 export const AudioProvider=({children})=>{
 // state for handling audio
-const[isAudioEnabled, setIsAudioEnabled]= useState(false);
+const[isAudioEnabled, setIsAudioEnabled]= useState(()=>{
+  //load the initial state from storage
+  const savedAudioSetting = localStorage.getItem('isAudioEnabled');
+  
+  //If it exists, it is parsed from string to boolean; otherwise,
+  // it is set to false by default.
+  console.log('savedAudioSetting', savedAudioSetting)
+
+  return savedAudioSetting !== null ? JSON.parse(savedAudioSetting) : false;
+  
+});
+console.log('isAudioEnabled',isAudioEnabled);
+ // Effect to save the state in localStorage each time it changes
+ useEffect(() => {
+  localStorage.setItem('isAudioEnabled', JSON.stringify(isAudioEnabled));
+}, [isAudioEnabled]);
 
   //playSounds
   const [playClaps] = useSound(audioClaps, {soundEnabled: isAudioEnabled});

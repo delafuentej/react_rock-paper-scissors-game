@@ -39,10 +39,10 @@ function App() {
   const{ texts, setLanguageChanged} = useContext(LanguageContext);
   const { theme} = useContext(ThemeContext);
   const {animationClass}= useContext(AnimationContext);
-  const {game, resetGame, setGame}= useContext(GameContext);
-  console.log('game',game)
+  const {game, resetGame,setGame}= useContext(GameContext);
 
-const { pcScore, userScore}= game;  
+
+const { pcScore, userScore, userSelection}= game;  
  
 
  const [isLoading, setIsLoading] = useState(false);
@@ -94,15 +94,13 @@ const { pcScore, userScore}= game;
 }
 };
 
-   // Logic for determining whether an icon is selected
+//    // Logic for determining whether an icon is selected
    const isSelected = (iconValue) => {
-    return game.userSelection === iconValue;
+    return userSelection === iconValue;
 };
  
 
   return (
-
-   
     <div className={`App ${animationClass} ${theme}`}>
 
       {(userScore < 5 && pcScore < 5 ) ? (
@@ -110,10 +108,7 @@ const { pcScore, userScore}= game;
          <LanguagesCustomSelect />
          <ToggleTheme 
          />
-         <ToggleAudio 
-            // handleChangeAudio={handleChangeAudio}
-            // isAudioEnabled={isAudioEnabled}
-         />
+         <ToggleAudio />
         
        </Header>
       ): null}
@@ -126,11 +121,6 @@ const { pcScore, userScore}= game;
               <User
                   {...game}
                   trophyIcon={trophyIcon}
-                  //  playAplause = {playAplause}
-                  //   playCongrat = {playCongrat}
-                  // isAudioEnabled= {isAudioEnabled}
-                 
-                
               >
                 <Choice
                   {...game} 
@@ -160,11 +150,8 @@ const { pcScore, userScore}= game;
 
               <Message
                 {...game}
-                //  playClaps={playClaps}
-                //  playBoo={playBoo}
                 thumbsUp = {<BsHandThumbsUp />}
                 thumbsDown = {<BsHandThumbsDown />} 
-                // isAudioEnabled = {isAudioEnabled}
                 userScore= {userScore}
                 isLoading={isLoading}
                 
@@ -177,12 +164,10 @@ const { pcScore, userScore}= game;
                 {...game}
                 rockIcon={rockIcon}
                 paperIcon={paperIcon}
-                scissorsIcon={scissorsIcon}
+               scissorsIcon={scissorsIcon}
                 trophyIcon={trophyIcon}
-                //  playBoo={playBoo}
-                //  isAudioEnabled={isAudioEnabled}
-                 setIsLoading={setIsLoading}
-                 isLoading={isLoading}
+                setIsLoading={setIsLoading}
+                isLoading={isLoading}
                 
               >
               
