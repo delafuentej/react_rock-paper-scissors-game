@@ -33,29 +33,6 @@ export const LanguagesCustomSelect=()=>{
         </div>
       </div>
        
-
-
-        // <select
-        //     className='select'
-        //     name='language'
-        //     onChange= {handleLanguage}
-        // >
-        //     <option 
-        //         value='es'>
-        //         ES
-        //     </option>
-        //     <option
-        //         value='en'
-        //         >
-        //         EN
-        //     </option>
-        //     <option 
-        //         value='de'
-        //         >
-        //         DE
-        //     </option>
-
-        // </select>
     )
 
     

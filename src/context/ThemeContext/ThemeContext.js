@@ -17,9 +17,13 @@ export const ThemeProvider= ({ children })=>{
        setTheme(newTheme);
        setThemeChanged(true);
 
-       localStorage.setItem('theme', newTheme);
+       //localStorage.setItem('theme', newTheme);
       
     }
+
+    useEffect(()=>{
+       localStorage.setItem('theme', theme)
+    },[theme])
 
     useEffect(() => {
         if (themeChanged) {
