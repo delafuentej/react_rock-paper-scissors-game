@@ -35,7 +35,8 @@ const translations = {
         english: 'Ingles',
         spanish: 'Español',
         german: 'Alemán',
-
+        reset:'Reiniciar',
+        playAgain:'Jugar de nuevo',
     },
     en: {
         gameName: "Game: Rock, paper, scissors!",
@@ -62,6 +63,8 @@ const translations = {
         english: 'English',
         spanish: 'Spanish',
         german:'German',
+        reset:'Reset',
+        playAgain:'Play again',
     },
     de: {
         gameName: "Spiel: Stein, Papier, Schere!",
@@ -88,6 +91,8 @@ const translations = {
         english: 'Englisch',
         spanish: 'Spanisch',
         german: 'Deutsch',
+        reset:'Zurücksetzen',
+        playAgain:'Erneut spielen',
 
     }
        
@@ -111,8 +116,6 @@ useEffect(()=>{
     localStorage.setItem('language', language);
     const newTexts = translations[language];
     setTexts(newTexts);
-    
-    //setLanguageChanged(true);
 
     if(onLanguageChange){
         onLanguageChange(newTexts);
@@ -126,26 +129,20 @@ useEffect(()=>{
         setSelectedLanguage(option);
          setLanguage(option.value);
          setLanguageChanged(true);
-       //  const newTexts = translations[option.value];
-        //setTexts(newTexts);
-
-        //localStorage.setItem('language', option.value);
-
-        //if(onLanguageChange){
-          //  onLanguageChange(newTexts);
-       // }
         
        
     }
     console.log('selectedLanguage', selectedLanguage)
    
-    const data ={ texts, 
+    const data ={ 
+                texts, 
                 handleLanguage, 
                 options, 
                 selectedLanguage, 
                 translations, 
                 languageChanged, 
-                setLanguageChanged };
+                setLanguageChanged 
+            };
 
   
     return(

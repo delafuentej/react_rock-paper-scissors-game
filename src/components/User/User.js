@@ -1,17 +1,14 @@
 import { useContext } from 'react';
+//contexts
 import { LanguageContext } from '../../context/LanguageContext/LanguageContext';
 import { AudioContext } from '../../context/AudioContext/AudioContext';
 import { GameContext } from '../../context/GameContext/GameContext';
 import { ConfettiComponent } from '../Confetti/Confetti';
 
-
-import '../../App.css'
 import './User.css';
 
-
 export const User = ({ children})=>{
-
-
+//useContexts
     const { texts } = useContext(LanguageContext);
     const { playAplause, playCongrat} = useContext(AudioContext);
     const {game, trophyIcon} = useContext(GameContext);
@@ -43,9 +40,7 @@ export const User = ({ children})=>{
                     <h3 >{texts.victoryMessage}
                        {playCongrat()}
                         {playAplause()}
-                    
-                        
-                    
+
                     </h3>
                     <div><ConfettiComponent /></div>
                 </div>

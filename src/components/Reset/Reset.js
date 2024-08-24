@@ -1,10 +1,12 @@
 import { useContext } from 'react';
+//contexts
 import { LanguageContext } from '../../context/LanguageContext/LanguageContext';
 import { GameContext } from '../../context/GameContext/GameContext';
-//import { settings } from '../../configs/game';
+
 import './Reset.css';
 
 export const Reset = ()=>{
+    //useContexts
         const {texts} = useContext(LanguageContext);
         const {game, resetGame} = useContext(GameContext);
         const {userSelection,userScore, pcScore}= game;
@@ -18,7 +20,7 @@ export const Reset = ()=>{
                 >
                     { (userScore === texts.winTarget) || (pcScore === texts.winTarget) ?
                     
-                        'Play again': 'Reset'
+                        texts.playAgain : texts.reset
                
                 }
                 </button>

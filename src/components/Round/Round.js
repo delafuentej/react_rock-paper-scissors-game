@@ -1,12 +1,15 @@
 import { useContext } from 'react';
+//contexts
 import { LanguageContext } from '../../context/LanguageContext/LanguageContext';
  import { GameContext } from '../../context/GameContext/GameContext';
 
 import './Round.css';
 
 export const Round = ()=>{
+    //useContexts
     const {texts} = useContext(LanguageContext);
-     const {game} = useContext(GameContext);
+    const {game} = useContext(GameContext);
+
     const {userSelection, round} = game;
     
     return(
