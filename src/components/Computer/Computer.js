@@ -13,11 +13,15 @@ import {Loading} from '../Loading/Loading';
 
 
 
-export const Computer = ({ setIsLoading,isLoading, rockIcon, paperIcon, scissorsIcon, trophyIcon, pcScore, pcSelection, userSelection})=>{
+export const Computer = ({ 
+    setIsLoading,
+    isLoading
+   })=>{
    
             const { texts } = useContext(LanguageContext);
             const {playBoo} = useContext(AudioContext);
-           // const {rockIcon, paperIcon, scissorsIcon, trophyIcon, pcScore, pcSelection, userSelection} = useContext(GameContext);
+            const {rockIcon, paperIcon, scissorsIcon, trophyIcon, game} = useContext(GameContext);
+            const {pcScore, pcSelection, userSelection}= game;
 
             useEffect(() => {
                 let timer; 

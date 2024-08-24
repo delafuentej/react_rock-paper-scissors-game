@@ -7,6 +7,13 @@ import paperIcon from '../../assets/img/paper.png';
 import scissorsIcon from '../../assets/img/scissors.png';
 import trophyIcon from '../../assets/img/trophy.png';
 
+import { BsHandThumbsUp, BsHandThumbsDown } from "react-icons/bs";
+
+//thumbs
+const thumbsUp= <BsHandThumbsUp/>;
+const thumbsDown = <BsHandThumbsDown />;
+
+
 export const GameContext = createContext();
 
 export const GameProvider = ({ children }) => {
@@ -156,7 +163,18 @@ setLanguageChanged(false);
 
   };
 
-  const data ={ game, setGame, resetGame, isSelected, selectIcon, rockIcon, paperIcon, scissorsIcon, trophyIcon};
+  const data ={ game, 
+                setGame, 
+                resetGame, 
+                isSelected, 
+                selectIcon, 
+                rockIcon, 
+                paperIcon, 
+                scissorsIcon, 
+                trophyIcon,
+                thumbsUp,
+                thumbsDown
+            };
 
   return (
     <GameContext.Provider value={data}>

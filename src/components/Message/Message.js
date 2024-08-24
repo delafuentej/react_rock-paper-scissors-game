@@ -1,17 +1,24 @@
 import { useContext, useState, useEffect, useLayoutEffect} from 'react';
 import { LanguageContext } from '../../context/LanguageContext/LanguageContext';
 import { AudioContext } from '../../context/AudioContext/AudioContext';
+import { GameContext } from '../../context/GameContext/GameContext';
 import { Thumbs } from '../Thumbs/Thumbs';
 
 
 import './Message.css';
+//import { GameContext } from '../../context/GameContext/GameContext';
 
-export const Message = ({userSelection, message,  thumbsUp, thumbsDown,  userScore, isLoading})=>{
+export const Message = ({  
+     isLoading})=>{
    
     const { texts, languageChanged, setLanguageChanged } = useContext(LanguageContext);
 
     const{playBoo, playClaps} = useContext(AudioContext);
 
+    const {game, thumbsDown, thumbsUp} = useContext(GameContext);
+    const {userSelection, message, userScore} = game;
+
+   // const {userSelection, message, userScore} = useContext(GameContext);
     const [showThumbs, setShowThumbs] = useState(true);
     
 
