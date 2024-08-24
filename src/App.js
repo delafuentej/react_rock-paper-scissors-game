@@ -2,6 +2,7 @@
 import React, { useState, useContext} from 'react';
 
 import './App.css';
+//conmponents
 import { Header } from './components/Header/Header.js';
 import { Title } from './components/Title/Title.js';
 import { Playground } from './components/Playground/Playground.js';
@@ -16,10 +17,11 @@ import { Reset } from './components/Reset/Reset.js';
 import { LanguagesCustomSelect } from './components/LanguagesCustomSelect/LanguagesCustomSelect.js';
 import { ToggleTheme }from './components/ToggleTheme/ToggleTheme.js';
 import { ToggleAudio } from './components/ToggleAudio/ToggleAudio.js';
+//contexts
 import { LanguageContext} from './context/LanguageContext/LanguageContext.js';
 import { ThemeContext } from './context/ThemeContext/ThemeContext.js'
 import { AnimationContext } from './context/AnimationContext/AnimationContext.js';
-import {GameContext} from './context/GameContext/GameContext.js'
+import { GameContext } from './context/GameContext/GameContext.js'
 
 
 
