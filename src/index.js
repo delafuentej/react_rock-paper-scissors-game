@@ -5,6 +5,8 @@ import { LanguageProvider } from './context/LanguageContext/LanguageContext';
 import { AudioProvider } from './context/AudioContext/AudioContext';
 import { AnimationProvider } from './context/AnimationContext/AnimationContext';
 import { GameProvider } from './context/GameContext/GameContext';
+import { LoadingProvider } from './context/LoadingContext/LoadingContext';
+
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
@@ -17,21 +19,20 @@ root.render(
   <React.StrictMode>
     
    <LanguageProvider>
-   <AudioProvider> 
+    <AudioProvider> 
      <ThemeProvider>
       <GameProvider>
-     <AnimationProvider>
-     
-    
+        <AnimationProvider>
+          <LoadingProvider>
+
+            <App/> 
          
-         <App/> 
-         
-         
-         </AnimationProvider>
-         </GameProvider>
+          </LoadingProvider>
+        </AnimationProvider>
+      </GameProvider>
      </ThemeProvider>
-     </AudioProvider> 
-     </LanguageProvider>
+    </AudioProvider> 
+  </LanguageProvider>
      
   </React.StrictMode>
 );

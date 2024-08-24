@@ -35,10 +35,13 @@ export const AnimationProvider = ({ children }) => {
     }
   }, [themeChanged]);
 
-
+const data={
+  animationClass,
+  triggerAnimation
+}
  
   return (
-    <AnimationContext.Provider value={{ animationClass, triggerAnimation }}>
+    <AnimationContext.Provider value={data}>
       {children}
     </AnimationContext.Provider>
   );

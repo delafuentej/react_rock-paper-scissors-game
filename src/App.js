@@ -2,7 +2,6 @@
 import React, { useState, useContext} from 'react';
 
 import './App.css';
-//conmponents
 import { Header } from './components/Header/Header.js';
 import { Title } from './components/Title/Title.js';
 import { Playground } from './components/Playground/Playground.js';
@@ -35,7 +34,7 @@ function App() {
  
   const { pcScore, userScore}= game;  
  
- const [isLoading, setIsLoading] = useState(false);
+// const [isLoading, setIsLoading] = useState(false);
  
 
   return (
@@ -77,16 +76,11 @@ function App() {
 
             </Profile>
 
-              <Message
-                isLoading={isLoading} 
-              />
+              <Message/>
 
             <Profile>
-              <Computer
-                setIsLoading={setIsLoading}
-                isLoading={isLoading}
-              >
-              </Computer >
+              <Computer />
+            
               <Score score={pcScore} />
             </Profile>
             <Reset />

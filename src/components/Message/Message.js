@@ -6,15 +6,13 @@ import { Thumbs } from '../Thumbs/Thumbs';
 
 
 import './Message.css';
+import { LoadingContext } from '../../context/LoadingContext/LoadingContext';
 //import { GameContext } from '../../context/GameContext/GameContext';
 
-export const Message = ({  
-     isLoading})=>{
-   
+export const Message = ()=>{
+    const {isLoading} = useContext(LoadingContext)
     const { texts, languageChanged, setLanguageChanged } = useContext(LanguageContext);
-
     const{playBoo, playClaps} = useContext(AudioContext);
-
     const {game, thumbsDown, thumbsUp} = useContext(GameContext);
     const {userSelection, message, userScore} = game;
 

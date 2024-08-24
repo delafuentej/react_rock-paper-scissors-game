@@ -9,19 +9,18 @@ import { GameContext } from '../../context/GameContext/GameContext';
 import './Computer.css';
 import HourglassComponent from '../Hourglass/HourglassComponent';
 import {Loading} from '../Loading/Loading';
+import { LoadingContext } from '../../context/LoadingContext/LoadingContext';
 
 
 
 
-export const Computer = ({ 
-    setIsLoading,
-    isLoading
-   })=>{
-   
+export const Computer = ()=>{
+            const {isLoading, setIsLoading} = useContext(LoadingContext);
             const { texts } = useContext(LanguageContext);
             const {playBoo} = useContext(AudioContext);
             const {rockIcon, paperIcon, scissorsIcon, trophyIcon, game} = useContext(GameContext);
             const {pcScore, pcSelection, userSelection}= game;
+
 
             useEffect(() => {
                 let timer; 

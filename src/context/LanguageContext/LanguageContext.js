@@ -139,7 +139,13 @@ useEffect(()=>{
     }
     console.log('selectedLanguage', selectedLanguage)
    
-    const data ={ texts, handleLanguage, options, selectedLanguage, translations, languageChanged, setLanguageChanged };
+    const data ={ texts, 
+                handleLanguage, 
+                options, 
+                selectedLanguage, 
+                translations, 
+                languageChanged, 
+                setLanguageChanged };
 
   
     return(
