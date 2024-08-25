@@ -136,10 +136,7 @@ h1{
    
 }
 
-/* Estilos comunes para ambos toggles */
-
-
-/* Estilos específicos para ToggleTheme */
+/*  Specific styles for ToggleTheme */
 .toggle-theme label {
     background-image: 
         linear-gradient(to right, rgba(0, 0, 0, 0.496), rgba(0, 0, 0, 0.5)), 
@@ -156,7 +153,7 @@ h1{
     background-color: #0054B0;
 }
 
-/* Estilos específicos para ToggleAudio */
+/* Specific styles  ToggleAudio */
 .toggle-audio label {
     background-image: 
         linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), 
