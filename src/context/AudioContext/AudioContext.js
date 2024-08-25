@@ -14,33 +14,23 @@ export const AudioContext= React.createContext();
 
 export const AudioProvider=({children})=>{
 // state for handling audio
-//const [isAudioEnabled, setIsAudioEnabled] = useState(false);
 const[isAudioEnabled, setIsAudioEnabled]= useState(()=>{
  
   //load the initial state from storage
   const savedAudioSetting = localStorage.getItem('isAudioEnabled');
-  
+  //Parse to boolean or default to false :
   //If it exists, it is parsed from string to boolean; otherwise,
   // it is set to false by default.
-  console.log('savedAudioSetting', savedAudioSetting)
-
   return savedAudioSetting !== null ? JSON.parse(savedAudioSetting) : false;
   
 });
 //console.log('isAudioEnabled',isAudioEnabled);
-console.log('isAudioEnabled', isAudioEnabled)
- // Cargar configuración de audio desde localStorage solo una vez al montar
-//  useEffect(() => {
-//   const savedAudioSetting = localStorage.getItem('isAudioEnabled');
-//   if (savedAudioSetting !== null) {
-//     setIsAudioEnabled(JSON.parse(savedAudioSetting));
-//   }
-// }, []);
+
  // Effect to save the state in localStorage each time it changes
  useEffect(() => {
   localStorage.setItem('isAudioEnabled', JSON.stringify(isAudioEnabled));
 }, [isAudioEnabled]);
-
+console.log('localStorage.isAudioEnabled', localStorage.isAudioEnabled);
   //playSounds
   const [playClaps] = useSound(audioClaps, {soundEnabled: isAudioEnabled});
   const [playBoo] = useSound(audioBoo,  {soundEnabled: isAudioEnabled});
@@ -49,14 +39,14 @@ console.log('isAudioEnabled', isAudioEnabled)
   
   //toggleAudio
   const toggleAudio=()=>{
-    setIsAudioEnabled(!isAudioEnabled)
+    setIsAudioEnabled(prevState => !prevState)
   }
     //handleChangeAudio
     const handleChange=(e)=>{
       const audioEnabled = e.target.checked;
        setIsAudioEnabled(audioEnabled);
     }
-
+console.log('isAudioEnabled',isAudioEnabled);
   const data ={
     playClaps,
     playBoo,
