@@ -1,12 +1,13 @@
 import React, {useContext}from 'react';
-import './Thumbs.css';
+//contexts
 import { ThemeContext } from '../../context/ThemeContext/ThemeContext';
 import { LanguageContext } from '../../context/LanguageContext/LanguageContext';
 import { GameContext } from '../../context/GameContext/GameContext';
 
+import './Thumbs.css';
 
 export const Thumbs = React.memo(() => {
-
+    //useContexts
     const {texts} = useContext(LanguageContext);
     const {theme} = useContext(ThemeContext);
     const {game, thumbsUp, thumbsDown} = useContext(GameContext);

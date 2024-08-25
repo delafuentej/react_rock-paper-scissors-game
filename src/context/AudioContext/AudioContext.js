@@ -16,6 +16,7 @@ export const AudioProvider=({children})=>{
 // state for handling audio
 //const [isAudioEnabled, setIsAudioEnabled] = useState(false);
 const[isAudioEnabled, setIsAudioEnabled]= useState(()=>{
+ 
   //load the initial state from storage
   const savedAudioSetting = localStorage.getItem('isAudioEnabled');
   
@@ -27,7 +28,7 @@ const[isAudioEnabled, setIsAudioEnabled]= useState(()=>{
   
 });
 //console.log('isAudioEnabled',isAudioEnabled);
-
+console.log('isAudioEnabled', isAudioEnabled)
  // Cargar configuración de audio desde localStorage solo una vez al montar
 //  useEffect(() => {
 //   const savedAudioSetting = localStorage.getItem('isAudioEnabled');
@@ -51,7 +52,7 @@ const[isAudioEnabled, setIsAudioEnabled]= useState(()=>{
     setIsAudioEnabled(!isAudioEnabled)
   }
     //handleChangeAudio
-    const handleChangeAudio=(e)=>{
+    const handleChange=(e)=>{
       const audioEnabled = e.target.checked;
        setIsAudioEnabled(audioEnabled);
     }
@@ -64,7 +65,7 @@ const[isAudioEnabled, setIsAudioEnabled]= useState(()=>{
     toggleAudio,
     isAudioEnabled,
     setIsAudioEnabled,
-    handleChangeAudio
+    handleChange
   }
 
   return(

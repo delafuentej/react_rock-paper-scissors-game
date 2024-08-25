@@ -1,25 +1,25 @@
 import { useContext, useState, useEffect, useLayoutEffect} from 'react';
+//contexts
 import { LanguageContext } from '../../context/LanguageContext/LanguageContext';
 import { AudioContext } from '../../context/AudioContext/AudioContext';
 import { GameContext } from '../../context/GameContext/GameContext';
+import { LoadingContext } from '../../context/LoadingContext/LoadingContext';
+//thumbs
 import { Thumbs } from '../Thumbs/Thumbs';
 
-
 import './Message.css';
-import { LoadingContext } from '../../context/LoadingContext/LoadingContext';
-//import { GameContext } from '../../context/GameContext/GameContext';
+
 
 export const Message = ()=>{
+    //useContexts
     const {isLoading} = useContext(LoadingContext)
     const { texts, languageChanged, setLanguageChanged } = useContext(LanguageContext);
     const{playBoo, playClaps} = useContext(AudioContext);
     const {game, thumbsDown, thumbsUp} = useContext(GameContext);
     const {userSelection, message, userScore} = game;
-
-   // const {userSelection, message, userScore} = useContext(GameContext);
+    //state 
     const [showThumbs, setShowThumbs] = useState(true);
     
-
      //  to store the messages used to display thumbs in independent variables.
      const winMessage = texts.winMessage;
      const lostMessage = texts.lostMessage;

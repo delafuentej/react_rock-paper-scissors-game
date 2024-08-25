@@ -1,7 +1,6 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-import React, { useState, useContext} from 'react';
-
-import './App.css';
+import React, { useContext} from 'react';
+//components
 import { Header } from './components/Header/Header.js';
 import { Title } from './components/Title/Title.js';
 import { Playground } from './components/Playground/Playground.js';
@@ -14,37 +13,45 @@ import { Message } from './components/Message/Message.js';
 import { Computer } from './components/Computer/Computer.js';
 import { Reset } from './components/Reset/Reset.js';
 import { LanguagesCustomSelect } from './components/LanguagesCustomSelect/LanguagesCustomSelect.js';
-import { ToggleTheme }from './components/ToggleTheme/ToggleTheme.js';
-import { ToggleAudio } from './components/ToggleAudio/ToggleAudio.js';
+import { ToggleSwitch } from './components/ToggleSwitch/ToggleSwitch.js';
+
 //contexts
 import { LanguageContext} from './context/LanguageContext/LanguageContext.js';
 import { ThemeContext } from './context/ThemeContext/ThemeContext.js'
 import { AnimationContext } from './context/AnimationContext/AnimationContext.js';
-import { GameContext } from './context/GameContext/GameContext.js'
+import { GameContext } from './context/GameContext/GameContext.js';
+import { AudioContext } from './context/AudioContext/AudioContext.js';
 
+//styles
+import './App.css';
 
 
 function App() {
   
 //useContext
   const{ texts} = useContext(LanguageContext);
-  const { theme} = useContext(ThemeContext);
+  const { theme } = useContext(ThemeContext);
   const {animationClass}= useContext(AnimationContext);
   const {game, selectIcon, isSelected, rockIcon, paperIcon, scissorsIcon}= useContext(GameContext);
- 
   const { pcScore, userScore}= game;  
  
-// const [isLoading, setIsLoading] = useState(false);
- 
-
   return (
     <div className={`App ${animationClass} ${theme}`}>
 
       {(userScore < 5 && pcScore < 5 ) ? (
         <Header >
           <LanguagesCustomSelect />
-          <ToggleTheme />
-          <ToggleAudio /> 
+          <ToggleSwitch 
+            context={ThemeContext}
+            id='toggle-theme'
+            labelClass='toggle-switch toggle-theme'
+          /> 
+          <ToggleSwitch
+            context={AudioContext}
+            id='toggle-audio'
+            labelClass='toggle-switch toggle-audio'
+           /> 
+         
        </Header>
       ): null}
        
@@ -76,16 +83,15 @@ function App() {
 
             </Profile>
 
-              <Message/>
+            <Message/>
 
             <Profile>
               <Computer />
-            
               <Score score={pcScore} />
             </Profile>
             <Reset />
           </Playground>
-          </div>
+      </div>
       
   );
 }
