@@ -26,7 +26,7 @@ export const Message = React.memo(()=> {
      const lostMessage = texts.lostMessage;
      const winMessageGame = texts.winMessageGame;
 
-    console.log('localStorage', JSON.stringify(localStorage.gameState.userSelection))
+  
     useLayoutEffect(()=>{
 
         let timer;
