@@ -25,7 +25,7 @@ export const Message = ()=>{
      const lostMessage = texts.lostMessage;
      const winMessageGame = texts.winMessageGame;
 
-
+    console.log('localStorage', localStorage)
     useLayoutEffect(()=>{
 
         let timer;

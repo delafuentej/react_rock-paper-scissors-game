@@ -20,16 +20,41 @@ export const GameProvider = ({ children }) => {
     const{texts, translations, setLanguageChanged} = useContext(LanguageContext);
     const {setIsAudioEnabled, isAudioEnabled} = useContext(AudioContext);
 
-  const [game, setGame] = useState({
-    userSelection: '',
-    pcSelection: '',
-    round: 0,
-    userScore: 0,
-    pcScore: 0,
-    message: '',
-  });
+
+   // Function to load the game state from localStorage
+    const loadGameFromLocalStorage = () => {
+        const savedGame = localStorage.getItem('gameState');
+        try{
+          return savedGame ? JSON.parse(savedGame) : {
+            userSelection: '',
+            pcSelection: '',
+            round: 0,
+            userScore: 0,
+            pcScore: 0,
+            message: '',
+        };
+        }catch(error){
+          console.error("Error parsing gameState from localStorage:", error);
+          return {
+              userSelection: '',
+              pcSelection: '',
+              round: 0,
+              userScore: 0,
+              pcScore: 0,
+              message: '',
+          };
+        }
+        
+      };
+    // function to load the game state from localStorage
+  const [game, setGame] = useState(loadGameFromLocalStorage);
 
   const { message, pcSelection,pcScore, userScore, userSelection}= game;
+
+  // Save the game state to localStorage whenever it changes
+  useEffect(() => {
+    localStorage.setItem('gameState', JSON.stringify(game));
+}, [game]);
   // useEffect to update the pcSelection when the language is changed
     //to solve the problem with the icons in the Computer Component
   useEffect(() => {
@@ -160,6 +185,8 @@ setLanguageChanged(false);
     });
     setLanguageChanged(false);
    setIsAudioEnabled(isAudioEnabled);
+   // Clear game state from localStorage
+   localStorage.removeItem('gameState'); 
 
   };
 
