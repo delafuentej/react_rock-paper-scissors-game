@@ -1,4 +1,4 @@
-import { useContext, useState, useEffect, useLayoutEffect} from 'react';
+import React,{ useContext, useState, useEffect, useLayoutEffect} from 'react';
 //contexts
 import { LanguageContext } from '../../context/LanguageContext/LanguageContext';
 import { AudioContext } from '../../context/AudioContext/AudioContext';
@@ -9,14 +9,15 @@ import { Thumbs } from '../Thumbs/Thumbs';
 
 import './Message.css';
 
-
-export const Message = ()=>{
+// React.memo => ensures that the component is only re-rendered if its props actually change.
+export const Message = React.memo(()=> {
     //useContexts
     const {isLoading} = useContext(LoadingContext)
     const { texts, languageChanged, setLanguageChanged } = useContext(LanguageContext);
     const{playBoo, playClaps} = useContext(AudioContext);
     const {game, thumbsDown, thumbsUp} = useContext(GameContext);
     const {userSelection, message, userScore} = game;
+
     //state 
     const [showThumbs, setShowThumbs] = useState(true);
     
@@ -25,19 +26,22 @@ export const Message = ()=>{
      const lostMessage = texts.lostMessage;
      const winMessageGame = texts.winMessageGame;
 
-    console.log('localStorage', localStorage)
+    console.log('localStorage', JSON.stringify(localStorage.gameState.userSelection))
     useLayoutEffect(()=>{
 
         let timer;
 
-        if ( !isLoading && !languageChanged && userSelection !== '' && (message === lostMessage || message === winMessage)) {
+        if ( !isLoading && !languageChanged 
+            && userSelection !== '' 
+            && (message === lostMessage 
+            || message === winMessage)) {
            
             setShowThumbs(true);
             // Starting the  timer to hide the thumbs after 3 seconds
             timer = setTimeout(() => {
                 setShowThumbs(false); // Hide thumbs after 3 seconds
             }, 2000);
-        } else if(languageChanged){
+        } else if(languageChanged ){
             setShowThumbs(false);
             
             
@@ -90,3 +94,4 @@ export const Message = ()=>{
        
     );
 }
+) 

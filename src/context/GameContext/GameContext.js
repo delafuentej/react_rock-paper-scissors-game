@@ -24,25 +24,19 @@ export const GameProvider = ({ children }) => {
    // Function to load the game state from localStorage
     const loadGameFromLocalStorage = () => {
         const savedGame = localStorage.getItem('gameState');
+        const initialState = {
+          userSelection: '',
+          pcSelection: '',
+          round: 0,
+          userScore: 0,
+          pcScore: 0,
+          message: '',
+        }
         try{
-          return savedGame ? JSON.parse(savedGame) : {
-            userSelection: '',
-            pcSelection: '',
-            round: 0,
-            userScore: 0,
-            pcScore: 0,
-            message: '',
-        };
+          return savedGame ? JSON.parse(savedGame) : initialState
         }catch(error){
           console.error("Error parsing gameState from localStorage:", error);
-          return {
-              userSelection: '',
-              pcSelection: '',
-              round: 0,
-              userScore: 0,
-              pcScore: 0,
-              message: '',
-          };
+         
         }
         
       };
@@ -85,7 +79,7 @@ export const GameProvider = ({ children }) => {
     };
 
      // If the current message is in the mapping, it is updated.
-  if (message in messageMap) {
+  if (message in messageMap &&  messageMap[message] !== game.message) {
     setGame(prevState => ({
       ...prevState,
       message: messageMap[message],
@@ -173,18 +167,25 @@ setLanguageChanged(false);
   return userSelection === iconValue;
 };
 
+const updateGameState = (newState) => {
+  if (JSON.stringify(game) !== JSON.stringify(newState)) {
+      setGame(newState);
+  }
+};
+
 
   const resetGame = () => {
-    setGame({
+    const initialState = {
       userSelection: '',
       pcSelection: '',
       round: 0,
       userScore: 0,
       pcScore: 0,
       message: '',
-    });
+    };
+    setGame(initialState);
     setLanguageChanged(false);
-   setIsAudioEnabled(isAudioEnabled);
+    setIsAudioEnabled(isAudioEnabled);
    // Clear game state from localStorage
    localStorage.removeItem('gameState'); 
 
