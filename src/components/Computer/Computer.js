@@ -1,4 +1,4 @@
-import {  useContext, useEffect} from 'react';
+import {  useContext, useEffect, useRef} from 'react';
 import { LanguageContext } from '../../context/LanguageContext/LanguageContext';
 import { AudioContext } from '../../context/AudioContext/AudioContext';
 import { GameContext } from '../../context/GameContext/GameContext';
@@ -21,6 +21,10 @@ export const Computer = ()=>{
             const {rockIcon, paperIcon, scissorsIcon, trophyIcon, game} = useContext(GameContext);
             const {pcScore, pcSelection, userSelection}= game;
 
+
+            // useRef
+            const gameState = localStorage.gameState;
+            const gameStateRef = useRef(gameState); 
 
             useEffect(() => {
                 let timer; 
@@ -52,7 +56,7 @@ export const Computer = ()=>{
                     <h3 className="wait-msg">{texts.waitingMessage}</h3>
                     
                 </div>)
-                : isLoading ? (
+                : ( isLoading && (gameStateRef.current !== gameState)) ? (
                     <div className='img-container'>
                          <Loading />
                     </div>

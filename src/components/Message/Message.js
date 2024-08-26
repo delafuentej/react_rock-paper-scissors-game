@@ -10,7 +10,7 @@ import { Thumbs } from '../Thumbs/Thumbs';
 import './Message.css';
 
 // React.memo => ensures that the component is only re-rendered if its props actually change.
-export const Message = React.memo(()=> {
+export const Message = ()=> {
     //useContexts
     const {isLoading} = useContext(LoadingContext)
     const { texts, languageChanged, setLanguageChanged } = useContext(LanguageContext);
@@ -100,5 +100,4 @@ export const Message = React.memo(()=> {
         </div>
        
     );
-}
-) 
+};
