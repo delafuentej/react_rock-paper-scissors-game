@@ -18,10 +18,7 @@ export const Message = ()=> {
     const {game, thumbsDown, thumbsUp} = useContext(GameContext);
     const {userSelection, message, userScore} = game;
 
-    //to retrieve the variable message from localStorage, it it exits:
-    const savedMessage = localStorage.getItem('savedMessage') || '';
-
-    // s
+    
 
     //state 
     const [showThumbs, setShowThumbs] = useState(()=>{
@@ -96,8 +93,8 @@ export const Message = ()=> {
    
 
     return(
-        <div className={`msg-container ${isLoading ? 'margin-top' : ''}`}>
-            {!isLoading && (
+        <div className={`msg-container ${isLoading &&  (gameStateRef.current === gameState)? 'margin-top' : ''}`}>
+            {(!isLoading ||  (gameStateRef.current === gameState)) && (
                 <h3 className="message">
                 { (userScore === 5) ? winMessageGame :(userSelection === '') ? 'VS' :  message}
               
