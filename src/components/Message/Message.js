@@ -9,7 +9,7 @@ import { Thumbs } from '../Thumbs/Thumbs';
 
 import './Message.css';
 
-// React.memo => ensures that the component is only re-rendered if its props actually change.
+
 export const Message = ()=> {
     //useContexts
     const {isLoading} = useContext(LoadingContext)
@@ -18,16 +18,24 @@ export const Message = ()=> {
     const {game, thumbsDown, thumbsUp} = useContext(GameContext);
     const {userSelection, message, userScore} = game;
 
-    //state 
-    const [showThumbs, setShowThumbs] = useState(true);
+    //to retrieve the variable message from localStorage, it it exits:
+    const savedMessage = localStorage.getItem('savedMessage') || '';
 
-    const gameState = (localStorage.gameState);
-    console.log('gameState', gameState);
+    // s
+
+    //state 
+    const [showThumbs, setShowThumbs] = useState(()=>{
+        // Initialise state from localStorage
+        const savedState = localStorage.getItem('showThumbs');
+        return savedState !== null ? JSON.parse(savedState) : true;
+    });
+
+    const gameState = localStorage.gameState;
     //useRef
     const gameStateRef = useRef(gameState);
-    console.log('gameStateRef', gameStateRef.current);
-    console.log('boolean',gameStateRef.current === gameState)
+   
     
+
      //  to store the messages used to display thumbs in independent variables.
      const winMessage = texts.winMessage;
      const lostMessage = texts.lostMessage;
@@ -44,22 +52,34 @@ export const Message = ()=> {
             || message === winMessage)) {
            
             setShowThumbs(true);
-            // Starting the  timer to hide the thumbs after 3 seconds
+            // to store state in localStorage
+            localStorage.setItem('showThumbs', JSON.stringify(true));
+            // Starting the  timer to hide the thumbs after 2 seconds
             timer = setTimeout(() => {
-                setShowThumbs(false); // Hide thumbs after 3 seconds
+                setShowThumbs(false); // Hide thumbs after 2 seconds
             }, 2000);
         } else if(languageChanged ){
             setShowThumbs(false);
+            localStorage.setItem('showThumbs', JSON.stringify(false));
             
             
         }else{
             setShowThumbs(false); 
+            localStorage.setItem('showThumbs', JSON.stringify(false));
+
         }
        
         // Clear the timer if the component is disassembled or if the message changes.
         return () => clearTimeout(timer);
 
-    },[userSelection, message, lostMessage, winMessage, languageChanged, setLanguageChanged, isLoading, gameState])
+    },[userSelection,
+        message, 
+        lostMessage, 
+        winMessage, 
+        languageChanged, 
+        setLanguageChanged, 
+        isLoading, 
+        gameState])
 
 
    
@@ -79,7 +99,7 @@ export const Message = ()=> {
         <div className={`msg-container ${isLoading ? 'margin-top' : ''}`}>
             {!isLoading && (
                 <h3 className="message">
-                { (userScore === 5) ? winMessageGame :(userSelection === '') ? 'VS' : message}
+                { (userScore === 5) ? winMessageGame :(userSelection === '') ? 'VS' :  message}
               
              </h3> 
             )}
