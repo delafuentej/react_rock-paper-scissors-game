@@ -5,7 +5,7 @@
 }
 .choice-icon:hover {
     cursor:pointer;
-     box-shadow: 10px 5px 5px rgba(128, 128, 128, 0.601);
+    box-shadow: 10px 5px 5px rgba(128, 128, 128, 0.601);
     transform: scale(1.1);
 }
 .choice-icon-dark:hover {
