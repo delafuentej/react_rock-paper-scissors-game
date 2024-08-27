@@ -95,8 +95,7 @@ export const Message = ()=> {
     return(
         <div className={`
             msg-container 
-            ${ isLoading &&  (gameStateRef.current === gameState) ? 'margin-top' : '' 
-            || (isLoading &&  (gameStateRef.current !== gameState)) ? 'margin-top' : '' }
+            ${ isLoading ? 'margin-top' : '' }
         `}>
             {(!isLoading ||  (gameStateRef.current === gameState)) && (
                 <h3 className="message">

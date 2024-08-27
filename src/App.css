@@ -13,7 +13,6 @@ body{
   display: flex;
   justify-content: center;
   align-items: center;
-  /* display: grid; */
  
   font-weight: 300;
    font-style: normal;
@@ -99,8 +98,8 @@ h1{
 		linear-gradient(to left, rgba(53, 45, 45, 0.87), rgba(243, 202, 202, 0.804));
        
 
-	background-size: 50% auto, 50% auto; /* Cada imagen ocupa el 50% del ancho del contenedor */
-    background-repeat: no-repeat; /* Evita que las imágenes se repitan */
+	background-size: 50% auto, 50% auto; 
+    background-repeat: no-repeat; 
 	background-position: left, right; 
    
 }
@@ -171,17 +170,7 @@ h1{
     background-color: #0054B0;
 }
 
-//choice-icon 
-.choice-icon.choice-icon-dark: hover {
-  curso:pointer;
-  background-color: rgba(240, 248, 255, 0.472); 
-}
 
-.choice-icon.choice-icon-light: hover{
-  curso: pointer;
-  background-color: rgba(13, 103, 181, 0.535); 
-
-}
 /* animation theme change */
 
 @keyframes fadeOutBlur {
@@ -242,7 +231,7 @@ h1{
   }
   100% {
     opacity: 0;
-    transform: scale(0.95); /* Reducimos un poco el tamaño */
+    transform: scale(0.95); 
   }
 }
 
