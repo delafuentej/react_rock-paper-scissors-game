@@ -93,7 +93,11 @@ export const Message = ()=> {
    
 
     return(
-        <div className={`msg-container ${isLoading &&  (gameStateRef.current === gameState) ? 'margin-top' : ''}`}>
+        <div className={`
+            msg-container 
+            ${ isLoading &&  (gameStateRef.current === gameState) ? 'margin-top' : '' 
+            || isLoading &&  (gameStateRef.current !== gameState) ? 'margin-top' : ''}
+        `}>
             {(!isLoading ||  (gameStateRef.current === gameState)) && (
                 <h3 className="message">
                 { (userScore === 5) ? winMessageGame :(userSelection === '') ? 'VS' :  message}
