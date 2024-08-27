@@ -17,8 +17,13 @@ const thumbsDown = <BsHandThumbsDown />;
 export const GameContext = createContext();
 
 export const GameProvider = ({ children }) => {
+
     const{texts, translations, setLanguageChanged} = useContext(LanguageContext);
     const {setIsAudioEnabled, isAudioEnabled} = useContext(AudioContext);
+
+    const [isHovered, setIsHovered] = useState(false);
+
+   
 
 
    // Function to load the game state from localStorage
@@ -172,8 +177,13 @@ const updateGameState = (newState) => {
       setGame(newState);
   }
 };
+const handleMouseLeave = () => {
+  setIsHovered(false);
+};
 
-
+const handleMouseEnter = () => {
+  setIsHovered(true);
+};
   const resetGame = () => {
     const initialState = {
       userSelection: '',
@@ -201,7 +211,10 @@ const updateGameState = (newState) => {
                 scissorsIcon, 
                 trophyIcon,
                 thumbsUp,
-                thumbsDown
+                thumbsDown,
+                isHovered,
+                handleMouseEnter,
+                handleMouseLeave
             };
 
   return (

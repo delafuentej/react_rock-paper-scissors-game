@@ -1,24 +1,26 @@
 .choice-icon {
     border-radius: 50%;
     transition: all 0.5s;
-   
+    padding: 0.6rem;
+}
+.choice-icon:hover {
+    cursor:pointer;
+     box-shadow: 10px 5px 5px rgba(128, 128, 128, 0.601);
+    transform: scale(1.1);
+}
+.choice-icon-dark:hover {
+  background-color: rgba(240, 248, 255, 0.3); 
 }
 
-.choice-icon:hover, .choice-icon.selected{
-    cursor:pointer;
+.choice-icon-light:hover{
+  background-color: rgba(13, 103, 181, 0.3); 
+
+}
+.choice-icon.selected{
     background-color: rgba(64, 228, 19, 0.357);
     box-shadow: 10px 5px 5px rgba(128, 128, 128, 0.601);
     padding: 0.6rem;
-    /* animation: spin 4000ms infinite linear; */
     transform: scale(1.1);
-}
-
-@keyframes spin {
-    from {
-        transform: rotate(0deg);
-    }to{
-        transform: rotate(180deg);
-    }
 }
 
 

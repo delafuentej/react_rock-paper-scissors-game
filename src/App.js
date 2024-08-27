@@ -31,6 +31,7 @@ function App() {
 //useContext
   const{ texts} = useContext(LanguageContext);
   const { theme } = useContext(ThemeContext);
+  console.log(theme)
   const {animationClass}= useContext(AnimationContext);
   const {game, selectIcon, isSelected, rockIcon, paperIcon, scissorsIcon}= useContext(GameContext);
   const { pcScore, userScore}= game;  

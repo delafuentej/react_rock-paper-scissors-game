@@ -6,6 +6,7 @@ export const ThemeContext = React.createContext();
 export const ThemeProvider= ({ children })=>{
     const storedTheme = localStorage.getItem('theme') || 'dark';
     const [theme, setTheme ]= useState(storedTheme);
+    console.log('theme from ThemeProvider', theme)
     const [isChecked , setIsChecked]= useState(storedTheme === 'light');
     const [themeChanged,  setThemeChanged] = useState(false);
     
