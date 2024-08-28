@@ -1,4 +1,4 @@
-import {  useContext, useEffect,useState, useRef} from 'react';
+import {  useContext, useEffect, useRef} from 'react';
 import { LanguageContext } from '../../context/LanguageContext/LanguageContext';
 import { AudioContext } from '../../context/AudioContext/AudioContext';
 import { GameContext } from '../../context/GameContext/GameContext';
@@ -19,23 +19,10 @@ export const Computer = ()=>{
             const {isLoading, setIsLoading} = useContext(LoadingContext);
             const { texts } = useContext(LanguageContext);
             const {playBoo} = useContext(AudioContext);
-            const {rockIcon, paperIcon, scissorsIcon, trophyIcon, game, thumbsDown} = useContext(GameContext);
+            const {rockIcon, paperIcon, scissorsIcon, trophyIcon, game} = useContext(GameContext);
             const {pcScore, pcSelection, userSelection, userScore}= game;
 
-          
-
-            const [showThumbsDown,  setShowThumbsDown] = useState(false);
-        
-                // useEffect para manejar el retraso en la visibilidad
-                useEffect(() => {
-                    const timer = setTimeout(() => {
-                        setShowThumbsDown(true);
-                    }, 2000); // 2000 ms = 2 segundos
             
-                    // Cleanup para el temporizador
-                    return () => clearTimeout(timer);
-                }, []); 
-        
            
 
             // useRef
@@ -68,7 +55,7 @@ export const Computer = ()=>{
             {/* icons */}
             
             {   
-                (userScore === texts.winTarget) ?  (showThumbsDown && <ThumbsDown />) :
+                (userScore === texts.winTarget) ?  (<ThumbsDown />) :
 
                 (pcScore < texts.winTarget) ? 
                     (userSelection === '') ? 

@@ -10,13 +10,13 @@ const ThumbsDown =() =>{
 
     const [showThumbsDown,  setShowThumbsDown] = useState(false);
 
-        // useEffect para manejar el retraso en la visibilidad
+        // useEffectto manage the visibility delay
         useEffect(() => {
             const timer = setTimeout(() => {
                 setShowThumbsDown(true);
-            }, 2000); // 2000 ms = 2 segundos
+            }, 2000); // 2000 ms = 2 seconds
     
-            // Cleanup para el temporizador
+            // Cleanup for timer
             return () => clearTimeout(timer);
         }, []); 
 
