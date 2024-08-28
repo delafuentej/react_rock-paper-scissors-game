@@ -177,11 +177,13 @@ const updateGameState = (newState) => {
       setGame(newState);
   }
 };
-const handleMouseLeave = () => {
+const handleMouseLeave = (event) => {
+  event.preventDefault();
   setIsHovered(false);
 };
 
-const handleMouseEnter = () => {
+const handleMouseEnter = (event) => {
+  event.preventDefault()
   setIsHovered(true);
 };
   const resetGame = () => {
@@ -213,6 +215,7 @@ const handleMouseEnter = () => {
                 thumbsUp,
                 thumbsDown,
                 isHovered,
+                setIsHovered,
                 handleMouseEnter,
                 handleMouseLeave
             };

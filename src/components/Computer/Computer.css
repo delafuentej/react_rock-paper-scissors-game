@@ -5,10 +5,9 @@
         border-radius: 10px;
         display:flex;
         flex-direction:column;
-        justify-content: center; /* Centrar verticalmente */
+        justify-content: center; 
         align-items: center;
         margin-bottom: 2em;
-        
 }
 .computer-name{
         margin-bottom:10px;
@@ -17,7 +16,10 @@
         margin-top: 10px;
 }
 
-
+.thumbs-down{
+        height:100px;
+        width:100px;
+}
 
 @media only screen and (max-width: 600px) {
  

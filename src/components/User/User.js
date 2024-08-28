@@ -4,21 +4,27 @@ import { LanguageContext } from '../../context/LanguageContext/LanguageContext';
 import { AudioContext } from '../../context/AudioContext/AudioContext';
 import { GameContext } from '../../context/GameContext/GameContext';
 import { ConfettiComponent } from '../Confetti/Confetti';
-
+import ThumbsDown from '../Thumbs/ThumbsDown';
 import './User.css';
 
 export const User = ({ children})=>{
 //useContexts
     const { texts } = useContext(LanguageContext);
     const { playAplause, playCongrat} = useContext(AudioContext);
-    const {game, trophyIcon} = useContext(GameContext);
-    const {userScore, userSelection} = game;
+    const {game, trophyIcon, thumbsDown} = useContext(GameContext);
+    const {userScore, userSelection, pcScore} = game;
+    console.log('thumbsDown', thumbsDown)
    
     return(
         <div className='use-card'>
+            {/* userName */}
             <h2 className='user-name'>{texts.userName}</h2>
-            {
-               ( userScore < texts.winTarget) ? (
+            {/* icons */}
+            { 
+                (pcScore === texts.winTarget) ?  (<ThumbsDown />) :
+               ( userScore < texts.winTarget) ? 
+
+               (
                 <div className='user-selection'>
                     <div className="choice-grid">
                         {children}
@@ -28,7 +34,9 @@ export const User = ({ children})=>{
                     </h3>
                 </div>
 
-               ):
+               )
+               :
+               
                (
                 <div className='user-card'>
                     <img
