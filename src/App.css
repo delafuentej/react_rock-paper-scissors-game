@@ -1,175 +1,166 @@
-@import url('https://fonts.googleapis.com/css2?family=Jersey+15&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Jersey+15&display=swap");
 
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-
 }
 
-body{
+body {
   width: 100vw;
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
- 
+
   font-weight: 300;
-   font-style: normal;
+  font-style: normal;
   font-family: "Jersey 15", sans-serif;
-  background-color: #0A2647;
-  background-image:  linear-gradient(90deg, rgba(1,6,20,0.9) 0%, rgba(66,97,149,0.9) 100%), url('../src/assets/img/img-bg.jpg') ;/* linear-gradient(90deg, rgba(1,6,20,1) 0%, rgba(66,97,149,1) 100%); */
-  color:white; 
+  background-color: #0a2647;
+  background-image:
+    linear-gradient(90deg, rgba(1, 6, 20, 0.9) 0%, rgba(66, 97, 149, 0.9) 100%),
+    url("../src/assets/img/img-bg.jpg"); /* linear-gradient(90deg, rgba(1,6,20,1) 0%, rgba(66,97,149,1) 100%); */
+  color: white;
   border-radius: 50%;
 }
-  
+
 .App {
   width: 90vw;
-  max-width: 1000px; 
+  max-width: 1000px;
   min-height: 80vh;
   padding: 20px;
   text-align: center;
   border-radius: 1rem;
 }
 
-.dark{
-  background-color: #0A2647;
-  background-image:  linear-gradient(90deg, rgba(1,6,20,0.9) 0%, rgba(66,97,149,0.9) 100%), url('../src/assets/img/img-bg.jpg') ;/* linear-gradient(90deg, rgba(1,6,20,1) 0%, rgba(66,97,149,1) 100%); */
-  color:white;
+.dark {
+  background-color: #0a2647;
+  background-image:
+    linear-gradient(90deg, rgba(1, 6, 20, 0.9) 0%, rgba(66, 97, 149, 0.9) 100%),
+    url("../src/assets/img/img-bg.jpg"); /* linear-gradient(90deg, rgba(1,6,20,1) 0%, rgba(66,97,149,1) 100%); */
+  color: white;
 }
-.light{
+.light {
   background-color: rgb(244, 248, 249);
-  background-image:  linear-gradient(90deg, rgba(252, 252, 253, 0.935) 0%, rgba(193, 208, 235, 0.787) 100%), url('../src/assets/img/img-bg.jpg') ;
-  color: #0A2647;
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(252, 252, 253, 0.935) 0%,
+      rgba(193, 208, 235, 0.787) 100%
+    ),
+    url("../src/assets/img/img-bg.jpg");
+  color: #0a2647;
 }
 
-h1{
+h1 {
   word-spacing: 0.5em;
   text-transform: uppercase;
-  letter-spacing:0.15em;
-
+  letter-spacing: 0.15em;
 }
 
-.App {
-  width:1000px;
-  min-height:600px;
-  padding: 20px;
-  text-align: center;
-}
-
-.icons{
+.icons {
   width: 80px;
   margin: 10px 0;
 }
 
-.theme-dark{
-  background-color:  #0A2647;;
+.theme-dark {
+  background-color: #0a2647;
   color: #ffffff;
 }
 
-.theme-light{
+.theme-light {
   background-color: #faf8f8;
-  color:#0A2647;
+  color: #0a2647;
 }
 
 /* toggleSwitch */
 
- /* -toggle-theme */
-.toggle-theme input[type=checkbox] {
-	display: none;
-   
+/* -toggle-theme */
+.toggle-theme input[type="checkbox"] {
+  display: none;
 }
 
- .toggle-theme label {
-    border: 1px solid #ccc;
-	border-radius: 50px;
-	cursor: pointer;
-	display: inline-block;
-	position: relative;
-	transition: all ease-in-out 0.3s; 
-	width: 80px;
-	height: 40px;
-	position: relative;
-	background-image: 
-		linear-gradient(to right, rgba(0, 0, 0, 0.496), rgba(0, 0, 0, 0.5)), 
-		url('./assets/img/sun.png'),
+.toggle-theme label {
+  border: 1px solid #ccc;
+  border-radius: 50px;
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: all ease-in-out 0.3s;
+  width: 80px;
+  height: 40px;
+  position: relative;
+  background-image:
+    linear-gradient(to right, rgba(0, 0, 0, 0.496), rgba(0, 0, 0, 0.5)),
+    url("./assets/img/sun.png"), url("./assets/img/moon3.png"),
+    linear-gradient(to left, rgba(53, 45, 45, 0.87), rgba(243, 202, 202, 0.804));
 
-		url('./assets/img/moon3.png'),
-		linear-gradient(to left, rgba(53, 45, 45, 0.87), rgba(243, 202, 202, 0.804));
-       
-
-	background-size: 50% auto, 50% auto; 
-    background-repeat: no-repeat; 
-	background-position: left, right; 
-   
+  background-size:
+    50% auto,
+    50% auto;
+  background-repeat: no-repeat;
+  background-position: left, right;
 }
-
 
 .toggle-theme label::after {
-	background-color:#3983d7;
-	border-radius: 50%;
-	content: ' ';
-	cursor: pointer;
-	display: inline-block;
-	position: absolute;
-	left: 2px;
-	top: 2px;
-	transition: all ease-in-out 0.3s;
-	width: 35px;
-	height: 35px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
+  background-color: #3983d7;
+  border-radius: 50%;
+  content: " ";
+  cursor: pointer;
+  display: inline-block;
+  position: absolute;
+  left: 2px;
+  top: 2px;
+  transition: all ease-in-out 0.3s;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-
- .toggle-theme input[type=checkbox]:checked ~ label {
-	background-color: #00a0fced;
-	border-color: #006fc9b4;
-   
+.toggle-theme input[type="checkbox"]:checked ~ label {
+  background-color: #00a0fced;
+  border-color: #006fc9b4;
 }
- .toggle-theme input[type=checkbox]:checked ~ label::after {
-	background-color: #0054B0;
-	transform: translateX(40px);
-    background-size: cover;
-   
+.toggle-theme input[type="checkbox"]:checked ~ label::after {
+  background-color: #0054b0;
+  /* transform: translateX(40px); */
+  background-size: cover;
 }
 
 /*  Specific styles for ToggleTheme */
 .toggle-theme label {
-    background-image: 
-        linear-gradient(to right, rgba(0, 0, 0, 0.496), rgba(0, 0, 0, 0.5)), 
-        url('./assets/img/sun.png'),
-        url('./assets/img/moon3.png'),
-        linear-gradient(to left, rgba(53, 45, 45, 0.87), rgba(243, 202, 202, 0.804));
+  background-image:
+    linear-gradient(to right, rgba(0, 0, 0, 0.496), rgba(0, 0, 0, 0.5)),
+    url("./assets/img/sun.png"), url("./assets/img/moon3.png"),
+    linear-gradient(to left, rgba(53, 45, 45, 0.87), rgba(243, 202, 202, 0.804));
 }
 
 .toggle-theme label::after {
-    background-color: #3983d7;
+  background-color: #3983d7;
 }
 
-.toggle-theme input[type=checkbox]:checked ~ label::after {
-    background-color: #0054B0;
+.toggle-theme input[type="checkbox"]:checked ~ label::after {
+  background-color: #0054b0;
 }
 
 /* Specific styles  ToggleAudio */
 .toggle-audio label {
-    background-image: 
-        linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), 
-        url('./assets/img/sound3.png'),
-        url('./assets/img/mute2.png'),
-        linear-gradient(to left, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0));
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)),
+    url("./assets/img/sound3.png"), url("./assets/img/mute2.png"),
+    linear-gradient(to left, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0));
 }
 
 .toggle-audio label::after {
-    background-color: #3983d7;
-    background: no-repeat url('./assets/img/moon2.png') auto;
+  background-color: #3983d7;
+  background: no-repeat url("./assets/img/moon2.png") auto;
 }
 
-.toggle-audio input[type=checkbox]:checked ~ label::after {
-    background-color: #0054B0;
+.toggle-audio input[type="checkbox"]:checked ~ label::after {
+  background-color: #0054b0;
 }
-
 
 /* animation theme change */
 
@@ -217,36 +208,36 @@ h1{
 }
 
 .theme-transition-in {
-  animation: fadeInBlur 0.5s ease-out forwards, slideIn 0.5s ease-out forwards;
+  animation:
+    fadeInBlur 0.5s ease-out forwards,
+    slideIn 0.5s ease-out forwards;
 }
-
-
 
 /* animations language change */
 
- @keyframes fadeOutScaleDown {
+@keyframes fadeOutScaleDown {
   0% {
     opacity: 1;
     transform: scale(1);
   }
   100% {
     opacity: 0;
-    transform: scale(0.95); 
+    transform: scale(0.95);
   }
 }
 
 @keyframes fadeInScaleUp {
   0% {
     opacity: 0;
-    transform: scale(1.05); 
+    transform: scale(1.05);
   }
   50% {
     opacity: 0.5;
-    transform: scale(1); 
+    transform: scale(1);
   }
   100% {
     opacity: 1;
-    transform: scale(1); 
+    transform: scale(1);
   }
 }
 
@@ -256,11 +247,11 @@ h1{
 
 .fade-in-scale-up {
   animation: fadeInScaleUp 0.8s ease-out forwards;
-  animation-delay: 0.2s; 
+  animation-delay: 0.2s;
 }
 .slide-out-left {
   animation: slideOutLeft 0.5s forwards;
-} 
+}
 
 .slide-in-right {
   animation: slideInRight 0.5s forwards;
@@ -287,7 +278,6 @@ h1{
     opacity: 1;
   }
 }
-
 
 .fade-out {
   animation: fadeOut 1s forwards;

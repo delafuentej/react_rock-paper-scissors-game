@@ -1,17 +1,11 @@
-import React, {
-  useContext,
-  useState,
-  useEffect,
-  useLayoutEffect,
-  useRef,
-} from "react";
+import { useContext, useEffect, useRef } from "react";
 //contexts
 import { LanguageContext } from "../../context/LanguageContext/LanguageContext";
 import { AudioContext } from "../../context/AudioContext/AudioContext";
 import { GameContext } from "../../context/GameContext/GameContext";
 import { LoadingContext } from "../../context/LoadingContext/LoadingContext";
 //thumbs
-import { Thumbs } from "../Thumbs/Thumbs";
+//import { Thumbs } from "../Thumbs/Thumbs";
 
 import "./Message.css";
 
@@ -21,15 +15,16 @@ export const Message = () => {
   const { texts, languageChanged, setLanguageChanged } =
     useContext(LanguageContext);
   const { playBoo, playClaps } = useContext(AudioContext);
-  const { game, thumbsDown, thumbsUp } = useContext(GameContext);
+  const { game } = useContext(GameContext);
   const { userSelection, message, userScore, pcScore } = game;
 
   //state
-  const [showThumbs, setShowThumbs] = useState(() => {
-    // Initialise state from localStorage
-    const savedState = localStorage.getItem("showThumbs");
-    return savedState !== null ? JSON.parse(savedState) : true;
-  });
+
+  //   const [setShowThumbs] = useState(() => {
+  //  Initialise state from localStorage
+  // const savedState = localStorage.getItem("showThumbs");
+  // return savedState !== null ? JSON.parse(savedState) : true;
+  //   });
 
   const gameState = localStorage.gameState;
   //useRef
@@ -40,47 +35,47 @@ export const Message = () => {
   const lostMessage = texts.lostMessage;
   const winMessageGame = texts.winMessageGame;
 
-  const endGame = userScore === 5 || pcScore === 5;
+  // const endGame = userScore === 5 || pcScore === 5;
 
-  useLayoutEffect(() => {
-    let timer;
+  //   useLayoutEffect(() => {
+  // let timer;
 
-    if (
-      gameStateRef.current !== gameState &&
-      !isLoading &&
-      !languageChanged &&
-      userSelection !== "" &&
-      (message === lostMessage || message === winMessage)
-    ) {
-      setShowThumbs(true);
-      // to store state in localStorage
-      localStorage.setItem("showThumbs", JSON.stringify(true));
-      // Starting the  timer to hide the thumbs after 2 seconds
-      timer = setTimeout(() => {
-        setShowThumbs(false); // Hide thumbs after 2 seconds
-      }, 2000);
-    } else if (languageChanged) {
-      setShowThumbs(false);
-      localStorage.setItem("showThumbs", JSON.stringify(false));
-    } else {
-      setShowThumbs(false);
-      localStorage.setItem("showThumbs", JSON.stringify(false));
-    }
+  // if (
+  //   gameStateRef.current !== gameState &&
+  //   !isLoading &&
+  //   !languageChanged &&
+  //   userSelection !== "" &&
+  //   (message === lostMessage || message === winMessage)
+  // ) {
+  //   setShowThumbs(true);
+  // to store state in localStorage
+  //   localStorage.setItem("showThumbs", JSON.stringify(true));
+  //  Starting the  timer to hide the thumbs after 2 seconds
+  //   timer = setTimeout(() => {
+  // setShowThumbs(false); // Hide thumbs after 2 seconds
+  //   }, 2000);
+  // } else if (languageChanged) {
+  //   setShowThumbs(false);
+  //   localStorage.setItem("showThumbs", JSON.stringify(false));
+  // } else {
+  //   setShowThumbs(false);
+  //   localStorage.setItem("showThumbs", JSON.stringify(false));
+  // }
 
-    // Clear the timer if the component is disassembled or if the message changes.
-    return () => clearTimeout(timer);
-  }, [
-    userSelection,
-    message,
-    lostMessage,
-    winMessage,
-    languageChanged,
-    setLanguageChanged,
-    isLoading,
-    gameState,
-    userScore,
-    pcScore,
-  ]);
+  //Clear the timer if the component is disassembled or if the message changes.
+  // return () => clearTimeout(timer);
+  //   }, [
+  // userSelection,
+  // message,
+  // lostMessage,
+  // winMessage,
+  // languageChanged,
+  // setLanguageChanged,
+  // isLoading,
+  // gameState,
+  // userScore,
+  // pcScore,
+  //   ]);
 
   //  Side-effect management for sound
   useEffect(() => {
@@ -118,6 +113,7 @@ export const Message = () => {
         </h3>
       )}
 
+      {/*  
       <div>
         {showThumbs && !endGame && (
           <Thumbs
@@ -127,7 +123,7 @@ export const Message = () => {
             texts={texts}
           />
         )}
-      </div>
+      </div>*/}
     </div>
   );
 };

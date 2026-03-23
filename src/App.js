@@ -36,58 +36,62 @@ function App() {
   const { pcScore, userScore } = game;
 
   return (
-    <div className={`App ${animationClass} ${theme}`}>
-      {userScore < 5 && pcScore < 5 ? (
-        <Header>
-          <LanguagesCustomSelect />
-          <ToggleSwitch
-            context={ThemeContext}
-            id="toggle-theme"
-            labelClass="toggle-switch toggle-theme"
-          />
-          <ToggleSwitch
-            context={AudioContext}
-            id="toggle-audio"
-            labelClass="toggle-switch toggle-audio"
-          />
-        </Header>
-      ) : null}
+    <div className={`App ${theme}`}>
+      <div className="animation-layer">
+        <div className={animationClass}>
+          {userScore < 5 && pcScore < 5 ? (
+            <Header>
+              <LanguagesCustomSelect />
+              <ToggleSwitch
+                context={ThemeContext}
+                id="toggle-theme"
+                labelClass="toggle-switch toggle-theme"
+              />
+              <ToggleSwitch
+                context={AudioContext}
+                id="toggle-audio"
+                labelClass="toggle-switch toggle-audio"
+              />
+            </Header>
+          ) : null}
 
-      <Title />
-      <Round />
-      <Playground>
-        <Profile>
-          <User>
-            <Choice
-              onClick={selectIcon}
-              value={texts.rock}
-              choiceIcon={rockIcon}
-              isSelected={isSelected(texts.rock)}
-            />
-            <Choice
-              onClick={selectIcon}
-              value={texts.paper}
-              choiceIcon={paperIcon}
-              isSelected={isSelected(texts.paper)}
-            />
-            <Choice
-              onClick={selectIcon}
-              value={texts.scissors}
-              choiceIcon={scissorsIcon}
-              isSelected={isSelected(texts.scissors)}
-            />
-          </User>
-          <Score score={userScore} />
-        </Profile>
+          <Title />
+          <Round />
+          <Playground>
+            <Profile>
+              <User>
+                <Choice
+                  onClick={selectIcon}
+                  value={texts.rock}
+                  choiceIcon={rockIcon}
+                  isSelected={isSelected(texts.rock)}
+                />
+                <Choice
+                  onClick={selectIcon}
+                  value={texts.paper}
+                  choiceIcon={paperIcon}
+                  isSelected={isSelected(texts.paper)}
+                />
+                <Choice
+                  onClick={selectIcon}
+                  value={texts.scissors}
+                  choiceIcon={scissorsIcon}
+                  isSelected={isSelected(texts.scissors)}
+                />
+              </User>
+              <Score score={userScore} />
+            </Profile>
 
-        <Message />
+            <Message />
 
-        <Profile>
-          <Computer />
-          <Score score={pcScore} />
-        </Profile>
-        <Reset />
-      </Playground>
+            <Profile>
+              <Computer />
+              <Score score={pcScore} />
+            </Profile>
+            <Reset />
+          </Playground>
+        </div>
+      </div>
     </div>
   );
 }

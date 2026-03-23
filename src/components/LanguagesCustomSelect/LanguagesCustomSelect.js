@@ -1,39 +1,31 @@
-import React, { useContext } from 'react';
+import React, { useContext } from "react";
 
-import { LanguageContext } from '../../context/LanguageContext/LanguageContext';
-import './LanguagesCustomSelect.css';
+import { LanguageContext } from "../../context/LanguageContext/LanguageContext";
+import "./LanguagesCustomSelect.css";
 
+export const LanguagesCustomSelect = () => {
+  const { handleLanguage, options, selectedLanguage } =
+    useContext(LanguageContext);
 
-
-
-export const LanguagesCustomSelect=()=>{
-
-        const { handleLanguage, options, selectedLanguage } = useContext(LanguageContext);
-      
-    
-    return(
-
-        <div className="custom-select-container">
-        <div className="selected-option">
-          <img src={selectedLanguage.flag} alt={selectedLanguage.label} />
-          <span>{selectedLanguage.label}</span>
-        </div>
-        <div className="options-container">
-          {options.map((option) => (
-            <div
-              key={option.value}
-              value={option.value}
-              className="option"
-              onClick={()=>handleLanguage(option)}
-            >
-              <img src={option.flag} alt={option.label} />
-              <span>{option.label}</span>
-            </div>
-          ))}
-        </div>
+  return (
+    <div className="custom-select-container">
+      <div className="selected-option">
+        <img src={selectedLanguage.flag} alt={selectedLanguage.label} />
+        <span>{selectedLanguage.label}</span>
       </div>
-       
-    )
-
-    
-}
+      <div className="options-container">
+        {options.map((option) => (
+          <div
+            key={option.value}
+            value={option.value}
+            className="option"
+            onClick={() => handleLanguage(option)}
+          >
+            <img src={option.flag} alt={option.label} />
+            <span>{option.label}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
