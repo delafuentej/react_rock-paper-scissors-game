@@ -1,35 +1,37 @@
-import React, {useState, useContext, useEffect} from 'react';
-import { GameContext } from '../../context/GameContext/GameContext';
-import { ThemeContext } from '../../context/ThemeContext/ThemeContext';
-import './Thumbs.css';
+import React, { useState, useContext, useEffect } from "react";
+import { GameContext } from "../../context/GameContext/GameContext";
+import { ThemeContext } from "../../context/ThemeContext/ThemeContext";
+import "./Thumbs.css";
 
-const ThumbsDown =() =>{
-    const{ theme}= useContext(ThemeContext);
-    console.log('theme from thumbsDown', theme)
-    const { thumbsDown} = useContext(GameContext);
+const ThumbsDown = () => {
+  const { theme } = useContext(ThemeContext);
 
-    const [showThumbsDown,  setShowThumbsDown] = useState(false);
+  const { thumbsDown } = useContext(GameContext);
 
-        // useEffectto manage the visibility delay
-        useEffect(() => {
-            const timer = setTimeout(() => {
-                setShowThumbsDown(true);
-            }, 2000); // 2000 ms = 2 seconds
-    
-            // Cleanup for timer
-            return () => clearTimeout(timer);
-        }, []); 
+  const [showThumbsDown, setShowThumbsDown] = useState(false);
 
+  // useEffectto manage the visibility delay
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowThumbsDown(true);
+    }, 2000); // 2000 ms = 2 seconds
+
+    // Cleanup for timer
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
-    showThumbsDown &&
-    (<div className={`thumbs-down-container ${theme === 'light' ? 'thumbs-down-container-light' : 'thumbs-down-container-dark'}`}>
-        <div className={`thumbs-down ${theme === 'light' ? 'thumbs-down-light' : 'thumbs-down-dark'}`}>
-                {thumbsDown}
+    showThumbsDown && (
+      <div
+        className={`thumbs-down-container ${theme === "light" ? "thumbs-down-container-light" : "thumbs-down-container-dark"}`}
+      >
+        <div
+          className={`thumbs-down ${theme === "light" ? "thumbs-down-light" : "thumbs-down-dark"}`}
+        >
+          {thumbsDown}
         </div>
-        
-        
-    </div>)
+      </div>
+    )
   );
 };
 

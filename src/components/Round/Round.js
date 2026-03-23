@@ -1,21 +1,24 @@
-import { useContext } from 'react';
+import { useContext } from "react";
 //contexts
-import { LanguageContext } from '../../context/LanguageContext/LanguageContext';
- import { GameContext } from '../../context/GameContext/GameContext';
+import { LanguageContext } from "../../context/LanguageContext/LanguageContext";
+import { GameContext } from "../../context/GameContext/GameContext";
 
-import './Round.css';
+import "./Round.css";
 
-export const Round = ()=>{
-    //useContexts
-    const {texts} = useContext(LanguageContext);
-    const {game} = useContext(GameContext);
+export const Round = () => {
+  //useContexts
+  const { texts } = useContext(LanguageContext);
+  const { game } = useContext(GameContext);
 
-    const {userSelection, round} = game;
-    
-    return(
-        <div className='round'>
-            <h2>{ (userSelection === '') ? `${texts.initMessageFirst} ${texts.winTarget} ${texts.initMessageSecond}` : `${texts.round}: #${round}`}</h2>
-        </div>
-    );
-}
+  const { userSelection, round } = game;
 
+  return (
+    <div className="round">
+      <h2>
+        {userSelection === ""
+          ? `${texts.initMessageFirst} ${texts.winTarget} ${texts.initMessageSecond}`
+          : `${texts.round}: #${round}`}
+      </h2>
+    </div>
+  );
+};

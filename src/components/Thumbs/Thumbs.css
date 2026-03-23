@@ -1,196 +1,184 @@
-.thumbs{
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-    padding:1em;
-    margin-bottom: 1em;
-     
+.thumbs {
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  padding: 0.5em;
+  margin-bottom: 1em;
+  position: fixed;
+  left: 60%;
+  top: 17%;
+  /* transform: translateX(-50%); */
 }
 
-
-
-.thumbs-light{
+.thumbs-light {
   /* background-color: rgba(240, 248, 255, 0.472); */
-  background-color: rgba(13, 103, 181, 0.535); 
+  background-color: rgba(13, 103, 181, 0.535);
   animation: thicken-light 2s ease-in-out 1ms;
 }
-.thumbs-dark{
-  background-color: rgba(240, 248, 255, 0.472); 
+.thumbs-dark {
+  background-color: rgba(240, 248, 255, 0.472);
   animation: thicken-dark 2s ease-in-out 1ms;
 }
 
 /* thumbs-down */
-.thumbs-down-container{
+.thumbs-down-container {
   margin-top: 35px;
- display:flex;
- justify-content: center;
+  display: flex;
+  justify-content: center;
   align-items: center;
   border-radius: 15%;
-  padding:1em;
+  padding: 1em;
   margin-bottom: 1em;
-    opacity: 0;
-    transform: scale(0.5) rotate(-45deg) translateY(50px);
-    animation: impactEntrance 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards;
+  opacity: 0;
+  transform: scale(0.5) rotate(-45deg) translateY(50px);
+  animation: impactEntrance 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards;
 }
 
 @keyframes impactEntrance {
   0% {
-      opacity: 0;
-      transform: scale(0.5) rotate(-45deg) translateY(50px);
+    opacity: 0;
+    transform: scale(0.5) rotate(-45deg) translateY(50px);
   }
   50% {
-      opacity: 0.7;
-      transform: scale(1.1) rotate(10deg) translateY(-10px);
+    opacity: 0.7;
+    transform: scale(0.75) rotate(10deg) translateY(-10px);
   }
   100% {
-      opacity: 1;
-      transform: scale(1) rotate(0deg) translateY(0);
+    opacity: 1;
+    transform: scale(0.6) rotate(0deg) translateY(0);
   }
 }
 
 .thumbs-down {
-  display:flex;
+  display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 15%;
-  font-size:5em;
-  color:white;
+  font-size: 5em;
+  color: white;
 }
-.thumbs-down-container-light{
-  background-color: rgba(13, 103, 181, 0.335); 
+.thumbs-down-container-light {
+  background-color: rgba(13, 103, 181, 0.335);
 }
 .thumbs-down-light {
-  background-color: rgba(13, 103, 181, 0.123); 
+  background-color: rgba(13, 103, 181, 0.123);
 }
-.thumbs-down-container-dark{
-  background-color: rgba(240, 248, 255, 0.472); 
+.thumbs-down-container-dark {
+  background-color: rgba(240, 248, 255, 0.472);
   padding: 0.5em;
 }
 .thumbs-down-dark {
   background-color: rgba(240, 248, 255, 0.2);
-
-
 }
-
-
-
-
 
 /* responsive design : @keyframes */
 @keyframes thicken-dark {
-   0% {
+  0% {
     transform: scale(0);
     border: 1px solid rgb(236, 230, 230);
-   }
-   10%{
-    transform: scale(0.4);
+  }
+  10% {
+    transform: scale(0.15);
     border: 1px solid rgb(236, 230, 230);
-   }
-   20% {
-    transform: scale(0.8);
+  }
+  20% {
+    transform: scale(0.3);
     border: 1px solid rgb(236, 230, 230);
-   }
-   30% {
-    transform: scale(1.2);
+  }
+  30% {
+    transform: scale(0.45);
     border: 1px solid rgb(236, 230, 230);
-   }
-   40% {
-    transform: scale(1.6);
+  }
+  40% {
+    transform: scale(0.6);
     border: 1px solid rgb(236, 230, 230);
-   }
-   50% {
-    transform: scale(2);
+  }
+  50% {
+    transform: scale(0.75);
     border: 2px solid rgb(236, 230, 230);
-   }
-   60% {
-    transform: scale(1.6);
+  }
+  60% {
+    transform: scale(0.6);
     border: 2px solid rgb(236, 230, 230);
-   }
-   70% {
-    transform: scale(1.2);
+  }
+  70% {
+    transform: scale(0.45);
     border: 2px solid rgb(236, 230, 230);
-   }
-   80% {
-    transform: scale(0.8);
+  }
+  80% {
+    transform: scale(0.3);
     border: 2px solid rgb(236, 230, 230);
-   }
-   90% {
-    transform: scale(0.4);
+  }
+  90% {
+    transform: scale(0.15);
     border: 2px solid rgb(236, 230, 230);
-   }
-   100% {
+  }
+  100% {
     transform: scale(0);
     border: 2px solid rgb(236, 230, 230);
-
-   }
+  }
 }
 
 @keyframes thicken-light {
   0% {
-   transform: scale(0);
-   border: 1px solid rgba(13, 103, 181, 0.535);
+    transform: scale(0);
+    border: 1px solid rgba(13, 103, 181, 0.535);
   }
-  10%{
-   transform: scale(0.4);
-   border: 1px solid rgba(13, 103, 181, 0.535);
+  10% {
+    transform: scale(0.15);
+    border: 1px solid rgba(13, 103, 181, 0.535);
   }
   20% {
-   transform: scale(0.8);
-   border: 1px solid rgba(13, 103, 181, 0.535);
+    transform: scale(0.3);
+    border: 1px solid rgba(13, 103, 181, 0.535);
   }
   30% {
-   transform: scale(1.2);
-   border: 1px solid rgba(13, 103, 181, 0.535);
+    transform: scale(0.45);
+    border: 1px solid rgba(13, 103, 181, 0.535);
   }
   40% {
-   transform: scale(1.6);
-   border: 1px solid rgba(13, 103, 181, 0.535);
+    transform: scale(0.6);
+    border: 1px solid rgba(13, 103, 181, 0.535);
   }
   50% {
-   transform: scale(2);
-   border: 2px solid rgba(13, 103, 181, 0.535);
+    transform: scale(0.75);
+    border: 2px solid rgba(13, 103, 181, 0.535);
   }
   60% {
-   transform: scale(1.6);
-   border: 2px solid rgba(13, 103, 181, 0.535);
+    transform: scale(0.6);
+    border: 2px solid rgba(13, 103, 181, 0.535);
   }
   70% {
-   transform: scale(1.2);
-   border: 2px solid rgba(13, 103, 181, 0.535);
+    transform: scale(0.45);
+    border: 2px solid rgba(13, 103, 181, 0.535);
   }
   80% {
-   transform: scale(0.8);
-   border: 2px solid rgba(13, 103, 181, 0.535);
+    transform: scale(0.3);
+    border: 2px solid rgba(13, 103, 181, 0.535);
   }
   90% {
-   transform: scale(0.4);
-   border: 2px solid rgba(13, 103, 181, 0.535);
+    transform: scale(0.15);
+    border: 2px solid rgba(13, 103, 181, 0.535);
   }
   100% {
-   transform: scale(0);
-   border: 2px solid rgba(13, 103, 181, 0.535);
-
+    transform: scale(0);
+    border: 2px solid rgba(13, 103, 181, 0.535);
   }
 }
 @media only screen and (max-width: 600px) {
- 
-    .thumbs {
-      font-size: 1.5rem;
-    }
+  .thumbs {
+    font-size: 1.5rem;
+  }
 }
 
 @media only screen and (min-width: 601px) and (max-width: 900px) {
-    
-  
-    .thumbs {
-      font-size: 2rem;
-    }
+  .thumbs {
+    font-size: 2rem;
   }
+}
 
-  @media only screen and (min-width: 901px) {
-
-    .thumbs {
-      font-size: 2.5rem;
-    }
+@media only screen and (min-width: 901px) {
+  .thumbs {
+    font-size: 2.5rem;
   }
-
+}
